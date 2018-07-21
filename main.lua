@@ -9,14 +9,19 @@ function love.load()
   datamuse_cache = lru.new(1000)
   ibmfont = love.graphics.newFont('assets/fonts/PxPlus_IBM_VGA8.ttf', 16)
   love.graphics.setFont(ibmfont)
+  test_window = window:new(8,8,10,10)
+  window2 = window:new(14, 7, 20, 12)
 end
 
 function love.update(dt)
+  flux.update(dt) -- Update all tweens
 end
 
 function love.draw()
   love.graphics.print(teststr ,0, 0)
   love.graphics.print("╫╓er", 8, 16*10)
+  test_window:draw()
+  window2:draw()
 end
 
 function new_game()

@@ -4,3 +4,6 @@
 [submodule "lib/middleclass"]
 	path = lib/middleclass
 	url = https://github.com/kikito/middleclass
+[submodule "lib/flux"]
+	path = lib/flux
+	url = https://github.com/rxi/flux.git
