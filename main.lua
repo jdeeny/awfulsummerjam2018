@@ -16,6 +16,8 @@ function love.load()
   states:add(StateSplash:new())
   states:add(StateMenu:new())
   states:jump('Splash')
+
+  print(WordGenerator.generate())
 end
 
 function love.update(dt)
