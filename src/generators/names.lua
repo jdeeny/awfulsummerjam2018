@@ -4,8 +4,20 @@ Name.static.lastnames,e = pl.data.read('assets/data/names/census2000-surnames.cs
 --Name.static.firstnames,e = pl.data.read('assets/data/.csv')--, {csv=true, delim=','})
 
 function Name:initialize(sex)
-  self.sex = sex or chance.person.gender()
-  print(self.sex)
+  if type(sex) == string and #sex >= 1 then
+    self.sex = sex:sub(1,1)
+    print (self.sex)
+  else
+    self.sex = "?"
+  end
+  if self.sex[1] == "M" or self.sex == "F" then
+  else
+    print("not")
+    self.sex = (chance.person.gender( { binary = true } )):sub(1,1)
+    print(self.sex)
+    --self.sex = self.sex
+  end
+  print("Name init: " .. self.sex)
 end
 
 function Name:emit(flags)

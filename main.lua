@@ -5,6 +5,9 @@ local teststr = ""
 local datamuse_cache = lru.new(1000)
 
 function love.load()
+  math.randomseed(os.time())
+  chance.core.seed(os.time())
+  
   teststr = words.test()
   datamuse_cache = lru.new(1000)
   ibmfont = love.graphics.newFont('assets/fonts/PxPlus_IBM_VGA8.ttf', 16)
@@ -17,7 +20,9 @@ function love.load()
   states:add(StateMenu:new())
   states:jump('Splash')
 
-  print(WordGenerator.generate())
+  print(WordGen.generate())
+  print(WordGen.Person:new().emit())
+  error("early out")
 end
 
 function love.update(dt)

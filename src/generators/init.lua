@@ -1,8 +1,8 @@
 
-WordGenerator = class('WordGenerator')
+WordGen = class('WordGen')
 
-WordGenerator.static.Name = require 'src.generators.names'
-WordGenerator.static.Person = require 'src.generators.person'
+WordGen.Name = require 'src.generators.names'
+WordGen.Person = require 'src.generators.person'
 
 local nouns,e = pl.data.read('assets/data/words/most-common-nouns-english.csv')--, {csv=true, delim=','})
 local verbs,e = pl.data.read('assets/data/words/most-common-verbs-english.csv')--, {csv=true, delim=','})
@@ -21,11 +21,11 @@ for i,v in ipairs(y) do
   print(v)
 end
 
-function WordGenerator.static.generate()
+function WordGen.static.generate()
   return "Fuck"
 end
 
-function WordGenerator:initialize()
+function WordGen:initialize()
 
 end
 
