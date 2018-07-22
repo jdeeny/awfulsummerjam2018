@@ -13,3 +13,6 @@
 [submodule "lib/LuaStackQueue"]
 	path = lib/LuaStackQueue
 	url = https://github.com/edwinhollen/LuaStackQueue.git
+[submodule "lib/serpent"]
+	path = lib/serpent
+	url = https://github.com/pkulchenko/serpent.git
