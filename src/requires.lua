@@ -13,6 +13,7 @@ baton = require 'lib.baton.baton'         -- input
 stack = require 'lib.LuaStackQueue.stack' -- Stack ADT
 queue = require 'lib.LuaStackQueue.queue' -- Queue ADT
 serpent = require 'lib.serpent.src.serpent'   -- Serpent serialization
+chance = require 'lib.chance.chance'          -- Random data generation lib
 
 -- Local
 words = require 'src.words'                   -- Working with english words

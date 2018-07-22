@@ -1,9 +1,8 @@
+
 WordGenerator = class('WordGenerator')
 
-print(pl.data)
-print(pl.data.read)
-local lastnames,e = pl.data.read('assets/data/names/census2000-surnames.csv')--, {csv=true, delim=','})
---local firstnames,e = pl.data.read('assets/words/most-common-nouns-english.csv')--, {csv=true, delim=','})
+WordGenerator.static.Name = require 'src.generators.names'
+WordGenerator.static.Person = require 'src.generators.person'
 
 local nouns,e = pl.data.read('assets/data/words/most-common-nouns-english.csv')--, {csv=true, delim=','})
 local verbs,e = pl.data.read('assets/data/words/most-common-verbs-english.csv')--, {csv=true, delim=','})
