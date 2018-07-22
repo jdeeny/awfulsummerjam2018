@@ -1,4 +1,4 @@
-require "requires"
+require "src.requires"
 
 local teststr = ""
 
