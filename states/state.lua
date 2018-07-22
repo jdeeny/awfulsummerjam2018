@@ -1,9 +1,9 @@
 local State = class('State')
 
-function State:initialize(id, update_fn, draw_fn)
+function State:initialize(id)--, update_fn, draw_fn)
     self.id = id or ""
-    self.update = update_fn
-    self.draw = draw_fn
+--    self.update = update_fn
+  --  self.draw = draw_fn
 end
 
 function State:enter()
@@ -14,6 +14,9 @@ end
 
 
 function State:update(dt)
+  if self.input then
+    self.input:update(dt)
+  end
 end
 
 function State:draw()

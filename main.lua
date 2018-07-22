@@ -13,8 +13,8 @@ function love.load()
   window2 = window:new(14, 7, 20, 12)
 
   states = StateManager:new()
-  states:add(StateSplash)
-  states:add(StateMenu)
+  states:add(StateSplash:new())
+  states:add(StateMenu:new())
   states:jump('Splash')
 end
 

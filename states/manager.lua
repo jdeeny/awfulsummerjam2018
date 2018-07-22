@@ -2,17 +2,19 @@ local Manager = class('Manager')
 
 function Manager:initialize()
   self.StateList = {}
-  self.current = nil
+  self.stack = nil
 end
 
 function Manager:add(state)
-  if state then
+  if state and state.id then
+    print("Adding "..state.id)
     self.StateList[state.id] = state
   end
 end
 
 function Manager:jump(state)
   if state and self.StateList[state] then
+    print("jumpto " .. state)
     if self.current then self.StateList[self.current]:exit() end
     self.current = state
     self.StateList[self.current]:enter()
