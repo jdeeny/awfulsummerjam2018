@@ -11,10 +11,16 @@ function love.load()
   love.graphics.setFont(ibmfont)
   test_window = window:new(8,8,10,10)
   window2 = window:new(14, 7, 20, 12)
+
+  states = StateManager:new()
+  states:add(StateSplash)
+  states:add(StateMenu)
+  states:jump('Splash')
 end
 
 function love.update(dt)
   flux.update(dt) -- Update all tweens
+  states:update(dt)
 end
 
 function love.draw()
@@ -22,6 +28,7 @@ function love.draw()
   love.graphics.print("╫╓er", 8, 16*10)
   test_window:draw()
   window2:draw()
+  states:draw()
 end
 
 function new_game()

@@ -4,7 +4,6 @@ Screen.char_width = 8
 Screen.char_height = 16
 
 function Screen.topixels(x, y)
-  print("topixels ".. x.." ".. y)
   return x * Screen.char_width, y * Screen.char_height
 end
 
