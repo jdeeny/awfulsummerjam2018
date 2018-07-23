@@ -15,6 +15,10 @@ function Widget:initialize(x, y, w, h, bgcolor)
   love.graphics.setCanvas()
 end
 
+function Widget:add(item)
+  table.insert(self.contents, item)
+end
+
 function Widget:update(dt)
 
 end

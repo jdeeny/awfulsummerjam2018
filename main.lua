@@ -20,6 +20,8 @@ function love.load()
   love.graphics.setFont(ibmfont)
   test_window = Widgets.Page:new(100,30,10,10, {20,20,20,255})
   window2 = Widgets.Page:new(14, 7, 20, 12, {80,80,80,255})
+  panel_test = Widgets.Panel:new(2,2,4,6, {0,40,80,255})
+  test_window:add(panel_test)
 
   states = StateManager:new()
   states:add(StateSplash:new())
