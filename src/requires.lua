@@ -18,8 +18,9 @@ chance = require 'lib.chance.chance'          -- Random data generation lib
 -- Local
 words = require 'src.words'                   -- Working with english words
 datamuse = require 'src.datamuse'             -- Access the Datamuse API
-window = require 'src.window'                 -- Manage and draw Windows
+Color = require 'src.color'                   -- Color defs
 screen = require 'src.screen'                 -- Manage screen size, scaling
+window = require 'src.window'                 -- Manage and draw Windows
 lines = require 'src.lines'                   -- Line drawing utilities for Windows
 require 'src.generators'                -- Text generators
 require 'src.states'                          -- State Manager
