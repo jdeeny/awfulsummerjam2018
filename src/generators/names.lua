@@ -1,23 +1,26 @@
 local Name = class('Name')
 
-Name.static.lastnames,e = pl.data.read('assets/data/names/census2000-surnames.csv')--, {csv=true, delim=','})
---Name.static.firstnames,e = pl.data.read('assets/data/.csv')--, {csv=true, delim=','})
+--Name.static.surnames = WordGen.surnames:column_by_name(WordGen.surnames:column_names()[1])
 
-function Name:initialize(sex)
-  if type(sex) == string and #sex >= 1 then
-    self.sex = sex:sub(1,1)
-    print (self.sex)
-  else
-    self.sex = "?"
+function Name:initialize(sex, age)
+  self.sex = "M"
+  if type(sex) == 'string' and #sex >= 1 then
+    self.sex = sex:sub(1,1):upper()
   end
-  if self.sex[1] == "M" or self.sex == "F" then
-  else
-    print("not")
-    self.sex = (chance.person.gender( { binary = true } )):sub(1,1)
-    print(self.sex)
-    --self.sex = self.sex
+  local year = Config.CurrentYear - 30
+  if type(age) == number and age < Config.CurrentYear - 1880 and age > 4 then
+    local year = Config.CurrentYear - age
   end
-  print("Name init: " .. self.sex)
+
+  if self.sex == "F" then
+    self.firstname = chance.helpers.pick(WordGen.girl_names)
+--    print("Select: "..self.sex .." ".. year.. " cnt: "..#(WordGen.girl_names))
+  else
+    self.firstname = chance.helpers.pick(WordGen.boy_names)
+  --  print("Select: "..self.sex .." ".. year.. " cnt: "..#(WordGen.boy_names))
+  end
+
+  self.lastname = chance.helpers.pick(WordGen.surnames)
 end
 
 function Name:emit(flags)
@@ -25,7 +28,7 @@ function Name:emit(flags)
     return self.firstname
   end
   if flags == "f" then
-    if self.sex and #self.sex > 0 and self.sex[1] == "M" then
+    if self.sex == "M" then
       return "Mr. " .. self.lastname
     else
       return "Ms. " .. self.lastname

@@ -1,13 +1,19 @@
 require "src.requires"
 
+Config = {}
+Config.CurrentYear = 1982
+
+
 local teststr = ""
 
 local datamuse_cache = lru.new(1000)
 
 function love.load()
   math.randomseed(os.time())
-  chance.core.seed(os.time())
-  
+
+  --print(pl.pretty.dump(WordGen.Nouns))
+  --print(pl.pretty.dump(WordGen.surnames))
+
   teststr = words.test()
   datamuse_cache = lru.new(1000)
   ibmfont = love.graphics.newFont('assets/fonts/PxPlus_IBM_VGA8.ttf', 16)
@@ -20,9 +26,9 @@ function love.load()
   states:add(StateMenu:new())
   states:jump('Splash')
 
-  print(WordGen.generate())
-  print(WordGen.Person:new().emit())
-  error("early out")
+  for i=1,10 do
+    print(WordGen.Person:new():emit())
+  end
 end
 
 function love.update(dt)
