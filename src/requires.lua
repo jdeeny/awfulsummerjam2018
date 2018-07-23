@@ -20,7 +20,7 @@ words = require 'src.words'                   -- Working with english words
 datamuse = require 'src.datamuse'             -- Access the Datamuse API
 Color = require 'src.color'                   -- Color defs
 screen = require 'src.screen'                 -- Manage screen size, scaling
-window = require 'src.window'                 -- Manage and draw Windows
 lines = require 'src.lines'                   -- Line drawing utilities for Windows
 require 'src.generators'                -- Text generators
 require 'src.states'                          -- State Manager
+Widgets = require 'src.widgets'               -- things that are displayed
