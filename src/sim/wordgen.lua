@@ -8,7 +8,7 @@ local nouns = pl.data.read('assets/data/words/most-common-nouns-english.csv')--,
 local verbs = pl.data.read('assets/data/words/most-common-verbs-english.csv')--, {csv=true, delim=','})
 local adjectives = pl.data.read('assets/data/words/adjectives.txt')
 local occupations = pl.data.read('assets/data/occupations/occupations.csv', {csv=true, delim=','})
-local interests = pl.data.read('assets/data/interests/interests.txt', {csv=true, delim='\n'})
+local interests = pl.data.read('assets/data/interests/interests.txt', {csv=true, delim=';'})
 
 
 WordGen.surnames = {}
