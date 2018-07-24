@@ -1,3 +1,4 @@
+Interest
 3d printing
 Abseiling
 Acrobatics
@@ -506,7 +507,8 @@ Flying trapeze
 Fly tying
 Folkrace
 Folk wrestling
-Food preservation (pickling, canning)
+Pickling food
+Canning food
 Footbag
 Footbag net
 Football
@@ -699,7 +701,6 @@ Inline speed skating
 Insect collecting
 Insect interest
 Intercrosse
-Interest
 International fronton
 International rules football
 Internet
@@ -821,8 +822,6 @@ Leather crafting
 Leathercrafting
 Leather making
 Legends car racing
-Lego
-Lego building/assembling
 Legos
 Lelo burti
 Lethwei
@@ -1068,7 +1067,6 @@ Protesting
 Public speaking
 Punchball
 Punk music
-Punto, raffa, volo
 Puppetry
 Pursuing credit card rewards
 Puzzle
