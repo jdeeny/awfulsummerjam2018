@@ -1,5 +1,5 @@
 
-WordGen = {}
+local WordGen = class('WordGen')
 
 
 
@@ -30,18 +30,7 @@ WordGen.verbs = verbs
 WordGen.adjectives = adjectives
 WordGen.occupations = occupations:column_by_name(occupations:column_names()[1])
 WordGen.interests = interests:column_by_name(interests:column_names()[1])
-
 WordGen.Name = require 'src.sim.names'
-WordGen.Person = require 'src.sim.person'
 
-local y = nouns:column_names()
-for i,v in ipairs(y) do
-  print(i)
-  print(v)
-end
 
-local x = { "The", nouns, "One", 4 }
-for i,v in ipairs(x) do
-  print("$"..i)
-  print(type(v))
-end
+return WordGen

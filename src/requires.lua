@@ -16,11 +16,12 @@ serpent = require 'lib.serpent.src.serpent'   -- Serpent serialization
 chance = require 'lib.chance.chance'          -- Random data generation lib
 
 -- Local
+Config = require 'src.config'
 words = require 'src.words'                   -- Working with english words
 datamuse = require 'src.datamuse'             -- Access the Datamuse API
 Color = require 'src.color'                   -- Color defs
 screen = require 'src.screen'                 -- Manage screen size, scaling
 lines = require 'src.lines'                   -- Line drawing utilities for Windows
-require 'src.sim'                -- Simulation stuff
+Sim = require 'src.sim'                -- Simulation stuff
 require 'src.states'                          -- State Manager
 Widgets = require 'src.widgets'               -- things that are displayed

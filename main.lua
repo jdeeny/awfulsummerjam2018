@@ -1,8 +1,5 @@
 require "src.requires"
 
-Config = {}
-Config.CurrentYear = 1982
-
 
 local teststr = ""
 
@@ -11,8 +8,8 @@ local datamuse_cache = lru.new(1000)
 function love.load()
   math.randomseed(os.time())
 
-  --print(pl.pretty.dump(WordGen.Nouns))
-  --print(pl.pretty.dump(WordGen.surnames))
+  --print(pl.pretty.dump(Sim.WordGen.Nouns))
+  --print(pl.pretty.dump(Sim.WordGen.surnames))
 
   teststr = words.test()
   datamuse_cache = lru.new(1000)
@@ -28,9 +25,11 @@ function love.load()
   states:add(StateMenu:new())
   states:jump('Splash')
 
-  for i=1,15 do
-    print(WordGen.Person:new():emit() .. "\n")
+  local pop = Sim.Population:new()
+  for i,v in ipairs(pop.people) do
+    print(v:emit().."\n")
   end
+  --print(pl.pretty.dump(pop))
 end
 
 function love.update(dt)
