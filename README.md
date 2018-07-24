@@ -101,3 +101,11 @@ Queries
 
 Word relationships
   Hmm try stuff till it works or doesnt :)
+
+Relationships
+  One way?
+  They should have a distribution of possible values
+  Need to find a way to propogate them
+  I think this is a normal technique from ray tracing and has a name like
+  probabilistic arithmetic
+  or maybe probabilistic logic
