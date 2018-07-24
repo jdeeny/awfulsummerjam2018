@@ -4,7 +4,9 @@ local Sim = {
   Population = require('src.sim.population'),
   Actor = require('src.sim.actor'),
   Director = require('src.sim.director'),
+  Title = require('src.sim.title'),
   Movie = require('src.sim.movie'),
   World = require('src.sim.world'),
+
 }
 return Sim

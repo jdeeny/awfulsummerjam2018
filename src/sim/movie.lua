@@ -5,7 +5,7 @@ function Movie:initialize()
   self.themes = {"Themes", "Themes"}
 
   -- then figure out a title etc
-  self.title = {}--WordGen:Title:new()
+  self.title = Sim.Title:new()
   self.director = "Director"
   self.lead = "Lead"
   self.support = "Support"
