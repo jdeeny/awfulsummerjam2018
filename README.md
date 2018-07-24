@@ -43,23 +43,23 @@ that allows smooth scrolling, particle effects, etc.
 
 ## Simulation
 ### A world is created randomly
-    people that have ages, sex, interests, movie-going likelyhood
-    actors and directors that are people but have social attributes and movie history
-    movies, with a selection of old movies and new, so some can be used for history and providing new work
-    projects are movies, but with additional info attached
+people that have ages, sex, interests, movie-going likelyhood
+actors and directors that are people but have social attributes and movie history
+movies, with a selection of old movies and new, so some can be used for history and providing new work
+projects are movies, but with additional info attached
 
 ### Movie generation
-    Mad libs of a set of movie title templates
-    -   `"The <noun> of <noun>"`
-    -   `"<word>"`
-    -   `"The <word>"`
-    -   `"The <adjective> <noun>"`
+Mad libs of a set of movie title templates
+-   `"The <noun> of <noun>"`
+-   `"<word>"`
+-   `"The <word>"`
+-   `"The <adjective> <noun>"`
 
-    Roles are filled with people: Lead, support, director, writer
+Roles are filled with people: Lead, support, director, writer
 
-    The words selected are used to select some further words to describe the film
+The words selected are used to select some further words to describe the film
 
-    All the words are used to match against people's interests
+All the words are used to match against people's interests
 
 ### People generation
     - Basically all random
