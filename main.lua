@@ -28,8 +28,8 @@ function love.load()
   states:add(StateMenu:new())
   states:jump('Splash')
 
-  for i=1,10 do
-    print(WordGen.Person:new():emit())
+  for i=1,15 do
+    print(WordGen.Person:new():emit() .. "\n")
   end
 end
 

@@ -21,6 +21,6 @@ datamuse = require 'src.datamuse'             -- Access the Datamuse API
 Color = require 'src.color'                   -- Color defs
 screen = require 'src.screen'                 -- Manage screen size, scaling
 lines = require 'src.lines'                   -- Line drawing utilities for Windows
-require 'src.generators'                -- Text generators
+require 'src.sim'                -- Simulation stuff
 require 'src.states'                          -- State Manager
 Widgets = require 'src.widgets'               -- things that are displayed
