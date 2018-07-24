@@ -44,3 +44,34 @@ Pages
     Find out about actors, movies, box office grosses, etc
   Focus Groups
     Ask people what they think
+
+
+Simulation
+  A world is created randomly
+    people that have ages, sex, interests, movie-going likelyhood
+    actors and directors that are people but have social attributes and movie history
+    movies, with a selection of old movies and new, so some can be used for history and providing new work
+    projects are movies, but with additional info attached
+
+  Movie generation
+    Mad libs of a set of movie title templates
+      "The <noun> of <noun>"
+      "<word>"
+      "The <word>"
+      "The <adjective> <noun>"
+      etc
+    Roles are filled with people
+      Lead, support, director
+    The words selected are used to select some further words to describe the film
+    All the words are used to match against people's interests
+
+  People generation
+    Basically all random
+    it would be cool to have some hair/clothes choice
+
+  Movie Attendance
+    For each citizen, it decides if they go to all playing movies, based on likes/dislikes
+
+  Rankings
+    All movies that are out get ranked by box office, so we can tell the player that
+    theirs is #1 or #40
