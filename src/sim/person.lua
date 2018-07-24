@@ -26,7 +26,7 @@ function Person:initialize()
 
   local num_interests = 0
   while num_interests < 1 or num_interests > 8 do
-    num_interests = chance.misc.normal({mean = 4, deviation = 2})
+    num_interests = chance.misc.normal({mean = 4, deviation = 3})
   end
 
   -- print(pl.pretty.dump(Sim.WordGen.interests))

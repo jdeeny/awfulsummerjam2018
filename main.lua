@@ -27,6 +27,10 @@ function love.load()
 
   local the_world = Sim.World:new()
   print(pl.pretty.dump(the_world))
+  local pop = Sim.Population:new()
+  for i,v in ipairs(pop.people) do
+    print(v:emit().."\n")
+  end
 end
 
 function love.update(dt)

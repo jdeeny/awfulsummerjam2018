@@ -134,6 +134,7 @@ Bicycling
 Big-game fishing
 Birding
 Biribol
+Bitcoin mining
 Blackball
 Blacksmithing
 Blogging
@@ -209,6 +210,7 @@ Campdrafting
 Camping
 Canadian football
 Candle making
+Canning food
 Canoeing
 Canoe polo
 Canyoning
@@ -329,6 +331,7 @@ Creating and/or editing videos
 Creating family trees
 Creative writing
 Credit card collecting
+Credit card rewards
 Creeking
 Cribbage
 Cricket
@@ -387,6 +390,7 @@ Discus throw
 Distilling
 Diving
 DIY
+DJing
 Dodgeball
 Dodge disc
 Dogs
@@ -411,6 +415,7 @@ Drifting
 Drive others around
 Driving
 Drone flying
+Drone racing
 Drugs
 Drum and bugle corps
 Drums
@@ -479,7 +484,6 @@ Fishkeeping
 Fish tournaments
 Fistball
 Fitness
-Fitness or yoga trainer
 Five-a-side football
 Five-pins
 Fives
@@ -507,8 +511,7 @@ Flying trapeze
 Fly tying
 Folkrace
 Folk wrestling
-Pickling food
-Canning food
+Foosball
 Footbag
 Footbag net
 Football
@@ -545,6 +548,7 @@ Frisbee golf – frolf
 Frisian handball
 Fujian white crane
 Fullbore target rifle
+Fundraising
 Furniture making
 Futsal
 Gaelic football
@@ -564,7 +568,7 @@ Geo caching
 Geocaching
 Ghost hunting
 Gig racing
-Giving advice or opinions
+Giving advice and opinions
 Glass blowing
 Glassblowing
 Gliding
@@ -660,7 +664,6 @@ Hot box
 House of cards
 Hula hooping
 Human powered aircraft
-Human swimming
 Hunter
 Hunter-jumpers
 Hunting
@@ -779,7 +782,9 @@ Kneeboarding
 Knife making
 Knife throwing
 Knitting
+Knots
 Knotting
+Knotwork
 Kombucha
 Korfball
 Krabi-krabong
@@ -810,15 +815,10 @@ Lasers
 Laser tag
 La soule
 Lawn darts
-Learn about philosophy
-Learn how to make string figures
 Learning
-Learning a foreign language
-Learning a new sport
-Learning how to play musical instruments
+Learning foreign languages
+Learning new sports
 Learning sign language
-Learn to sew
-Leather crafting
 Leathercrafting
 Leather making
 Legends car racing
@@ -852,6 +852,7 @@ Making key holders
 Making miniatures
 Making model cars
 Making music
+Making string figures
 Making time capsules
 Making t-shirts
 Making your own hot sauce
@@ -930,6 +931,7 @@ Naginatajutsu
 Nail art
 Nature walk
 Needlepoint
+Neighborhood clean-ups
 Neppis
 Netball
 Neuro linguistic programming
@@ -958,8 +960,6 @@ Old cat
 Olympic weightlifting
 One day international
 One-pocket
-Organize a neighborhood clean-up
-Organize fundraising
 Orienteering
 Orienteering sports
 Origami
@@ -984,7 +984,8 @@ Papi fut
 Parachuting
 Paragliding
 Parallel bars
-Paralympic association football
+Paralympic football
+Paralympics
 Paralympic volleyball
 Paramotoring
 Parasailing
@@ -1000,7 +1001,6 @@ Pencil sketching
 Penmanship
 Pentathlon
 People watching
-Performing stand up comedy
 Personal water craft
 Pesäpallo
 Pet
@@ -1009,9 +1009,11 @@ Peteca
 Pets
 Pet sitting
 Philately
+Philosophy
 Photography
 Piano
 Pickleball
+Pickling food
 Pickup truck racing
 Picnicking
 Pigeon racing
@@ -1023,10 +1025,7 @@ Planking
 Plan walking tours
 Plate spinning
 Platform tennis
-Playing chess
-Playing darts
 Playing music
-Playing pool/darts/foosball
 Playing soccer
 Playing t-ball
 Playing team sports
@@ -1068,7 +1067,6 @@ Public speaking
 Punchball
 Punk music
 Puppetry
-Pursuing credit card rewards
 Puzzle
 Pyraminx
 Pyrotechnics
@@ -1091,11 +1089,11 @@ Rallying
 Rally raid
 Rappelling
 Rapping
-R/c boats
-R/c cars
-R/c helicopters
-Rc model racing
-R/c planes
+R/C boats
+R/C cars
+R/C helicopters
+RC model racing
+R/C planes
 Reading
 Reading to the elderly
 Rec footy
@@ -1178,7 +1176,7 @@ Rugby union
 Rundown
 Running
 Russian pyramid
-Rv travelling
+RV travelling
 Sack race
 Sailing
 Salsa dancing
@@ -1304,6 +1302,7 @@ Sōjutsu
 Solving mazes
 Spear fishing
 Spearfishing
+Special Olympics
 Speedball
 Speed cubing
 Speedcubing
@@ -1336,6 +1335,7 @@ Squirt boating
 Ssireum
 Stamp collecting
 Stand-up comedy
+Standup comedy
 Stand up paddle boarding
 Star gazing
 Start an allotment
