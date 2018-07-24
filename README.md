@@ -61,7 +61,7 @@ Simulation
       "The <adjective> <noun>"
       etc
     Roles are filled with people
-      Lead, support, director
+      Lead, support, director, writer
     The words selected are used to select some further words to describe the film
     All the words are used to match against people's interests
 
@@ -75,3 +75,29 @@ Simulation
   Rankings
     All movies that are out get ranked by box office, so we can tell the player that
     theirs is #1 or #40
+
+Things the player can do
+  change amount of advertising, theme of adverts
+  select actors w/ attached salaries
+  choose release date
+  change writers w/ rewrites
+  change directors
+  scrap projects
+  rename
+  change out theme words
+  doing things has a cost, in $ and time
+
+  there should be a per-turn time limit
+  and doing certain things should take time
+  so you could do x things per turn, but if you wait too long you can only do x-1..
+  and a movie should have a production time
+
+Queries
+  in the background, query for relationships between words
+  there can be a priority queue, basically stuff needed now and stuff that can wait
+  at a deadline (making player wait too long), it will collapse everything at that
+  point, using totally random values if need be
+  there is a cache of queries
+
+Word relationships
+  Hmm try stuff till it works or doesnt :)
