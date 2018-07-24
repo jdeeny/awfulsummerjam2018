@@ -25,3 +25,4 @@ lines = require 'src.lines'                   -- Line drawing utilities for Wind
 Sim = require 'src.sim'                -- Simulation stuff
 require 'src.states'                          -- State Manager
 Widgets = require 'src.widgets'               -- things that are displayed
+require 'src.controls'                        -- player input layout
