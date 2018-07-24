@@ -25,11 +25,8 @@ function love.load()
   states:add(StateMenu:new())
   states:jump('Splash')
 
-  local pop = Sim.Population:new()
-  for i,v in ipairs(pop.people) do
-    print(v:emit().."\n")
-  end
-  --print(pl.pretty.dump(pop))
+  local the_world = Sim.World:new()
+  print(pl.pretty.dump(the_world))
 end
 
 function love.update(dt)
