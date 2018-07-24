@@ -109,3 +109,9 @@ Relationships
   I think this is a normal technique from ray tracing and has a name like
   probabilistic arithmetic
   or maybe probabilistic logic
+
+maybe something like
+  https://en.wikipedia.org/wiki/Markov_logic_network
+
+In PBRT they fill in the integral/distribution with random samples, that might
+have some nice bits about how to add up the stuff
