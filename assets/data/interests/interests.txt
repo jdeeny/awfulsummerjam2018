@@ -109,14 +109,13 @@ Beachcombing
 Beadwork
 Beagling
 Beatboxing
-Becoming A Child Advocate
+Child Advocacy
 Beekeeping
 Beer Pong
 Bell Ringing
 Belly Dancing
 Benchrest shooting
 Biathlon
-Bicycle Polo
 Bicycle polo
 Bicycling
 Big-game fishing
@@ -169,7 +168,7 @@ British baseball
 Broomball
 Brännboll
 Bucketball
-Building A House For Habitat For Humanity
+Habitat For Humanity
 Building Dollhouses
 Bujinkan
 Bumper pool
@@ -193,7 +192,6 @@ Camogie
 Campdrafting
 Camping
 Canadian football
-Candle Making
 Candle making
 Canoe polo
 Canoeing
@@ -208,7 +206,6 @@ Casino Gambling
 Casterboarding
 Casting
 Catch wrestling
-Category:Sports-related lists
 Cave Diving
 Ceramics
 Cestoball
@@ -463,7 +460,6 @@ Gaelic football
 Gaelic handball
 Gambling
 Games
-Games involving opponents hitting a ball against a wall/walls using a racket, or other piece of equipment, or merely gloved/barehanded.
 Garage Saleing
 Gardening
 Gateball
@@ -691,11 +687,7 @@ Lapta
 Laser tag
 Lasers
 Lawn Darts
-Learn to Play Poker
 Learning
-Learning A Foreign Language
-Learning An Instrument
-Learning To Pilot A Plane
 Leather crafting
 Leathercrafting
 Legends car racing
@@ -705,7 +697,6 @@ Lelo burti
 Lethwei
 Letterboxing
 Limited overs cricket
-List of types of games
 Listening to music
 Lockpicking
 Locksport
@@ -718,7 +709,6 @@ Lumberjack
 MCMAP
 Machining
 Macrame
-Macramé
 Magic
 Mahjong
 Making Model Cars
@@ -741,10 +731,7 @@ Meditation
 Medley swimming
 Megaminx
 Mesoamerican ballgame
-Metal Detecting
 Metal detecting
-Metal detector
-Metallic silhouette
 Metallic silhouette shooting
 Metalworking
 Meteorology
@@ -835,7 +822,7 @@ Papermaking
 Papi fut
 Parachuting
 Paragliding
-Paragliding or Power Paragliding
+Power Paragliding
 Parallel bars
 Paralympic association football
 Paralympic volleyball
@@ -878,7 +865,6 @@ Polocrosse
 Pommel horse
 Pond hockey
 Popinjay
-Potentially other sports are listed here.
 Pottery
 Power hockey
 Powerbocking
@@ -932,7 +918,6 @@ Reining
 Relaxing
 Renaissance Faire
 Renting movies
-Requiring little or no physical exertion or agility mind sports are often not considered true sports. Some mind sports are recognised by sporting federations.
 Rescuing Abused Or Abandoned Animals
 Reversi
 Rhythmic gymnastics
@@ -1012,7 +997,7 @@ Sculpting
 Sea glass
 Sea kayaking
 Seashell
-Second-language acquisition
+Language acquisition
 Segway polo
 Self Defense
 Sepak takraw
@@ -1071,10 +1056,8 @@ Skijoring
 Skimboarding
 Skins game
 Skittles
-Sky Diving
 Skydiving
 Skysurfing
-Slack Lining
 Slacklining
 Slamball
 Sleeping
@@ -1092,11 +1075,10 @@ Snowboarding
 Snowkiting
 Snowmobile
 Snowshoeing
-Soap Making
 Soap shoes
 Soapmaking
 Soccer
-Socializing with friends/neighbors
+Socializing
 Softball
 Sogo
 Spearfishing
@@ -1108,7 +1090,7 @@ Speed skiing
 Speedball
 Speedcubing
 Spelunkering
-Spending time with family/kids
+Spending time with family
 Spongee
 Sport climbing
 Sport diving
@@ -1119,7 +1101,7 @@ Sporting clays
 Sports acrobatics
 Sports aerobics
 Sports car racing
-Sprint
+Sprint Running
 Sprint car racing
 Sprint football
 Square
@@ -1127,7 +1109,6 @@ Squash
 Squash tennis
 Squirt boating
 Ssireum
-Stamp Collecting
 Stamp collecting
 Stand up paddle boarding
 Stand-up comedy
