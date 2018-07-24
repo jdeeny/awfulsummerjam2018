@@ -563,8 +563,6 @@ Gardening
 Gateball
 Gatka
 Genealogy
-Geneology
-Geo caching
 Geocaching
 Ghost hunting
 Gig racing
@@ -578,7 +576,6 @@ Gnoming
 Go
 Goalball
 Goaltimate
-Going to movies
 Go kart racing
 Golf
 Go-moku
@@ -808,7 +805,6 @@ Land speed records
 Land windsurfing
 Language acquisition
 Lapidary
-Lapidary club
 Lapta
 Larping
 Lasers
@@ -919,7 +915,6 @@ Mountainboarding
 Mountain climbing
 Mountaineering
 Mountain unicycling
-Movies
 Muay thai
 Mud bogging
 Museum/art gallery hopping
@@ -1022,7 +1017,7 @@ Pipe making
 Pipe smoking
 Pitch and putt
 Planking
-Plan walking tours
+Walking tours
 Plate spinning
 Platform tennis
 Playing music
@@ -1109,7 +1104,6 @@ Relaxing
 Renaissance faire
 Renaissance fairs
 Renovating
-Renting movies
 Rescuing abused or abandoned animals
 Retro gaming
 Reversi
@@ -1135,7 +1129,6 @@ Road trips
 Robot combat
 Robotics
 Robot making
-Rock and mineral collecting
 Rock balancing
 Rock climbing
 Rock collecting
@@ -1170,7 +1163,6 @@ Rugby football
 Rugby league
 Rugby league nines
 Rugby league sevens
-Rugby sevens
 Rugby tens
 Rugby union
 Rundown
@@ -1184,10 +1176,8 @@ Saltwater aquariums
 Sambo
 Samoa rules
 Sand art
-Sand art and play
 Sandboarding
 Sand castles
-San shou
 Sanshou
 Savate
 Scale miniature building
@@ -1525,7 +1515,6 @@ Vault
 V-cube 6
 V-cube 7
 Vehicle restoration
-Video game
 Video game collecting
 Video games
 Video gaming
@@ -1611,3 +1600,4 @@ Zoo visits
 Zourkhaneh
 Zui quan
 Zumba
+Fermentation
