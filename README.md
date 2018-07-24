@@ -2,18 +2,18 @@
 
 # Title: TBA
 
-##Concept:
+## Concept:
 You are a movie studio exec and have been tasked with creating blockbuster
 sequels to existing movies. Get advice from your subordinates, conduct surveys,
 use focus groups, and examine box office winners and losers in order to create
 the very best (grossing) sequel possible!
 
-##Look:
+## Look:
 Text-mode ANSI graphics look, but taking advantage of the modern environment
 that allows smooth scrolling, particle effects, etc.
 
 
-##Interface
+## Interface
   The interface is based on a set of pages that take up a large portion of the area
   I think it would be nice to have some things that are always shown
   -  a clock / calendar
@@ -22,7 +22,8 @@ that allows smooth scrolling, particle effects, etc.
   -    We will have plenty of room to have additional stuff, like sparklines
       or status numbers
   -    Buttons should have on-hover
-###Pages
+
+### Pages
   - Status
     - Current profit/loss, active projects, chart of money stuff
   - New Work
@@ -40,14 +41,14 @@ that allows smooth scrolling, particle effects, etc.
     - Ask people what they think
 
 
-##Simulation
-###A world is created randomly
+## Simulation
+### A world is created randomly
     people that have ages, sex, interests, movie-going likelyhood
     actors and directors that are people but have social attributes and movie history
     movies, with a selection of old movies and new, so some can be used for history and providing new work
     projects are movies, but with additional info attached
 
-###Movie generation
+### Movie generation
     Mad libs of a set of movie title templates
     -   `"The <noun> of <noun>"`
     -   `"<word>"`
@@ -60,21 +61,21 @@ that allows smooth scrolling, particle effects, etc.
 
     All the words are used to match against people's interests
 
-###People generation
+### People generation
     - Basically all random
     - it would be cool to have some hair/clothes choice like little ascii dolls
         that could be used for player avatar
 
 
-###Movie Attendance
+### Movie Attendance
     For each citizen, it decides if they go to all playing movies, based on likes/dislikes
     We simulate each day or week, and use probabilities to decide who goes to a movie, which movie, etc
 
-###Rankings
+### Rankings
     All movies that are out get ranked by box office, so we can tell the player that
     theirs is #1 or #40
 
-##Things the player can do
+## Things the player can do
   - change amount of advertising, theme of adverts
   - select actors w/ attached salaries
   - choose release date
@@ -90,14 +91,14 @@ that allows smooth scrolling, particle effects, etc.
   so you could do x things per turn, but if you wait too long you can only do x-1..
   - and a movie should have a production time
 
-##Queries
+## Queries
   - there is a cache of queries
   - in the background, query for relationships between words
   - there can be a priority queue, basically stuff needed now and stuff that can wait
   - at a deadline (making player wait too long), it will collapse everything at that
   point, using totally random values if need be
 
-##Word relationships
+## Word relationships
   - Hmm try stuff till it works or doesnt :)
   - I think i can use the related words query on all the words and then see what hits
 
