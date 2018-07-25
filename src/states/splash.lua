@@ -1,8 +1,8 @@
+local State = require('src.states.state')
 local StateSplash = class("Splash", State)
-local Super = State
 
 function StateSplash:initialize()
-  Super.initialize(self, 'Splash')
+  States.State.initialize(self, 'Splash')
   self.input = baton.new {
     controls = {
       left = {'key:left', 'key:a', 'axis:leftx-', 'button:dpleft'},
@@ -21,7 +21,7 @@ end
 
 
 function StateSplash:update(dt)
-  Super.update(self, dt)
+  State.update(self, dt)
   if self.input:pressed('left') then print('L') end
 end
 

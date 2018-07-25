@@ -1,20 +1,15 @@
 require "src.requires"
 
 
-local teststr = ""
-
-local datamuse_cache = lru.new(1000)
-
-Game = {}
-
 function love.load()
   math.randomseed(os.time())
+  Text.setup_font()
   new_game()
 end
 
 function love.update(dt)
   flux.update(dt) -- Update all tweens
-  states:update(dt)
+  Game.state:update(dt)
 end
 
 function love.draw()
@@ -22,12 +17,31 @@ function love.draw()
   --love.graphics.print("╫╓er -- 1234567890 Teach One BBS Upload | !", 8, 16*20)
   --test_window:draw()
   --window2:draw()
-  states:draw()   -- should draw everything
+  for i,v in ipairs(w) do
+    v:draw()
+  end
+  Game.state:draw()   -- should draw everything
 end
 
 function new_game()
-  Game = {}  -- clear global game object
-  Game.player_input = init_controls()
+
+  -- Reset the global `Game` object with defaults
+  Game = {
+    player_input = init_controls(),
+    the_world = Sim.World:new(),
+    state = States.Manager:new(),
+  }
+
+  -- Fill game states
+  Game.state:add(States.StateSplash:new())
+  Game.state:add(States.StateMenu:new())
+  Game.state:jump('Splash')
+
+  -- Make some text windows
+  w = {}
+  for i=1,10 do
+    table.insert(w, Widgets.Page:new(5, 10, 5, 10, Palette.Violet))
+  end
 
 --[[  teststr = words.test()
   datamuse_cache = lru.new(1000)
@@ -38,12 +52,7 @@ function new_game()
   panel_test = Widgets.Panel:new(2,2,4,6, {0,40,80,255})
   test_window:add(panel_test)
 ]]
-  states = StateManager:new()
-  states:add(StateSplash:new())
-  states:add(StateMenu:new())
-  states:jump('Splash')
 
-  local the_world = Sim.World:new()
 
-  print(pl.pretty.dump(the_world))
+  -- print(pl.pretty.dump(the_world))
 end

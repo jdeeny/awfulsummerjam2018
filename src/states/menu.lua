@@ -1,8 +1,8 @@
+local State = require('src.states.state')
 local StateMenu = class("Menu", State)
-local Super = State
 
 function StateMenu:initialize()
-  Super.initialize(self, 'Menu')
+  States.State.initialize(self, 'Menu')
   self.input = baton.new {
     controls = {
       left = {'key:left', 'key:a', 'axis:leftx-', 'button:dpleft'},
