@@ -17,7 +17,7 @@ function Manager:jump(state)
     print("jumpto " .. state)
     if self.current then self.StateList[self.current]:exit() end
     self.current = state
-    print(pl.pretty.dump(self.StateList[self.current]))
+    --print(pl.pretty.dump(self.StateList[self.current]))
     self.StateList[self.current]:enter()
   end
 end

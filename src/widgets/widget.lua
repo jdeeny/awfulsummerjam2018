@@ -24,10 +24,13 @@ function Widget:update(dt)
 end
 
 function Widget:draw()
-  self:draw_widget(0, 0)
+  love.graphics.draw(self.canvas, self.px, self.py)
 end
 
 function Widget:draw_widget(xoff, yoff)
+  print("!")
+  local xoff = xoff or 0
+  local yoff = yoff or 0
   local x = self.px + xoff
   local y = self.py + yoff
   love.graphics.draw(self.canvas, x, y)
