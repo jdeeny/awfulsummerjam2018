@@ -17,7 +17,6 @@ chance = require 'lib.chance.chance'          -- Random data generation lib
 
 -- Local
 Config = require 'src.config'
-words = require 'src.words'                   -- Working with english words
 datamuse = require 'src.datamuse'             -- Access the Datamuse API
 Color = require 'src.color'                   -- Color defs
 screen = require 'src.screen'                 -- Manage screen size, scaling
