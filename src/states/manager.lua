@@ -1,4 +1,4 @@
-local Manager = class('Manager')
+local Manager = class('StateManager')
 
 function Manager:initialize()
   self.StateList = {}

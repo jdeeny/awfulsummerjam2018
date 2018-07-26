@@ -1,5 +1,5 @@
 local State = require('src.states.state')
-local StateMenu = class("Menu", State)
+local StateMenu = class("StateMenu", State)
 
 function StateMenu:initialize()
   States.State.initialize(self, 'Menu')

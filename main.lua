@@ -13,15 +13,7 @@ function love.update(dt)
 end
 
 function love.draw()
-  Palette.Orange:set()
-  love.graphics.print("teststr" ,0, 0)
-  love.graphics.print("╫╓er -- 1234567890 Teach One BBS Upload | !", 8, 16*20)
-  --test_window:draw()
-  --window2:draw()
-  for i,v in ipairs(w) do
-    v:draw()
-  end
-  --Game.state:draw()   -- should draw everything
+  Game.state:draw()   -- should draw everything
 end
 
 function new_game()
@@ -35,6 +27,7 @@ function new_game()
 
   -- Fill game states
   Game.state:add(States.StateSplash:new())
+  Game.state:add(States.StateIntro:new())
   Game.state:add(States.StateMenu:new())
   Game.state:add(States.StateGameplay:new())
   Game.state:add(States.StateEnding:new())

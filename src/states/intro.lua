@@ -1,8 +1,8 @@
 local State = require('src.states.state')
-local StateEnding = class("StateEnding", State)
+local StateIntro = class("StateIntro", State)
 
-function StateEnding:initialize()
-  States.State.initialize(self, 'Ending')
+function StateIntro:initialize()
+  States.State.initialize(self, 'Intro')
   self.input = baton.new {
     controls = {
       left = {'key:left', 'key:a', 'axis:leftx-', 'button:dpleft'},
@@ -18,4 +18,4 @@ function StateEnding:initialize()
   }
 end
 
-return StateEnding
+return StateIntro

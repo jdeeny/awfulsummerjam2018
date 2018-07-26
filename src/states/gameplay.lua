@@ -1,5 +1,5 @@
 local State = require('src.states.state')
-local StateGameplay = class("Gameplay", State)
+local StateGameplay = class("StateGameplay", State)
 
 function StateGameplay:initialize()
   States.State.initialize(self, 'Gameplay')
