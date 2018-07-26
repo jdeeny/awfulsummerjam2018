@@ -36,6 +36,8 @@ function new_game()
   -- Fill game states
   Game.state:add(States.StateSplash:new())
   Game.state:add(States.StateMenu:new())
+  Game.state:add(States.StateGameplay:new())
+  Game.state:add(States.StateEnding:new())
   Game.state:jump('Splash')
 
   -- Make some text windows
