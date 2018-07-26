@@ -21,7 +21,6 @@ function Window:initialize(x, y, w, h)
   lines.draw_lr(self.cw-1, self.ch-1)]]
   love.graphics.setCanvas()
   --self:rollup()
-  print("!")
 end
 
 function Window:update(dt)
