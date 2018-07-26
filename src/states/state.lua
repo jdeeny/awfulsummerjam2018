@@ -2,6 +2,7 @@ local State = class('State')
 
 function State:initialize(id)--, update_fn, draw_fn)
     self.id = id or ""
+    self.do_input = true
 --    self.update = update_fn
   --  self.draw = draw_fn
 end
@@ -14,7 +15,7 @@ end
 
 
 function State:update(dt)
-  if self.input then
+  if self.input and self.do_input then
     self.input:update(dt)
   end
 end

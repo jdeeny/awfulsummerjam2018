@@ -6,6 +6,7 @@ local States = {
   StateMenu = require ('src.states.menu'),
   StateGameplay = require ('src.states.gameplay'),
   StateEnding = require ('src.states.ending'),
+  StateDebounce = require ('src.states.debounce'),
 }
 
 return States

@@ -5,17 +5,24 @@ function StateIntro:initialize()
   States.State.initialize(self, 'Intro')
   self.input = baton.new {
     controls = {
-      left = {'key:left', 'key:a', 'axis:leftx-', 'button:dpleft'},
-      right = {'key:right', 'key:d', 'axis:leftx+', 'button:dpright'},
-      up = {'key:up', 'key:w', 'axis:lefty-', 'button:dpup'},
-      down = {'key:down', 'key:s', 'axis:lefty+', 'button:dpdown'},
-      action = {'key:x', 'button:a'},
-    },
-    pairs = {
-      move = {'left', 'right', 'up', 'down'}
-    },
-    joystick = love.joystick.getJoysticks()[1],
+        continue = {'key:space', 'key:return', 'key:escape'},
+        },
   }
 end
+
+function StateIntro:update(dt)
+  State.update(self, dt)
+
+  if self.input:pressed('continue') then
+    Game.state:jump('Gameplay')
+    Game.state:call('Debounce')
+  end
+end
+
+function StateIntro:draw()
+  Palette.AquaBlue:set()
+  love.graphics.print("Intro", 5, 5)
+end
+
 
 return StateIntro

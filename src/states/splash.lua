@@ -5,16 +5,8 @@ function StateSplash:initialize()
   States.State.initialize(self, 'Splash')
   self.input = baton.new {
     controls = {
-      left = {'key:left', 'key:a', 'axis:leftx-', 'button:dpleft'},
-      right = {'key:right', 'key:d', 'axis:leftx+', 'button:dpright'},
-      up = {'key:up', 'key:w', 'axis:lefty-', 'button:dpup'},
-      down = {'key:down', 'key:s', 'axis:lefty+', 'button:dpdown'},
-      action = {'key:x', 'button:a'},
+      continue = {'key:space', 'key:return', 'key:escape'},
     },
-    pairs = {
-      move = {'left', 'right', 'up', 'down'}
-    },
-    joystick = love.joystick.getJoysticks()[1],
   }
 
 end
@@ -22,10 +14,15 @@ end
 
 function StateSplash:update(dt)
   State.update(self, dt)
-  if self.input:pressed('left') then print('L') end
+
+  if self.input:pressed('continue') then
+    Game.state:jump('Intro')
+    print("!")
+    Game.state:call('Debounce')
+  end
 end
 
-function StateSplash:draw(dt)
+function StateSplash:draw()
   Palette.Orange:set()
   love.graphics.print([[
   .d8b.  d8888b. d88888b d8888b. d888888b  .d88b.  db       .d88b.   d888b  db    db
