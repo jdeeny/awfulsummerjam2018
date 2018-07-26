@@ -4,5 +4,5 @@ Widgets.Widget = Widget
 Widgets.Page = require('src.widgets.page')
 Widgets.PageSelector = require('src.widgets.pageselector')
 Widgets.Panel = require('src.widgets.panel')
-
+Widgets.Slider = require('src.widgets.slider')
 return Widgets

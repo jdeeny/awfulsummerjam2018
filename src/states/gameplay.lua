@@ -4,6 +4,7 @@ local StateGameplay = class("StateGameplay", State)
 function StateGameplay:initialize()
   States.State.initialize(self, 'Gameplay')
   self.input = baton.new(Config.Controls)
+
 end
 
 function StateGameplay:update(dt)

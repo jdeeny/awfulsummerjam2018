@@ -7,8 +7,8 @@ function Window:initialize(x, y, w, h)
   self.rolluptime = 0.8
   self.rolldowntime = 1.5
   self.cw, self.ch = w, h
-  self.px, self.py = screen.topixels(x or 0, y or 0)
-  self.pw, self.ph = screen.topixels(w or 0, h or 0)
+  self.px, self.py = Screen.topixels(x or 0, y or 0)
+  self.pw, self.ph = Screen.topixels(w or 0, h or 0)
 
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
@@ -36,9 +36,16 @@ function Window:rolldown()
   flux.to(self, self.rolldowntime, { py = 0 } ):ease('elasticout')--:oncomplete(self:rollup())
 end]]
 
+function Window:add(item)
+  table.insert(self.contents, item)
+end
+
 function Window:draw()
   print(".")
   love.graphics.draw(self.canvas, self.px, self.py)
+  for i,v in ipairs(self.contents) do
+    v:draw()
+  end
 end
 
 return Window
