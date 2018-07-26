@@ -5,11 +5,7 @@ local DEBOUNCE_TIME = 0.2
 
 function StateDebounce:initialize()
   States.State.initialize(self, 'Debounce')
-  self.input = baton.new {
-    controls = {
-        anykey = {'key:space', 'key:return', 'key:escape'},
-        },
-  }
+  self.input = baton.new(Config.Controls)
   self.timeout = DEBOUNCE_TIME
 end
 

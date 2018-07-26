@@ -3,11 +3,7 @@ local StateIntro = class("StateIntro", State)
 
 function StateIntro:initialize()
   States.State.initialize(self, 'Intro')
-  self.input = baton.new {
-    controls = {
-        continue = {'key:space', 'key:return', 'key:escape'},
-        },
-  }
+  self.input = baton.new(Config.Controls)
 end
 
 function StateIntro:update(dt)

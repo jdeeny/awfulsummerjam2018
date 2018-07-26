@@ -17,12 +17,12 @@ chance = require 'lib.chance.chance'          -- Random data generation lib
 
 -- Local
 Config = require 'src.config'
-datamuse = require 'src.datamuse'             -- Access the Datamuse API
+Datamuse = require 'src.datamuse'             -- Access the Datamuse API
 Color = require 'src.color'                   -- Color object
 Palette = require 'src.palette'               -- a palette to choose from
 Text = require 'src.text'                     -- font
-screen = require 'src.screen'                 -- Manage screen size, scaling
-lines = require 'src.lines'                   -- Line drawing utilities for Windows
+Screen = require 'src.screen'                 -- Manage screen size, scaling
+Lines = require 'src.lines'                   -- Line drawing utilities for Windows
 Sim = require 'src.sim'                -- Simulation stuff
 States = require 'src.states'                          -- State Manager
 Window = require 'src.window'

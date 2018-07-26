@@ -5,4 +5,8 @@ local Text = class('text')
     love.graphics.setFont(Text.ibmfont)
   end
 
+  function Text.static.center(string_width, area_width)
+    return (area_width - string_width) / 2
+  end
+
 return Text

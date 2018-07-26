@@ -3,19 +3,22 @@ local StateGameplay = class("StateGameplay", State)
 
 function StateGameplay:initialize()
   States.State.initialize(self, 'Gameplay')
-  self.input = baton.new {
-    controls = {
-      left = {'key:left', 'key:a', 'axis:leftx-', 'button:dpleft'},
-      right = {'key:right', 'key:d', 'axis:leftx+', 'button:dpright'},
-      up = {'key:up', 'key:w', 'axis:lefty-', 'button:dpup'},
-      down = {'key:down', 'key:s', 'axis:lefty+', 'button:dpdown'},
-      action = {'key:x', 'button:a'},
-    },
-    pairs = {
-      move = {'left', 'right', 'up', 'down'}
-    },
-    joystick = love.joystick.getJoysticks()[1],
-  }
+  self.input = baton.new(Config.Controls)
+end
+
+function StateGameplay:update(dt)
+  State.update(self, dt)
+
+  if self.input:pressed('continue') then
+    Game.state:jump('Ending')
+    Game.state:call('Debounce')
+  end
+end
+
+
+function StateGameplay:draw()
+  Palette.Wine:set()
+  love.graphics.print("Gameplay", 5, 5)
 end
 
 return StateGameplay

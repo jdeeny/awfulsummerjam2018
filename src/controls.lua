@@ -1,3 +1,21 @@
+local input_config = {
+  controls = {
+    continue = { 'key:space', 'key:enter', 'key:escape'},
+  }
+}
+
+local anykey = {}
+for k,v in pairs(input_config.controls) do
+  for _,w in ipairs(v) do
+    table.insert(anykey, w)
+  end
+end
+
+input_config.controls.anykey = anykey
+
+
+return input_config
+--[[
 function init_controls()
   local player_input = baton.new {
     controls = {
@@ -32,3 +50,5 @@ end
 function love.joystickadded(j)
   player_input.joystick = j
 end
+
+]]
