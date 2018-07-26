@@ -10,8 +10,7 @@ function StateEnding:update(dt)
   State.update(self, dt)
 
   if self.input:pressed('continue') then
-    Game.state:jump('Intro')
-    Game.state:call('Debounce')
+    new_game()
   end
 end
 

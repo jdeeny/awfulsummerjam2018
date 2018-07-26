@@ -1,7 +1,7 @@
 local State = require('src.states.state')
 local StateDebounce = class("StateDebounce", State)
 
-local DEBOUNCE_TIME = 0.2
+local DEBOUNCE_TIME = 0.08
 
 function StateDebounce:initialize()
   States.State.initialize(self, 'Debounce')

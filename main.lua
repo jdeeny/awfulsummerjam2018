@@ -36,5 +36,7 @@ function new_game()
 
   -- Start the game
   Game.state:jump('Splash')
+  -- Immediately debounce
+  Game.state:call('Debounce')
 
 end

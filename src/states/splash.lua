@@ -13,7 +13,6 @@ function StateSplash:update(dt)
 
   if self.input:pressed('continue') then
     Game.state:jump('Intro')
-    print("!")
     Game.state:call('Debounce')
   end
 end

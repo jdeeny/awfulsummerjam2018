@@ -7,10 +7,12 @@ local input_config = {
 local anykey = {}
 for k,v in pairs(input_config.controls) do
   for _,w in ipairs(v) do
+    print(w)
     table.insert(anykey, w)
   end
 end
-
+print("---")
+print(pl.pretty.dump(anykey))
 input_config.controls.anykey = anykey
 
 
