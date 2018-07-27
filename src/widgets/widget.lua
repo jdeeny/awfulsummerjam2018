@@ -6,8 +6,8 @@ function Widget:initialize(x, y, w, h, bgcolor)
   self.contents = { }
   self.bgcolor = bgcolor or { 0, 0, 0, 0}
   self.cw, self.ch = w, h
-  self.px, self.py = screen.topixels(x or 0, y or 0)
-  self.pw, self.ph = screen.topixels(w or 0, h or 0)
+  self.px, self.py = Screen.topixels(x or 0, y or 0)
+  self.pw, self.ph = Screen.topixels(w or 0, h or 0)
 
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
@@ -24,7 +24,11 @@ function Widget:update(dt)
 end
 
 function Widget:draw()
-  love.graphics.draw(self.canvas, self.px, self.py)
+  if self.canvas then
+    love.graphics.draw(self.canvas, self.px, self.py)
+  else
+    print("No canvas?")
+  end
 end
 
 function Widget:draw_widget(xoff, yoff)

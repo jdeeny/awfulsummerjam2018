@@ -38,14 +38,22 @@ end]]
 
 function Window:add(item)
   table.insert(self.contents, item)
+  print("Add ")
 end
 
 function Window:draw()
   print(".")
-  love.graphics.draw(self.canvas, self.px, self.py)
+
+
+  love.graphics.setCanvas(self.canvas)
+  love.graphics.clear(self.bgcolor)
   for i,v in ipairs(self.contents) do
-    v:draw()
+    print("Dr  ")-- .. pl.pretty.dump(v))
+    v:draw_widget(0, 0)
   end
+  love.graphics.setCanvas()
+  love.graphics.draw(self.canvas, self.px, self.py)
+
 end
 
 return Window

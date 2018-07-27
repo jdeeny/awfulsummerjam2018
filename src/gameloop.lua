@@ -5,6 +5,7 @@ function love.load()
     math.random()
   end
   Text.setup_font()
+
   new_game()
 end
 
@@ -23,7 +24,11 @@ function new_game()
   Game = {
     the_world = Sim.World:new(),
     state = States.Manager:new(),
+    search = Threads.search:new(),
+    datamuse = Threads.datamuse:new(),
   }
+
+  Game.datamuse:start()
 
   -- Fill game states
   Game.state:add(States.StateSplash:new())
@@ -37,5 +42,10 @@ function new_game()
   Game.state:jump('Splash')
   -- Immediately debounce
   Game.state:call('Debounce')
+
+end
+
+-- tear down game objects
+function end_game()
 
 end

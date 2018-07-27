@@ -17,7 +17,6 @@ chance = require 'lib.chance.chance'          -- Random data generation lib
 
 -- Local
 Config = require 'src.config'
-Datamuse = require 'src.datamuse'             -- Access the Datamuse API
 Color = require 'src.color'                   -- Color object
 Palette = require 'src.palette'               -- a palette to choose from
 Text = require 'src.text'                     -- font
@@ -27,4 +26,5 @@ Sim = require 'src.sim'                -- Simulation stuff
 States = require 'src.states'                          -- State Manager
 Window = require 'src.window'
 Widgets = require 'src.widgets'               -- things that are displayed
+Threads = require 'src.threads'
 require 'src.gameloop'

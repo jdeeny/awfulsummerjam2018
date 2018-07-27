@@ -6,7 +6,7 @@ function StateIntro:initialize()
   self.input = baton.new(Config.Controls)
 
   self.a_window = Window:new(21, 1, 80, 45)
-  self.a_window:add(Widgets.Slider:new(50, 100, 10, 30), 0, 0)
+--  self.a_window:add(Widgets.Slider:new(50, 100, 10, 30), 0, 0)
 end
 
 function StateIntro:update(dt)
