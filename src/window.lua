@@ -4,16 +4,14 @@ local Window = class('Window')
 -- Create a new Window, at (x,y), w wide and h high. Coords are text coords
 function Window:initialize(x, y, w, h)
   self.contents = { }
-  self.rolluptime = 0.8
-  self.rolldowntime = 1.5
   self.cw, self.ch = w, h
   self.px, self.py = Screen.topixels(x or 0, y or 0)
-  self.pw, self.ph = Screen.topixels(w or 0, h or 0)
+  self.pw, self.ph = Screen.topixels(w or 1, h or 1)
 
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
   love.graphics.setColor(Palette.PureWhite:get_color())
-  love.graphics.clear(50,50,50)
+  love.graphics.clear(Palette.Violet:get_color())
   --[[lines.draw_vert(0, 0, self.ch-2)
   lines.draw_vert(self.cw-1, 0, self.ch-2)
   lines.draw_horiz(self.ch-1, 1, self.cw-2)
@@ -42,18 +40,16 @@ function Window:add(item)
 end
 
 function Window:draw()
-  print(".")
-
-
   love.graphics.setCanvas(self.canvas)
-  love.graphics.clear(self.bgcolor)
+  love.graphics.clear(Palette.Violet:get_color())
   for i,v in ipairs(self.contents) do
     print("Dr  ")-- .. pl.pretty.dump(v))
     v:draw_widget(0, 0)
   end
   love.graphics.setCanvas()
+  love.graphics.setColor(Palette.PureWhite:get_color())
   love.graphics.draw(self.canvas, self.px, self.py)
-
+  print(self.px.. " " .. self.py.. "   "..self.pw.." " ..self.ph)
 end
 
 return Window

@@ -17,7 +17,9 @@ local Palette = {
   ['White'] = Color:new(0xDE, 0xEE, 0xD6),
   ['PureWhite'] = Color:new(0xFF, 0xFF, 0xFF),      -- Pure white/black aren't in the palette but are useful
   ['PureBlack'] = Color:new(0,0,0),
+  ['Clear'] = Color:new(0,0,0,0)
 }
+
 
 return Palette
 
