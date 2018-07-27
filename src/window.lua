@@ -53,7 +53,6 @@ function Window:draw()
   love.graphics.setCanvas()
   love.graphics.setColor(Palette.PureWhite)
   love.graphics.draw(self.canvas, self.px, self.py)
-  print(self.px.. " " .. self.py.. "   "..self.pw.." " ..self.ph)
 end
 
 return Window

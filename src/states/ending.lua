@@ -16,7 +16,7 @@ end
 
 
 function StateEnding:draw()
-  Palette.Yellow:set()
+  love.graphics.setColor(Palette.Yellow)
   love.graphics.print("Ending", 5, 5)
 end
 

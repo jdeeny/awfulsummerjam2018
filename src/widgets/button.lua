@@ -9,10 +9,11 @@ function Button:initialize(x, y, w, h, xoff, yoff, text, options)
 end
 
 
-function Button:_update_mouse(x, y)
+function Button:_update_mouse(x, y, clicked)
   if x >= self.px and x <= self.px + self.pw and
      y >= self.py and y <= self.py + self.ph then
-     self.mode = 'mouseover'
+    --if love.mousepressed then _onclick
+    self.mode = 'mouseover'
   else
     self.mode = ''
   end
@@ -32,10 +33,12 @@ function Button:_draw()
     love.graphics.clear(Palette.Green)
     love.graphics.setColor(Palette.AquaBlue)
     love.graphics.print('Mouseover', 0, 0)
+    love.graphics.print(self.text, Text.center(#self.text * 8, self.pw), 16)
   else
     love.graphics.clear(Palette.AquaBlue)
     love.graphics.setColor(Palette.Green)
     love.graphics.print('Normal', 0, 0)
+    love.graphics.print(self.text, Text.center(#self.text * 8, self.pw), 16)
   end
 end
 
