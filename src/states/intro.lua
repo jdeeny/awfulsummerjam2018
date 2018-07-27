@@ -1,12 +1,18 @@
 local State = require('src.states.state')
 local StateIntro = class("StateIntro", State)
 
+local INTRO = [[
+You are a movie executive.
+
+    Make many sequals!
+]]
+
 function StateIntro:initialize()
   States.State.initialize(self, 'Intro')
   self.input = baton.new(Config.Controls)
 
   self.a_window = Window:new(21, 1, 80, 45)
-  self.a_window:add(Widgets.TextPanel:new(1, 2, 83, 6, Palette.Yellow, LOGO, {center=true}))
+  self.a_window:add(Widgets.TextPanel:new(1, 1, 80, 6, Palette.Yellow, INTRO, {center=true}))
 
 end
 
