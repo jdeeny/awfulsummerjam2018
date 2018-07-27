@@ -12,11 +12,11 @@ end
 
 function StateGameplay:_build()
   local buttons = {
-    Widgets.Button:new(1, 1, 15, 5, 2, 2, "Projects"),
-    Widgets.Button:new(17, 1, 15, 5, 2, 2, "Button 2"),
-    Widgets.Button:new(33, 1, 15, 5, 2, 2, "Button 3"),
-    Widgets.Button:new(49, 1, 15, 5, 2, 2, "Button 4"),
-    Widgets.Button:new(65, 1, 15, 5, 2, 2, "Button 5"),
+    Widgets.Button:new(1, 1, 15, 5, "Projects"),
+    Widgets.Button:new(17, 1, 15, 5, "Button 2"),
+    Widgets.Button:new(33, 1, 15, 5, "Button 3"),
+    Widgets.Button:new(49, 1, 15, 5, "Button 4"),
+    Widgets.Button:new(65, 1, 15, 5, "Button 5"),
   }
   for _,v in ipairs(buttons) do
     self.main_window:add(v)

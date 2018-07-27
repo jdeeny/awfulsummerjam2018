@@ -15,5 +15,5 @@ Widgets.PersonInfo = require('src.widgets.personinfo')
 Widgets.MovieInfo = require('src.widgets.movieinfo')
 Widgets.Heading = require('src.widgets.heading')
 Widgets.ScrollPanel = require('src.widgets.scrollpanel')
-
+Widgets.Pages = require('src.widgets.pages')
 return Widgets

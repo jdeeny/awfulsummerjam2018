@@ -2,14 +2,14 @@ local Widget = class('Widget')
 
 
 -- Create a new Widget, at (x,y), w wide and h high. Coords are text coords
-function Widget:initialize(x, y, w, h, xoff, yoff, bgcolor)
+function Widget:initialize(x, y, w, h, bgcolor)
   self.clean = false
   self.contents = { }
   self.bgcolor = bgcolor or { 0, 0, 0, 0}
   self.cw, self.ch = w, h
   self.px, self.py = Screen.topixels(x or 1, y or 1)
   self.pw, self.ph = Screen.topixels(w or 1, h or 1)
-  self.pxoff, self.pyoff = Screen.topixels(xoff or 0, yoff or 0)
+  --self.pxoff, self.pyoff = Screen.topixels(xoff or 0, yoff or 0)
 
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
@@ -59,7 +59,7 @@ end
 
 function Widget:draw()
   love.graphics.setColor(Palette.PureWhite)
-  love.graphics.draw(self.canvas, self.px + self.pxoff, self.py + self.pyoff)
+  love.graphics.draw(self.canvas, self.px, self.py)
   for i,v in ipairs(self.contents) do
     v:draw()
   end

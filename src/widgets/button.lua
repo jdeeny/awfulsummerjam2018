@@ -1,7 +1,7 @@
 local Button = class('Button', Widget)
 
-function Button:initialize(x, y, w, h, xoff, yoff, text, options)
-  Widget.initialize(self, x, y, w, h, xoff, yoff)
+function Button:initialize(x, y, w, h, text, options)
+  Widget.initialize(self, x, y, w, h)
 
   self.text = text or "butt on"
   self.mode = ''

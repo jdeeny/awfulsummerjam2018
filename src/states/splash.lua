@@ -15,15 +15,17 @@ function StateSplash:initialize()
   self.input = baton.new(Config.Controls)
   local x, y = Text.center(83, Config.CharWidth), Text.center(5, Config.CharHeight)
   self.win_logo = Window:new(x, y, 83, 5, Palette.Brown)
-  self.txt_logo = Widgets.TextPanel:new(1, 1, 83, 5, x, y, Palette.Yellow, Palette.Orange, LOGO)
-  --print("add")
+  self.txt_logo = Widgets.TextPanel:new(1, 1, 83, 5, Palette.Yellow, LOGO)
+  self.txt_logo2 = Widgets.TextPanel:new(2,2, 5, 5, Palette.Yellow, "!!!")
   self.win_logo:add(self.txt_logo)
-  --print("post")
+  self.win_logo:add(self.txt_logo2)
 end
 
 
 function StateSplash:update(dt)
   State.update(self, dt)
+
+  self.win_logo:update(dt)
 
   if self.input:pressed('continue') then
     Game.state:jump('Intro')
