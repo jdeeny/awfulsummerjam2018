@@ -10,15 +10,17 @@ d8' `8b 88  `8D 88'     88  `8D   `88'   .8P  Y8. 88      .8P  Y8. 88' Y8b `8b  
 YP   YP 88      Y88888P 88   YD Y888888P  `Y88P'  Y88888P  `Y88P'   Y888P     YP
 ]]
 
+local COPYRIGHT = "Copyright (c) 2018 Your Mom's Mom Productions"
+local AWFUL = "Awful Summer Jam 2018"
+
 function StateSplash:initialize()
   States.State.initialize(self, 'Splash')
   self.input = baton.new(Config.Controls)
-  local x, y = Text.center(85, Config.CharWidth), Text.center(8, Config.CharHeight)
-  self.win_logo = Window:new(x, y, 85, 7, Palette.Brown)
-  self.txt_logo = Widgets.TextPanel:new(1, 1, 83, 6, Palette.Yellow, LOGO)
-  --self.txt_logo2 = Widgets.TextPanel:new(2,2, 5, 5, Palette.Yellow, "!!!")
-  self.win_logo:add(self.txt_logo)
-  --self.win_logo:add(self.txt_logo2)
+  local x, y = Text.center(85, Config.CharWidth), Text.center(14, Config.CharHeight)
+  self.win_logo = Window:new(x, y, 85, 14, Palette.Brown)
+  self.win_logo:add(Widgets.TextPanel:new(1, 2, 83, 6, Palette.Yellow, LOGO))
+  self.win_logo:add(Widgets.TextPanel:new(Text.center(#COPYRIGHT, 85), 11, #COPYRIGHT, 1, Palette.Brown , COPYRIGHT))
+  self.win_logo:add(Widgets.TextPanel:new(Text.center(#AWFUL, 85), 9, #AWFUL, 1, Palette.AquaBlue , AWFUL))
 end
 
 
