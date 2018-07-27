@@ -64,4 +64,8 @@ function Manager:draw()
   end
 end
 
+function Manager:add_scroll(y)
+  self.StateList[self.stack[1]]:add_scroll(y)
+end
+
 return Manager

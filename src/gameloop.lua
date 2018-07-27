@@ -1,8 +1,8 @@
 -- This is for things that happen exactly once
 function love.load()
   math.randomseed(os.time())
-  for i=1,100*(1.0 + 4.0 * math.random()) do
-    math.random()
+  for i=1,100*(1.0 + 2.0 * math.random()) do
+    _ = math.random()
   end
   Text.setup_font()
 
@@ -48,4 +48,11 @@ end
 -- tear down game objects
 function end_game()
 
+end
+
+-- Callback for scroll wheel
+function love.wheelmoved(x, y)
+  if Game and Game.state then
+    Game.state:add_scroll(y)
+  end
 end

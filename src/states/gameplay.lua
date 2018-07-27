@@ -44,4 +44,8 @@ function StateGameplay:draw()
   self.main_window:draw()
 end
 
+function StateGameplay:add_scroll(y)
+  print("Scroll: " .. y)
+end
+
 return StateGameplay

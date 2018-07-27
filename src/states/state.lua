@@ -23,4 +23,7 @@ end
 function State:draw()
 end
 
+function State:add_scroll(y)
+end
+
 return State
