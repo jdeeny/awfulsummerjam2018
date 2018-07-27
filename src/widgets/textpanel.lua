@@ -1,7 +1,7 @@
 local TextPanel = class('TextPanel', Widget)
 
-function TextPanel:initialize(x, y, w, h, xoff, yoff, color, txt)
-  Widget.initialize(self, x, y, w, h, xoff, yoff)
+function TextPanel:initialize(x, y, w, h, color, txt)
+  Widget.initialize(self, x, y, w, h)
 
   self.bgcolor = bgcolor or Palette.Black
   self.color = color or Palette.White
@@ -30,6 +30,7 @@ function TextPanel:_draw()
   love.graphics.setCanvas(self.canvas)
   love.graphics.clear(self.bgcolor)
   love.graphics.setColor(self.color)
+  love.graphics.setFont(Text.ibmfont)
   love.graphics.print(self.txt, 0, 0)
   love.graphics.setCanvas()
 end

@@ -13,12 +13,12 @@ YP   YP 88      Y88888P 88   YD Y888888P  `Y88P'  Y88888P  `Y88P'   Y888P     YP
 function StateSplash:initialize()
   States.State.initialize(self, 'Splash')
   self.input = baton.new(Config.Controls)
-  local x, y = Text.center(83, Config.CharWidth), Text.center(5, Config.CharHeight)
-  self.win_logo = Window:new(x, y, 83, 5, Palette.Brown)
-  self.txt_logo = Widgets.TextPanel:new(1, 1, 83, 5, Palette.Yellow, LOGO)
-  self.txt_logo2 = Widgets.TextPanel:new(2,2, 5, 5, Palette.Yellow, "!!!")
+  local x, y = Text.center(85, Config.CharWidth), Text.center(8, Config.CharHeight)
+  self.win_logo = Window:new(x, y, 85, 7, Palette.Brown)
+  self.txt_logo = Widgets.TextPanel:new(1, 1, 83, 6, Palette.Yellow, LOGO)
+  --self.txt_logo2 = Widgets.TextPanel:new(2,2, 5, 5, Palette.Yellow, "!!!")
   self.win_logo:add(self.txt_logo)
-  self.win_logo:add(self.txt_logo2)
+  --self.win_logo:add(self.txt_logo2)
 end
 
 
