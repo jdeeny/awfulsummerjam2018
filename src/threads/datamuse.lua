@@ -6,7 +6,7 @@ DatamuseThread.static.cache = lru.new(10e3, 10e6)
 
 
 function DatamuseThread:initialize()
-  self.inner = 'src/threads/search_inner.lua'
+  self.inner = 'src/threads/datamuse_inner.lua'
   Thread.initialize(self)
 end
 
@@ -18,10 +18,10 @@ function DatamuseThread:lookup(query)
   end
 
   repeat
-    local result = self.channels[2]:pop()
+    local result = self.miso:pop()
     if result then
       local q, r = result
-      print("response q: ".. q.. " r: "..r)
+      print("response q: ".. tostring(q) .. " r: "..tostring(r))
       DatamuseThread.cache:set(q, r)
     end
   until not result
@@ -36,7 +36,7 @@ function DatamuseThread:lookup(query)
   -- cache as false so that we don't send a zillion queries across the channel
   DatamuseThread.cache:set(query, false, 1)
   print("push q: ", query)
-  self.channels[1]:push({ 'request', 'https://api.datamuse.com/words?' .. query } )
+  self.mosi:push( 'https://api.datamuse.com/words?' .. query )
 
   -- true, false means request was value, no response yet
   return true, false
