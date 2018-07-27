@@ -1,7 +1,7 @@
 local TextPanel = class('TextPanel', Widget)
 
-function TextPanel:initialize(x, y, w, h, bgcolor, color, txt)
-  Widget.initialize(self, x, y, w, h, bgcolor)
+function TextPanel:initialize(x, y, w, h, xoff, yoff, color, txt)
+  Widget.initialize(self, x, y, w, h, xoff, yoff)
 
   self.bgcolor = bgcolor or Palette.Black
   self.color = color or Palette.White

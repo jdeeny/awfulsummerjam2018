@@ -22,8 +22,11 @@ function Window:initialize(x, y, w, h)
 end
 
 function Window:update(dt)
+  local x, y = love.mouse.getPosition()
+  x = x - self.px
+  y = y - self.py
   for i,v in ipairs(self.contents) do
-    v:update(dt)
+    v:update(dt, x, y)
   end
 end
 

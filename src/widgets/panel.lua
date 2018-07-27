@@ -1,6 +1,6 @@
 local Panel = class('Panel', Widget)
-function Panel:initialize(x, y, w, h, bgcolor)
-  Widget.initialize(self, x, y, w, h, bgcolor)
+function Panel:initialize(x, y, w, h, xoff, yoff)
+  Widget.initialize(self, x, y, w, h, xoff, yoff)
 end
 
 return Panel

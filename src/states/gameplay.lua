@@ -12,8 +12,8 @@ end
 
 function StateGameplay:_build()
   local buttons = {
-    Widgets.Button:new(1, 1, 15, 5, "Projects"),
-    Widgets.Button:new(16, 1, 15, 5, "Button 2"),
+    Widgets.Button:new(1, 1, 15, 5, 2, 2, "Projects"),
+    Widgets.Button:new(16, 1, 15, 5, 2, 2, "Button 2"),
   }
   for _,v in ipairs(buttons) do
     self.main_window:add(v)

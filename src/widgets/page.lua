@@ -1,6 +1,6 @@
 local Page = class('Page', Widget)
-function Page:initialize(x, y, w, h, bgcolor, title, color, altcolor)
-  Widget.initialize(self, x, y, w, h, bgcolor)
+function Page:initialize(x, y, w, h, xoff, yoff, title, color, altcolor)
+  Widget.initialize(self, x, y, w, h, xoff, yoff)
   self.title = title or "A Page"
   self.color = color or {0, 255, 255, 255 }
   self.altcolor = altcolor or { 128, 0, 0, 255 }
