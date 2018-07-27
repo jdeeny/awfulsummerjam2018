@@ -17,7 +17,6 @@ chance = require 'lib.chance.chance'          -- Random data generation lib
 
 -- Local
 Config = require 'src.config'
-Color = require 'src.color'                   -- Color object
 Palette = require 'src.palette'               -- a palette to choose from
 Text = require 'src.text'                     -- font
 Screen = require 'src.screen'                 -- Manage screen size, scaling

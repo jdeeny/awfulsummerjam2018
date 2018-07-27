@@ -21,7 +21,7 @@ function StateIntro:update(dt)
 end
 
 function StateIntro:draw()
-  Palette.AquaBlue:set()
+  love.graphics.setColor(Palette.AquaBlue)
   love.graphics.print("Intro", 5, 5)
 
   self.a_window:draw()

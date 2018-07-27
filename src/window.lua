@@ -10,8 +10,8 @@ function Window:initialize(x, y, w, h)
 
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
-  love.graphics.setColor(Palette.PureWhite:get_color())
-  love.graphics.clear(Palette.Violet:get_color())
+  love.graphics.setColor(Palette.PureWhite)
+  love.graphics.clear(Palette.Violet)
   --[[lines.draw_vert(0, 0, self.ch-2)
   lines.draw_vert(self.cw-1, 0, self.ch-2)
   lines.draw_horiz(self.ch-1, 1, self.cw-2)
@@ -22,7 +22,9 @@ function Window:initialize(x, y, w, h)
 end
 
 function Window:update(dt)
-
+  for i,v in ipairs(self.contents) do
+    v:update(dt)
+  end
 end
 
 --[[function Window:rollup()
@@ -41,13 +43,12 @@ end
 
 function Window:draw()
   love.graphics.setCanvas(self.canvas)
-  love.graphics.clear(Palette.Violet:get_color())
+  love.graphics.clear(Palette.Violet)
   for i,v in ipairs(self.contents) do
-    print("Dr  ")-- .. pl.pretty.dump(v))
-    v:draw_widget(0, 0)
+    v:draw(self.px, self.py)
   end
   love.graphics.setCanvas()
-  love.graphics.setColor(Palette.PureWhite:get_color())
+  love.graphics.setColor(Palette.PureWhite)
   love.graphics.draw(self.canvas, self.px, self.py)
   print(self.px.. " " .. self.py.. "   "..self.pw.." " ..self.ph)
 end

@@ -3,6 +3,7 @@ local Widget = class('Widget')
 
 -- Create a new Widget, at (x,y), w wide and h high. Coords are text coords
 function Widget:initialize(x, y, w, h, bgcolor)
+  self.clean = false
   self.contents = { }
   self.bgcolor = bgcolor or { 0, 0, 0, 0}
   self.cw, self.ch = w, h
@@ -20,26 +21,22 @@ function Widget:add(item)
 end
 
 function Widget:update(dt)
-
-end
-
-function Widget:draw()
-  if self.canvas then
-    love.graphics.draw(self.canvas, self.px, self.py)
-  else
-    print("No canvas?")
+  if self.clean == false and self._draw then
+    self:_draw()
+    love.graphics.setCanvas()
+    self.clean = true
   end
 end
 
-function Widget:draw_widget(xoff, yoff)
-  print("!")
+function Widget:draw(xoff, yoff)
   local xoff = xoff or 0
   local yoff = yoff or 0
   local x = self.px + xoff
   local y = self.py + yoff
+  love.graphics.setColor(Palette.PureWhite)
   love.graphics.draw(self.canvas, x, y)
   for i,v in ipairs(self.contents) do
-    v:draw_widget(x, y)
+    v:draw(x, y)
   end
 end
 

@@ -6,9 +6,20 @@ function StateGameplay:initialize()
   self.input = baton.new(Config.Controls)
 
   self.main_window = Window:new(2, 2, 120, 45, Palette.Yellow)
-
+  self:_build()
 
 end
+
+function StateGameplay:_build()
+  local buttons = {
+    Widgets.Button:new(1, 1, 15, 5, "Projects"),
+    Widgets.Button:new(16, 1, 15, 5, "Button 2"),
+  }
+  for _,v in ipairs(buttons) do
+    self.main_window:add(v)
+  end
+end
+
 
 function StateGameplay:update(dt)
   State.update(self, dt)
@@ -22,8 +33,8 @@ end
 
 
 function StateGameplay:draw()
-  Palette.Wine:set()
-  love.graphics.print("Gameplay", 5, 5)
+  love.graphics.setColor(Palette.Wine)
+  love.graphics.print("Gameplay", 0, 0)
   self.main_window:draw()
 end
 
