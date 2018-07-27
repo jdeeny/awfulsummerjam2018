@@ -22,6 +22,11 @@ function StateGameplay:_build()
     self.main_window:add(v)
   end
 
+  print("!!!")
+  self.viewed_page = Widgets.FilmPage:new(1, 10, 120, 35)
+  print("###")
+  self.main_window:add(self.viewed_page)
+
   --local calendar = Widgets.CalendarPanel:new(130,1, 28, 43, 2, 2)
   --self.main_window:add(calendar)
 end

@@ -26,7 +26,13 @@ function Window:update(dt)
   x = x - self.px
   y = y - self.py
   for i,v in ipairs(self.contents) do
-    v:update(dt, x, y)
+    if v.update then
+      v:update(dt, x, y)
+    else
+      print("Couldn't update in window:")
+      print(pl.pretty.dump(v))
+      print(".")
+    end
   end
 end
 
@@ -48,7 +54,13 @@ function Window:draw()
   love.graphics.setCanvas(self.canvas)
   love.graphics.clear(Palette.Violet)
   for i,v in ipairs(self.contents) do
-    v:draw(self.px, self.py)
+    if v.draw then
+      v:draw()--self.px, self.py)
+    else
+      print("Try to draw from window but no draw func: ")
+      print(pl.pretty.dump(v))
+      print(".")
+    end
   end
   love.graphics.setCanvas()
   love.graphics.setColor(Palette.PureWhite)

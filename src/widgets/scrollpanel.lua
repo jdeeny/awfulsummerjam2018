@@ -1,6 +1,10 @@
-local ScrollPanel = class('ScrollPanel', Panel)
-function ScrollPanel:initialize(x, y, w, h, xoff, yoff)
-  Panel.initialize(self, x, y, w, h, xoff, yoff)
+local ScrollPanel = class('ScrollPanel', Widget)
+
+local UP = "▲"
+local DOWN = "▼"
+
+function ScrollPanel:initialize(x, y, w, h)
+  Widget.initialize(self, x, y, w, h)
 end
 
-return Panel
+return ScrollPanel
