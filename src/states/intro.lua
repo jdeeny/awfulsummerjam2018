@@ -20,7 +20,7 @@ end
 
 function StateIntro:enter()
   Game.time:reset()
-  Game.time.scale = 250.0
+  Game.time.scale = Config.HistorySpeedup
   Game.time.ticking = true
 end
 

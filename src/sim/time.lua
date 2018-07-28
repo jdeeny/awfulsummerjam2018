@@ -27,7 +27,9 @@ end
 function Time:update(dt)
   if (not self.ticking) or self.year >= Config.EndYear then return end
 
-  self.subday = self.subday + dt * Config.DaysPerSecond * self.scale
+  local dt = dt * self.scale
+
+  self.subday = self.subday + dt * Config.DaysPerSecond
   while self.subday >= 1.0 do
     self.subday = self.subday - 1.0
     self.day = self.day + 1
@@ -40,6 +42,13 @@ function Time:update(dt)
       end
     end
   end
+
+  local movie_chance = Config.MoviesPerSecond * dt
+
+  if math.random() <= movie_chance then
+    print("Decided to do a movie")
+  end
+
 end
 
 function Time:is_historic()

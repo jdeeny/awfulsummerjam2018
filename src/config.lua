@@ -12,6 +12,7 @@ local Config = {
   DaysPerMonth = 10,
   MonthsPerYear = 12,
   MoviesPerYear = 8,
+  HistorySpeedup = 1000.0,
   ThemeNouns = 10,
   ThemeVerbs = 10,
   ThemeAdjectives = 10,
