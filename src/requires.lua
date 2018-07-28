@@ -27,4 +27,5 @@ Window = require 'src.window'
 Widgets = require 'src.widgets'               -- things that are displayed
 Wordbase = require 'src.wordbase'
 Threads = require 'src.threads'
+AudioManager = require 'src.audiomanager'
 require 'src.gameloop'
