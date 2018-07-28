@@ -12,7 +12,9 @@ repeat
   --if kind == 'request' then
 
   if query then
-    miso:push( { query, http.request('https://api.datamuse.com/words?' .. query) } )
+    local req = 'https://api.datamuse.com/words?' .. query
+    local result = http.request(req)
+    miso:push( { q = query, r = result } )
   end
   --  love.timer.sleep(1000)
 --  elif kind == 'teardown' then

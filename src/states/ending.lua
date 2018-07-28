@@ -21,6 +21,7 @@ function StateEnding:update(dt)
   State.update(self, dt)
 
   if self.input:pressed('continue') then
+    end_game()
     new_game()--Game.state:jump('Splash')
     Game.state:call('Debounce')
   end

@@ -8,23 +8,34 @@ DatamuseThread.static.cache = lru.new(10e3, 10e6)
 function DatamuseThread:initialize()
   self.inner = 'src/threads/datamuse_inner.lua'
   Thread.initialize(self)
+
+  self.test_time = 0.5
 end
 
-
-
-function DatamuseThread:lookup(query)
-  if not query or query == "" then
-    return false, nil
+function DatamuseThread:update(dt)
+  self.test_time = self.test_time - dt
+  if self.test_time <= 0.0 then
+    self.test_time = 0.5
+    local w = { 'forgetful', 'fruit', 'apple', 'nuts', 'car', 'cars' }
+    local ok, result = self:lookup("rel_rhy=" .. w[math.random(#w)])
+    --print("Query: " .. tostring(ok) .. " " .. tostring(result))
   end
 
   repeat
     local result = self.miso:pop()
     if result then
-      local q, r = result
-      print("response q: ".. tostring(q) .. " r: "..tostring(r))
+      local q, r = result.q, result.r
+      print("response q: ".. tostring(pl.pretty.dump(q)) .. " r: "..tostring(r))
       DatamuseThread.cache:set(q, r)
     end
   until not result
+
+end
+
+function DatamuseThread:lookup(query)
+  if not query or query == "" then
+    return false, nil
+  end
 
   local result = DatamuseThread.cache:get(query)
   if result then
@@ -36,11 +47,42 @@ function DatamuseThread:lookup(query)
   -- cache as false so that we don't send a zillion queries across the channel
   DatamuseThread.cache:set(query, false, 1)
   print("push q: ", query)
-  self.mosi:push( 'https://api.datamuse.com/words?' .. query )
+  self.mosi:push(query)
 
   -- true, false means request was value, no response yet
   return true, false
 end
 
+function DatamuseThread:dump_cache()
+  print("\n\n\n\n\n==")
+  local cdump = {}
+  for k,v in DatamuseThread.cache:pairs(table_name) do
+    if v then
+      table.insert(cdump,1,{q=k, r=v})
+    end
+  end
+  --print(serpent.dump(cdump))
+  local cdump = love.math.compress(serpent.dump(cdump), 'lz4', 9)
+  local success, msg = love.filesystem.write('cache-dump.bin', cdump)
+  print(tostring(success).." "..tostring(msg))
+  print("==\n\n\n\n")
+  --self:load_cache()
+end
+
+function DatamuseThread:load_cache()
+  local contents, size = love.filesystem.read('cache-dump.bin')
+  print("cache load size: ".. tostring(size))
+  if size > 0 then
+    local ok, res = serpent.load(love.math.decompress(contents, 'lz4'))
+    if ok then
+      local count = 0
+      for k,v in pairs(res) do
+        count = count + 1
+        DatamuseThread.cache:set(k, v)
+      end
+      print("Cache loaded: ".. count)
+    end
+  end
+end
 
 return DatamuseThread

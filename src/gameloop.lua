@@ -13,6 +13,7 @@ end
 function love.update(dt)
   flux.update(dt) -- Update all tweens
   Game.state:update(dt)
+  Game.datamuse:update(dt)
 end
 
 function love.draw()
@@ -28,6 +29,7 @@ function new_game()
     datamuse = Threads.datamuse:new(),
   }
 
+  Game.datamuse:load_cache()
   Game.datamuse:start()
 
   -- Fill game states
@@ -47,7 +49,7 @@ end
 
 -- tear down game objects
 function end_game()
-
+  Game.datamuse:dump_cache()
 end
 
 -- Callback for scroll wheel
