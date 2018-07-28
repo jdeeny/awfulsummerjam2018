@@ -29,6 +29,14 @@ function Wordbase:initialize()
   end
 end
 
+function Wordbase:store_connection(w1, w2, path, value)
+  self.connections[path] = {
+    w1 = w1,
+    w2 = w2,
+    path = path,
+    value = value
+  }
+end
 
 function Wordbase:get_word_to_lookup()
   return
@@ -49,13 +57,13 @@ function Wordbase:store_lookup(word, result)
   self.to_lookup = new_look
 
   print("W: "..word)
-  print(pl.pretty.dump(new_prio))
+  --print(pl.pretty.dump(new_prio))
   if self.theme[word] then
     self.theme[word] = result
   else
     self.words[word] = result
   end
-  -- need to parse the result
+  -- need to parse the result and add words
 end
 
 return Wordbase

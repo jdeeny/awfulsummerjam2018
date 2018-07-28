@@ -9,6 +9,7 @@ local Config = {
   ThemeNouns = 10,
   ThemeVerbs = 10,
   ThemeAdjectives = 10,
+  DatamuseRate = 10,  -- datamuse requests per second max
   Controls = require('src/controls'),
 }
 return Config

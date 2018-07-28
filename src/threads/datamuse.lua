@@ -8,24 +8,19 @@ DatamuseThread.static.cache = lru.new(10e3, 10e6)
 function DatamuseThread:initialize()
   self.inner = 'src/threads/datamuse_inner.lua'
   Thread.initialize(self)
-
-  self.test_time = .5
+  self.begin = os.time()
 end
 
 function DatamuseThread:update(dt)
-  self.test_time = self.test_time - dt
-  if self.test_time <= 0.0 then
-    self.test_time = .25
-    local w_struct = Game.wordbase:get_word_to_lookup()
-    if w_struct and w_struct.word then
-      local w = w_struct.word
-      print("lookup: " .. tostring(w))
-      if w then
-        local ok, result = self:lookup("rel_trg=" .. w .. "&md=p")
-        if ok then
-          print("Store lookup")
-          Game.wordbase:store_lookup(w, result)
-        end
+  local w_struct = Game.wordbase:get_word_to_lookup()
+  if w_struct and w_struct.word then
+    local w = w_struct.word
+    --print("lookup: " .. tostring(w))
+    if w then
+      local ok, result = self:lookup("rel_trg=" .. w .. "&md=p")
+      if ok then
+        --print("Store lookup")
+        Game.wordbase:store_lookup(w, result)
       end
     end
   end
@@ -34,7 +29,7 @@ function DatamuseThread:update(dt)
     local result = self.miso:pop()
     if result then
       local q, r = result.q, result.r
-      print("response q: ".. tostring(pl.pretty.dump(q)) .. " r: "..tostring(r))
+      --print("response q: ".. tostring(pl.pretty.dump(q)) .. " r: "..tostring(r))
       DatamuseThread.cache:set(q, r)
     end
   until not result
