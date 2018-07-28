@@ -45,6 +45,24 @@ function Window:rolldown()
   flux.to(self, self.rolldowntime, { py = 0 } ):ease('elasticout')--:oncomplete(self:rollup())
 end]]
 
+
+function Window:click(x, y)
+  local x, y = x - self.px, y - self.py
+  if self._onclick then
+    self:_onclick(x, y)
+  else
+    for i, v in ipairs(self.contents) do
+      if v.click then
+        v:click(x, y)
+      else
+        --print("Try to click but no click from window: " ..(v.id or "") .. (v.text or "") .. (v.name or ""))
+        --print(pl.pretty.dump(v))
+        --print('.')
+      end
+    end
+  end
+end
+
 function Window:add(item)
   table.insert(self.contents, item)
   print("Add ")

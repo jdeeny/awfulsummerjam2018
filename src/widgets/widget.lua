@@ -56,6 +56,25 @@ function Widget:_update_mouse(x, y)
   end]]
 end
 
+function Widget:click(x, y)
+  local x, y = x - self.px, y - self.py
+  if self._onclick then
+--    if x >=0 and y >=0 and x < self.pw and y < self.ph then
+      self:_onclick(x, y)
+  --  end
+  else
+    for i, v in ipairs(self.contents) do
+      if v.click then
+        v:click(x, y)
+      else
+        print("Try to click but no click: ")
+        --print(pl.pretty.dump(v))
+        --print('.')
+      end
+    end
+  end
+end
+
 
 function Widget:draw()
   love.graphics.setColor(Palette.PureWhite)

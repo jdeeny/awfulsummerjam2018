@@ -34,7 +34,14 @@ end
 
 function StateGameplay:update(dt)
   State.update(self, dt)
+
+  if self.input:pressed('click') then
+    local x, y = love.mouse.getPosition()
+    self.main_window:click(x, y)
+  end
+
   self.main_window:update(dt)
+
 
   if self.input:pressed('continue') then
     Game.state:jump('Ending')
