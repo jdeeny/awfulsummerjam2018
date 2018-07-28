@@ -1,4 +1,4 @@
-local Sources = {
+local sources = {
   raw = {
     surnames = pl.data.read('assets/data/names/census2000-surnames.csv', {csv=true}),
     nouns = pl.data.read('assets/data/words/most-common-nouns-english.csv'),
@@ -16,22 +16,25 @@ local Sources = {
   nouns = {},
 }
 
-for i,v in ipairs(Sources.raw.surnames:column_by_name(Sources.raw.surnames:column_names()[1])) do
-  table.insert(Sources.surnames, (v:sub(1,1):upper() or "") .. (v:sub(2):lower() or ""))
+
+for i,v in ipairs(sources.raw.surnames:column_by_name(sources.raw.surnames:column_names()[1])) do
+  table.insert(sources.surnames, (v:sub(1,1):upper() or "") .. (v:sub(2):lower() or ""))
 end
 
 
+sources.girl_names = sources.raw.girlnames:column_by_name(sources.raw.girlnames:column_names()[1])
+sources.boy_names = sources.raw.boynames:column_by_name(sources.raw.boynames:column_names()[1])
 
+sources.nouns = sources.raw.nouns:column_by_name(sources.raw.nouns:column_names()[1])
+sources.verbs = sources.raw.verbs:column_by_name(sources.raw.verbs:column_names()[1])
+sources.adjectives = sources.raw.adjectives:column_by_name(sources.raw.adjectives:column_names()[1])
+sources.occupations = sources.raw.occupations:column_by_name(sources.raw.occupations:column_names()[1])
+sources.interests = sources.raw.interests:column_by_name(sources.raw.interests:column_names()[1])
+sources.raw = nil
 
-Sources.girl_names = Sources.raw.girlnames:column_by_name(Sources.raw.girlnames:column_names()[1])
-Sources.boy_names = Sources.raw.boynames:column_by_name(Sources.raw.boynames:column_names()[1])
+print ("Saving cache")
+local pretty,err = pl.pretty.write(sources)
+print(err)
 
-
-Sources.nouns = Sources.raw.nouns:column_by_name(Sources.raw.nouns:column_names()[1])
-Sources.verbs = Sources.raw.verbs:column_by_name(Sources.raw.verbs:column_names()[1])
-Sources.adjectives = Sources.raw.adjectives:column_by_name(Sources.raw.adjectives:column_names()[1])
-Sources.occupations = Sources.raw.occupations:column_by_name(Sources.raw.occupations:column_names()[1])
-Sources.interests = Sources.raw.interests:column_by_name(Sources.raw.interests:column_names()[1])
-
-Sources.raw = nil
-return Sources
+love.filesystem.write('sources.bin', love.math.compress(pretty, 'lz4', 9))
+return sources

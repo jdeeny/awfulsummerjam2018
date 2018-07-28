@@ -13,14 +13,14 @@ function Name:initialize(sex, age)
   end
 
   if self.sex == "F" then
-    self.firstname = chance.helpers.pick(Words.girl_names)
+    self.firstname = chance.helpers.pick(Sources.girl_names)
 --    print("Select: "..self.sex .." ".. year.. " cnt: "..#(Game.wordbase.girl_names))
   else
-    self.firstname = chance.helpers.pick(Words.boy_names)
+    self.firstname = chance.helpers.pick(Sources.boy_names)
   --  print("Select: "..self.sex .." ".. year.. " cnt: "..#(Game.wordbase.boy_names))
   end
 
-  self.lastname = chance.helpers.pick(Words.surnames)
+  self.lastname = chance.helpers.pick(Sources.surnames)
 end
 
 function Name:emit(flags)

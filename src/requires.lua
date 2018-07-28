@@ -12,13 +12,12 @@ flux = require 'lib.flux.flux'            -- tweening
 baton = require 'lib.baton.baton'         -- input
 stack = require 'lib.LuaStackQueue.stack' -- Stack ADT
 queue = require 'lib.LuaStackQueue.queue' -- Queue ADT
-serpent = require 'lib.serpent.src.serpent'   -- Serpent serialization
 chance = require 'lib.chance.chance'          -- Random data generation lib
 
 -- Local
 Config = require 'src.config'
 Palette = require 'src.palette'               -- a palette to choose from
-Words = require('src.wordbase.sources')
+Sources = require('src.wordbase.sources-cached')
 Text = require 'src.text'                     -- font
 Screen = require 'src.screen'                 -- Manage screen size, scaling
 Line = require 'src.line'                   -- Line drawing utilities for Windows

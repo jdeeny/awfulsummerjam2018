@@ -10,7 +10,7 @@ function Person:initialize()
 
 
   self.name = Sim.Name:new(self.sex, self.age)
-  self.occupation = chance.helpers.pick(Words.occupations)
+  self.occupation = chance.helpers.pick(Sources.occupations)
   local retired = self.age > chance.misc.normal({ mean = 65, deviation = 6 })
   if retired then
     self.occupation = self.occupation .. " (ret.)"
@@ -30,7 +30,7 @@ function Person:initialize()
   end
 
   -- print(pl.pretty.dump(Game.wordbase.interests))
-  local function pick_interest() return chance.helpers.pick(Words.interests) end
+  local function pick_interest() return chance.helpers.pick(Sources.interests) end
   self.interests = chance.misc.unique(pick_interest, num_interests )
   --print(pl.pretty.dump(self.interests))
 end

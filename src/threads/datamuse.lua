@@ -64,18 +64,21 @@ function DatamuseThread:dump_cache()
       table.insert(cdump,1,{q=k, r=v})
     end
   end
-  --print(serpent.dump(cdump))
-  local cdump = love.math.compress(serpent.dump(cdump), 'lz4', 9)
+  local cdump = love.math.compress(pl.pretty.write(cdump), 'lz4', 9)
   local success, msg = love.filesystem.write('cache-dump.bin', cdump)
   --self:load_cache()
 end
 
 function DatamuseThread:load_cache()
   local contents, size = love.filesystem.read('cache-dump.bin')
+  if type(size) ~= number then
+    print("Couldn't load datamuse cache")
+    return
+  end
   print("cache load size: ".. tostring(size))
   if size > 0 then
-    local ok, res = serpent.load(love.math.decompress(contents, 'lz4'))
-    if ok then
+    local res = pl.pretty.read(love.math.decompress(contents, 'lz4'))
+    if res then
       local count = 0
       for k,v in pairs(res) do
         count = count + 1

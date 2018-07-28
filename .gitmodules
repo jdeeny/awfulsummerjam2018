@@ -13,9 +13,6 @@
 [submodule "lib/LuaStackQueue"]
 	path = lib/LuaStackQueue
 	url = https://github.com/edwinhollen/LuaStackQueue.git
-[submodule "lib/serpent"]
-	path = lib/serpent
-	url = https://github.com/pkulchenko/serpent.git
 [submodule "lib/chance"]
 	path = lib/chance
 	url = https://github.com/ejmr/chance.lua.git
