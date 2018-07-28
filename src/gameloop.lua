@@ -5,7 +5,7 @@ function love.load()
     _ = math.random()
   end
   Text.setup_font()
-
+  Sources = require('src.wordbase.sources')
   new_game()
 end
 

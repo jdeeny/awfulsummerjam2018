@@ -14,7 +14,6 @@ local Sources = {
   girl_names = {},
   boy_names = {},
   nouns = {},
-  ]
 }
 
 for i,v in ipairs(Sources.raw.surnames:column_by_name(Sources.raw.surnames:column_names()[1])) do
