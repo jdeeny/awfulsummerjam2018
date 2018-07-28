@@ -5,6 +5,8 @@ local INTRO = [[
 You are a movie executive.
 
     Make many sequals!
+
+You have been given 2 years to make a profit. It you do good you win.
 ]]
 
 function StateIntro:initialize()
