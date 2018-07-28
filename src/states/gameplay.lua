@@ -7,7 +7,6 @@ function StateGameplay:initialize()
 
   self.main_window = Window:new(2, 2, 120, 45, Palette.Yellow)
   self:_build()
-
 end
 
 function StateGameplay:_build()
@@ -31,6 +30,12 @@ function StateGameplay:_build()
   --self.main_window:add(calendar)
 end
 
+
+function StateGameplay:enter()
+  Game.time.scale = 1.0
+  Game.time.ticking = true
+
+end
 
 function StateGameplay:update(dt)
   State.update(self, dt)

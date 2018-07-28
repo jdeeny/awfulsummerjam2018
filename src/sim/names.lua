@@ -7,9 +7,9 @@ function Name:initialize(sex, age)
   if type(sex) == 'string' and #sex >= 1 then
     self.sex = sex:sub(1,1):upper()
   end
-  local year = Config.CurrentYear - 30
-  if type(age) == number and age < Config.CurrentYear - 1880 and age > 4 then
-    local year = Config.CurrentYear - age
+  local year = Config.GameYear - 30
+  if type(age) == number and age < Config.GameYear - 1880 and age > 4 then
+    local year = Config.GameYear - age
   end
 
   if self.sex == "F" then

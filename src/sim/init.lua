@@ -1,4 +1,5 @@
 local Sim = {
+  Time = require('src.sim.time'),
   WordGen = require('src.sim.wordgen'),
   Person = require('src.sim.person'),
   Population = require('src.sim.population'),

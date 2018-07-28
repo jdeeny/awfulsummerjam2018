@@ -1,7 +1,7 @@
 -- This is for things that happen exactly once
 function love.load()
   math.randomseed(os.time())
-  for i=1,100*(1.0 + 2.0 * math.random()) do
+  for i=1,10*(1.0 + 2.0 * math.random()) do
     _ = math.random()
   end
   Text.setup_font()
@@ -12,6 +12,7 @@ end
 
 function love.update(dt)
   flux.update(dt) -- Update all tweens
+  Game.time:update(dt)
   Game.state:update(dt)
   Game.datamuse:update(dt)
   Game.audiomanager:update(dt)
@@ -19,6 +20,7 @@ end
 
 function love.draw()
   Game.state:draw()   -- should draw everything
+  love.graphics.print(tostring(Game.time.ticking).." "..tostring(Game.time.year).. " "..tostring(Game.time.month).." "..tostring(Game.time.day).. " "..tostring(Game.time.subday), 1,500)
 end
 
 function new_game()
@@ -29,7 +31,7 @@ function new_game()
     wordbase = Wordbase.wordbase:new(),
     datamuse = Threads.datamuse:new(),
     audiomanager = AudioManager:new(),
-    --search = Threads.search:new(),
+    time = Sim.Time:new(),
   }
 
   Game.audiomanager:new_music({fadein=true})

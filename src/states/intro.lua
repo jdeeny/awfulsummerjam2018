@@ -18,6 +18,13 @@ function StateIntro:initialize()
 
 end
 
+function StateIntro:enter()
+  Game.time:reset()
+  Game.time.scale = 250.0
+  Game.time.ticking = true
+end
+
+
 function StateIntro:update(dt)
   State.update(self, dt)
 
@@ -27,6 +34,9 @@ function StateIntro:update(dt)
   end
 
   self.a_window:update(dt)
+  if Game.time.scale > 100.0 and not Game.time:is_historic() then
+    Game.time.ticking = false
+  end
 end
 
 function StateIntro:draw()
