@@ -25,6 +25,8 @@ Palette['Frame'] = Palette['Grey']
 Palette['Heading'] = Palette['Yellow']
 Palette['Background'] = Palette['Black']
 
+Palette['HoverFrame'] = Palette['SteelBlue']
+Palette['ClickFrame'] = Palette['LightViolet']
 return Palette
 
 

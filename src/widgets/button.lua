@@ -41,7 +41,29 @@ function Button:_draw()
   print("draw button mode: ".. self.mode)
   love.graphics.setCanvas(self.canvas)
 
---  if self.mode == 'mouseover' then
+  if self.mode == 'mouseover' then
+    love.graphics.clear(Palette.Background)
+    love.graphics.setColor(Palette.HoverFrame)
+    Line.drawh(1,1,self.cw-1, self.options.ul or '┌', self.options.top or '─', self.options.ur or '┐')
+    Line.drawh(1,self.ch-1,self.cw-1, self.options.ll or '└', self.options.bot or '─', self.options.ur or '┘')
+    Line.drawv(1,2, self.ch-3, self.options.left or '│')
+    Line.drawv(self.cw-1,2, self.ch-3, self.options.right or '│')
+    love.graphics.setColor(Palette.Heading)
+    local x, y = Text.center(#self.text, self.cw), Text.center(1, self.ch)
+    x, y = Screen.topixels(x,y)
+    love.graphics.print(self.text, x, y)
+  elseif self.mode == 'click' then
+    love.graphics.clear(Palette.Background)
+    love.graphics.setColor(Palette.ClickFrame)
+    Line.drawh(1,1,self.cw-1, self.options.ul or '┌', self.options.top or '─', self.options.ur or '┐')
+    Line.drawh(1,self.ch-1,self.cw-1, self.options.ll or '└', self.options.bot or '─', self.options.ur or '┘')
+    Line.drawv(1,2, self.ch-3, self.options.left or '│')
+    Line.drawv(self.cw-1,2, self.ch-3, self.options.right or '│')
+    love.graphics.setColor(Palette.Heading)
+    local x, y = Text.center(#self.text, self.cw), Text.center(1, self.ch)
+    x, y = Screen.topixels(x,y)
+    love.graphics.print(self.text, x, y)
+  else
     love.graphics.clear(Palette.Background)
     love.graphics.setColor(Palette.Frame)
     Line.drawh(1,1,self.cw-1, self.options.ul or '┌', self.options.top or '─', self.options.ur or '┐')
@@ -52,10 +74,10 @@ function Button:_draw()
     local x, y = Text.center(#self.text, self.cw), Text.center(1, self.ch)
     x, y = Screen.topixels(x,y)
     love.graphics.print(self.text, x, y)
+  end
 --[[  elseif self.mode == 'click' then
     print("clickmode")
     self.mode = ''
-  else
     love.graphics.clear(Palette.AquaBlue)
     love.graphics.setColor(Palette.Green)
     love.graphics.print('Normal', 0, 0)
