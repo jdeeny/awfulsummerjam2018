@@ -10,4 +10,8 @@ function World:initialize()
   self.movies = chance.misc.n(newmovie, Config.Movies)
 end
 
+function World:new_npc_movie()
+  print("new movie stub")
+end
+
 return World

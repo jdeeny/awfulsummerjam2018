@@ -46,7 +46,7 @@ function Time:update(dt)
   local movie_chance = Config.MoviesPerSecond * dt
 
   if math.random() <= movie_chance then
-    print("Decided to do a movie")
+    Game.world:new_npc_movie()
   end
 
 end

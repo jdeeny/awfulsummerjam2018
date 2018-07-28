@@ -21,6 +21,9 @@ local Palette = {
 }
 
 Palette['NormalText'] = Palette['SteelBlue']
+Palette['Frame'] = Palette['Grey']
+Palette['Heading'] = Palette['Yellow']
+Palette['Background'] = Palette['Black']
 
 return Palette
 

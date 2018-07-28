@@ -39,7 +39,7 @@ function new_game()
   Game.datamuse:load_cache()
   Game.datamuse:start()
 
-  Game.the_world = Sim.World:new()
+  Game.world = Sim.World:new()
 
   -- Fill game states
   Game.state:add(States.StateSplash:new())

@@ -8,6 +8,6 @@ local Sim = {
   Title = require('src.sim.title'),
   Movie = require('src.sim.movie'),
   World = require('src.sim.world'),
-
 }
+
 return Sim
