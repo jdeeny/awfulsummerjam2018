@@ -9,25 +9,25 @@ function DatamuseThread:initialize()
   self.inner = 'src/threads/datamuse_inner.lua'
   Thread.initialize(self)
 
-  self.test_time = 1
+  self.test_time = .5
 end
 
 function DatamuseThread:update(dt)
   self.test_time = self.test_time - dt
   if self.test_time <= 0.0 then
-    self.test_time = 2
---    local w = { 'forgetful', 'fruit', 'apple', 'nuts', 'car', 'cars', 'latitude' }
+    self.test_time = .25
     local w_struct = Game.wordbase:get_word_to_lookup()
-    local w = w_struct.word
-    print("lookup: " .. tostring(w))
-    if w then
-      local ok, result = self:lookup("rel_trg=" .. w .. "&md=p")
-      if ok then
-        print("Store lookup")
-        Game.wordbase:store_lookup(w, result)
+    if w_struct and w_struct.word then
+      local w = w_struct.word
+      print("lookup: " .. tostring(w))
+      if w then
+        local ok, result = self:lookup("rel_trg=" .. w .. "&md=p")
+        if ok then
+          print("Store lookup")
+          Game.wordbase:store_lookup(w, result)
+        end
       end
-    --print("Query: " .. tostring(ok) .. " " .. tostring(result))
-  end
+    end
   end
 
   repeat

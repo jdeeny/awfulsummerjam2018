@@ -31,32 +31,31 @@ end
 
 
 function Wordbase:get_word_to_lookup()
-  if #self.priority_lookup > 0 then
-    return chance.helpers.pick(self.priority_lookup)
-  end
-  if #self.to_lookup > 0 then
-    return chance.helpers.pick(self.to_lookup)
-  end
-  return nil
+  return
+    chance.helpers.pick(self.priority_lookup) or
+    chance.helpers.pick(self.to_lookup)
 end
 
 function Wordbase:store_lookup(word, result)
   local new_prio = {}
   local new_look = {}
   for i,v in ipairs(self.priority_lookup) do
-    if v ~= word then table.insert(new_prio, v) end
+    if v.word ~= word then table.insert(new_prio, v) end
   end
   for i,v in ipairs(self.to_lookup) do
-    if v ~= word then table.insert(new_look, v) end
+    if v.word ~= word then table.insert(new_look, v) end
   end
   self.priority_lookup = new_prio
   self.to_lookup = new_look
 
+  print("W: "..word)
+  print(pl.pretty.dump(new_prio))
   if self.theme[word] then
     self.theme[word] = result
   else
     self.words[word] = result
   end
+  -- need to parse the result
 end
 
 return Wordbase
