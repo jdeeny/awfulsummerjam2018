@@ -10,6 +10,9 @@ local Config = {
   ThemeVerbs = 10,
   ThemeAdjectives = 10,
   DatamuseRate = 10,  -- datamuse requests per second max
+  FxVolume = 0.7,
+  MusicVolume = 0.4,
+  MusicFadeTime = 5,
   Controls = require('src/controls'),
 }
 return Config

@@ -14,6 +14,7 @@ function love.update(dt)
   flux.update(dt) -- Update all tweens
   Game.state:update(dt)
   Game.datamuse:update(dt)
+  Game.audiomanager:update(dt)
 end
 
 function love.draw()
@@ -27,8 +28,11 @@ function new_game()
     search = Threads.search:new(),
     wordbase = Wordbase.wordbase:new(),
     datamuse = Threads.datamuse:new(),
+    audiomanager = AudioManager:new(),
     --search = Threads.search:new(),
   }
+
+  Game.audiomanager:new_music({fadein=true})
 
   Game.datamuse:load_cache()
   Game.datamuse:start()
