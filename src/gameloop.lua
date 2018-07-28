@@ -23,14 +23,17 @@ end
 function new_game()
   -- Reset the global `Game` object with defaults
   Game = {
-    the_world = Sim.World:new(),
     state = States.Manager:new(),
     search = Threads.search:new(),
+    wordbase = Wordbase.wordbase:new(),
     datamuse = Threads.datamuse:new(),
+    --search = Threads.search:new(),
   }
 
   Game.datamuse:load_cache()
   Game.datamuse:start()
+
+  Game.the_world = Sim.World:new()
 
   -- Fill game states
   Game.state:add(States.StateSplash:new())

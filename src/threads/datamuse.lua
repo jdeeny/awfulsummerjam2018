@@ -9,15 +9,15 @@ function DatamuseThread:initialize()
   self.inner = 'src/threads/datamuse_inner.lua'
   Thread.initialize(self)
 
-  self.test_time = 0.5
+  self.test_time = 5
 end
 
 function DatamuseThread:update(dt)
   self.test_time = self.test_time - dt
   if self.test_time <= 0.0 then
-    self.test_time = 0.5
-    local w = { 'forgetful', 'fruit', 'apple', 'nuts', 'car', 'cars' }
-    local ok, result = self:lookup("rel_rhy=" .. w[math.random(#w)])
+    self.test_time = 5
+    local w = { 'forgetful', 'fruit', 'apple', 'nuts', 'car', 'cars', 'latitude' }
+    local ok, result = self:lookup("rel_trg=" .. w[math.random(#w)])
     --print("Query: " .. tostring(ok) .. " " .. tostring(result))
   end
 
@@ -39,7 +39,7 @@ function DatamuseThread:lookup(query)
 
   local result = DatamuseThread.cache:get(query)
   if result then
-    print("Cached: q: " .. query .. " r: " .. result)
+    print("Cached: q: " .. query )--.. " r: " .. result)
     return true, result
   end
 
@@ -54,7 +54,6 @@ function DatamuseThread:lookup(query)
 end
 
 function DatamuseThread:dump_cache()
-  print("\n\n\n\n\n==")
   local cdump = {}
   for k,v in DatamuseThread.cache:pairs(table_name) do
     if v then
@@ -64,8 +63,6 @@ function DatamuseThread:dump_cache()
   --print(serpent.dump(cdump))
   local cdump = love.math.compress(serpent.dump(cdump), 'lz4', 9)
   local success, msg = love.filesystem.write('cache-dump.bin', cdump)
-  print(tostring(success).." "..tostring(msg))
-  print("==\n\n\n\n")
   --self:load_cache()
 end
 
