@@ -1,6 +1,6 @@
 local Name = class('Name')
 
---Name.static.surnames = Sim.WordGen.surnames:column_by_name(Sim.WordGen.surnames:column_names()[1])
+--Name.static.surnames = Game.wordbase.surnames:column_by_name(Game.wordbase.surnames:column_names()[1])
 
 function Name:initialize(sex, age)
   self.sex = "M"
@@ -13,14 +13,14 @@ function Name:initialize(sex, age)
   end
 
   if self.sex == "F" then
-    self.firstname = chance.helpers.pick(Sim.WordGen.girl_names)
---    print("Select: "..self.sex .." ".. year.. " cnt: "..#(Sim.WordGen.girl_names))
+    self.firstname = chance.helpers.pick(Words.girl_names)
+--    print("Select: "..self.sex .." ".. year.. " cnt: "..#(Game.wordbase.girl_names))
   else
-    self.firstname = chance.helpers.pick(Sim.WordGen.boy_names)
-  --  print("Select: "..self.sex .." ".. year.. " cnt: "..#(Sim.WordGen.boy_names))
+    self.firstname = chance.helpers.pick(Words.boy_names)
+  --  print("Select: "..self.sex .." ".. year.. " cnt: "..#(Game.wordbase.boy_names))
   end
 
-  self.lastname = chance.helpers.pick(Sim.WordGen.surnames)
+  self.lastname = chance.helpers.pick(Words.surnames)
 end
 
 function Name:emit(flags)

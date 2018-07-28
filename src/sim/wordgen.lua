@@ -1,4 +1,4 @@
-
+--[[
 local WordGen = class('WordGen')
 
 
@@ -34,3 +34,4 @@ WordGen.Name = require 'src.sim.names'
 
 
 return WordGen
+]]

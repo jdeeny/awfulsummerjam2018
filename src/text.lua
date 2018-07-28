@@ -16,6 +16,7 @@ end
 
 function Text.static.dollars(value, width)
   local width = width or 20
+  local value = math.floor(value * 100.0 + 0.5) / 100.0
   local abs = math.abs(value)
   local formatted
 

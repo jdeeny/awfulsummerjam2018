@@ -18,6 +18,7 @@ chance = require 'lib.chance.chance'          -- Random data generation lib
 -- Local
 Config = require 'src.config'
 Palette = require 'src.palette'               -- a palette to choose from
+Words = require('src.wordbase.sources')
 Text = require 'src.text'                     -- font
 Screen = require 'src.screen'                 -- Manage screen size, scaling
 Line = require 'src.line'                   -- Line drawing utilities for Windows

@@ -9,8 +9,8 @@ function Person:initialize()
   end
 
 
-  self.name = Sim.WordGen.Name:new(self.sex, self.age)
-  self.occupation = chance.helpers.pick(Sim.WordGen.occupations)
+  self.name = Sim.Name:new(self.sex, self.age)
+  self.occupation = chance.helpers.pick(Words.occupations)
   local retired = self.age > chance.misc.normal({ mean = 65, deviation = 6 })
   if retired then
     self.occupation = self.occupation .. " (ret.)"
@@ -29,8 +29,8 @@ function Person:initialize()
     num_interests = chance.misc.normal({mean = 4, deviation = 3})
   end
 
-  -- print(pl.pretty.dump(Sim.WordGen.interests))
-  local function pick_interest() return chance.helpers.pick(Sim.WordGen.interests) end
+  -- print(pl.pretty.dump(Game.wordbase.interests))
+  local function pick_interest() return chance.helpers.pick(Words.interests) end
   self.interests = chance.misc.unique(pick_interest, num_interests )
   --print(pl.pretty.dump(self.interests))
 end
