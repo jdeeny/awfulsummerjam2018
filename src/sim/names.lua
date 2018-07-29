@@ -3,7 +3,7 @@ local Name = class('Name')
 --Name.static.surnames = Game.wordbase.surnames:column_by_name(Game.wordbase.surnames:column_names()[1])
 
 function Name:initialize(sex, age)
-  self.sex = "M"
+  self.sex = chance.helpers.pick({"M", "F"})
   if type(sex) == 'string' and #sex >= 1 then
     self.sex = sex:sub(1,1):upper()
   end

@@ -66,4 +66,38 @@ function Wordbase:store_lookup(word, result)
   -- need to parse the result and add words
 end
 
+function Wordbase:get_noun(theme)
+  -- need to get nouns that are related to `theme` and `self.theme`
+  -- for now, just get a random noun
+  return chance.helpers.pick(Sources.nouns)
+end
+function Wordbase:get_verb(theme)
+  -- need to get nouns that are related to `theme` and `self.theme`
+  -- for now, just get a random noun
+  return chance.helpers.pick(Sources.verbs)
+end
+function Wordbase:get_adj(theme)
+  -- need to get nouns that are related to `theme` and `self.theme`
+  -- for now, just get a random noun
+  return chance.helpers.pick(Sources.adjectives)
+end
+function Wordbase:get_adjnoun(theme)
+  -- this should pick an adj that is commonly used by this noun
+  -- else random mix
+
+  return chance.helpers.pick(Sources.adjectives) .. " " .. chance.helpers.pick(Sources.nouns)
+end
+
+
+function Wordbase:get_firstname(theme)
+  return Sim.Name:new(math.max(18,chance.misc.normal({mean=40,deviation=20}))):emit('i')
+end
+function Wordbase:get_lastname(theme)
+  return Sim.Name:new(math.max(18,chance.misc.normal({mean=40,deviation=20}))):emit('f')
+end
+function Wordbase:get_name(theme)
+  return Sim.Name:new(math.max(18,chance.misc.normal({mean=40,deviation=20}))):emit()
+end
+
+
 return Wordbase

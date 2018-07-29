@@ -7,11 +7,14 @@ function World:initialize()
   local function newmovie() return Sim.Movie:new() end
   self.actors = chance.misc.n(newactor, Config.Actors)
   self.directors = chance.misc.n(newdirector, Config.Directors)
-  self.movies = chance.misc.n(newmovie, Config.Movies)
+  self.movies = {} --chance.misc.n(newmovie, Config.Movies)
 end
 
 function World:new_npc_movie()
   print("new movie stub")
+  local movie = Sim.Movie:new()
+  print(movie:emit())
+  table.insert(self.movies, movie)
 end
 
 return World

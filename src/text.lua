@@ -1,6 +1,19 @@
 local Text = class('text')
 Text.static.ibmfont = love.graphics.newFont('assets/fonts/Px437_IBM_VGA8.ttf', 16)
 
+function Text.static.namecase(txt)
+  local txt = txt or ""
+  local ntxt = ""
+  for word in txt:gmatch("(%a+)") do
+    if #ntxt > 0 then ntxt = ntxt .. " " end
+    ntxt = ntxt .. word:sub(1,1):upper() .. word:sub(2):lower()
+  end
+  if txt:sub(#txt) == '.' then
+    ntxt = ntxt .. '.'
+  end
+  return ntxt
+end
+
 function Text.static.setup_font ()
   love.graphics.setFont(Text.ibmfont)
 end

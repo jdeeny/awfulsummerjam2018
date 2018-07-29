@@ -1,46 +1,135 @@
 local Title = class('Title')
 
-function Title:initialize()
-  self.sex = (chance.person.gender( { binary = true } )):sub(1,1)
-  self.age = chance.person.age()
-  while self.age > chance.misc.normal({mean = 70, deviation = 20})
-  or self.age < chance.misc.normal({mean = 12, deviation = 2}) do
-    self.age = chance.person.age()
-  end
+Title.static.patterns = {
+--  { 'phrase' },
+  { 'word' },
+  { "#The", 'phrase' },
+  { "#The", 'word' },
+  -- { { 'verbing', 'noun' },
+  -- { { 'verbing', 'location' },
+  -- { { 'firstname', 'the', 'nounphrase' } }
+  { 'noun', '#/', 'noun', '#/', 'noun' },
+  { 'noun', ',', 'noun', ',', 'noun'},
+  { 'verb', ',', 'verb', ',', '#and', 'verb'},
+  { 'firstname', '#and', 'firstname'},
+  { 'title', '#Part', 'number' },
+  { 'name' },
+  { 'firstname' },
+  { 'lastname' },
+  { 'adj', 'lastname' },
+  { 'adj', 'firstname' },
+  { 'adjnoun', ',', 'adjnoun' },
+  --{ 'phrase', ',', 'phrase' },
+  { '#A', 'noun', '#for the', 'noun' },
+  { 'capitals' },
+  { 'capitals', ':', 'title' },
+  { '#A', 'noun', '#of', 'noun' },
+  { 'verb', '#Me', ',', 'noun' },
+  --{ '#The Last of the', 'pluralnoun' },
+  { '#The', 'adjnoun' },
+  { 'name', '-', 'phrase' },
+  { 'phrase', '-', 'name' },
+  { 'firstname', "'s", "nounorverb" },
+  { 'title', 'number' },
+  { 'title', 'roman' },
+
+  --{ 'number', 'pluralnoun', '#to', 'noun' }
+}
 
 
-  self.name = Sim.Name:new(self.sex, self.age)
-  self.occupation = chance.helpers.pick(Sources.occupations)
-  local retired = self.age > chance.misc.normal({ mean = 65, deviation = 6 })
-  if retired then
-    self.occupation = self.occupation .. " (ret.)"
+Title.static.madlib = {
+  word = { 'noun', 'verb', 'adj', },
+  phrase = { 'noun', 'verb', 'adj' }, --same as word because this is harder
+  nounorverb = { 'noun', 'verb' },
+  roman = { "#II", "#III", "#IV", "#V"},
+}
+
+function Title:_decode(title_item)
+  local item = title_item or ""
+  if #item == 0 then
+    return ""
   end
-  local student = self.age < chance.misc.normal({mean = 21, deviation = 3 })
-  if student then
-    self.occupation = "Student"
+  if item == '.' or item == ',' or item == ':' or item == "'s" or item == '-' then  --punctuation
+    return item
   end
-  local child = self.age < chance.misc.normal({mean = 5, deviation = 1 })
-  if child then
-    self.occupation = "None"
+  if string.sub(item,1,1) == '#' then
+    return string.sub(item,2)
   end
 
-  local num_interests = 0
-  while num_interests < 1 or num_interests > 8 do
-    num_interests = chance.misc.normal({mean = 4, deviation = 3})
+  -- otherwise it's a keyword
+  if Title.madlib[item] then
+    return Title:_decode(chance.helpers.pick(Title.madlib[item]))
   end
 
-  -- print(pl.pretty.dump(Game.wordbase.interests))
-  local function pick_interest() return chance.helpers.pick(Sources.interests) end
-  self.interests = chance.misc.unique(pick_interest, num_interests )
-  --print(pl.pretty.dump(self.interests))
+  if item == 'noun' then
+    return Text.namecase(Game.wordbase:get_noun(self.theme))
+  elseif item == 'verb' then
+    return Text.namecase(Game.wordbase:get_verb(self.theme))
+  elseif item == 'adj' then
+    return Text.namecase(Game.wordbase:get_adj(self.theme))
+  elseif item == 'adjnoun' then
+    return Text.namecase(Game.wordbase:get_adjnoun(self.theme))
+  elseif item == 'firstname' then
+    return Text.namecase(Game.wordbase:get_firstname(self.theme))
+  elseif item == 'lastname' then
+    return Text.namecase(Game.wordbase:get_lastname(self.theme))
+  elseif item == 'name' then
+    return Text.namecase(Game.wordbase:get_name(self.theme))
+  elseif item == 'capitals' then
+
+    local letters = chance.misc.n(function() return chance.basic.character({group='upper'}) end, math.max(1, chance.misc.normal({mean=3})))
+    local s = ""
+    for i,v in ipairs(letters) do
+      s = s .. v
+    end
+    return "#"..s
+  elseif item == 'number' then
+    return tostring(math.floor(1 + math.abs(chance.misc.normal({mean=2,deviation=3}))))
+  elseif item == 'title' then
+    local tit = Title:new(self.theme)
+    return tit:emit()
+  else
+    return "<unknown " .. item .. ">"
+  end
+  --[[elseif k == 'verb' then
+    return Game.wordbase:get_verb(self.theme)
+  elseif k == 'adj' then
+    return Game.wordbase:get_adj(self.theme)
+  elseif k == 'adjnoun' then
+    return Game.wordbase:get_adjnoun(self.theme)
+  else
+    return "!!"
+  end]]
+end
+
+function Title:initialize(movie_theme)
+  self.theme = movie_theme
+  self.words = {}
+  self.pattern = chance.helpers.pick(Title.patterns)
+  print (pl.pretty.dump(self.pattern))
+
+  for i,v in ipairs(self.pattern) do
+    self.words[i] = self:_decode(v)
+  end
 end
 
 function Title:emit()
-  local interests = ""
+  --[[local interests = ""
   for i,v in ipairs(self.interests) do
     interests = interests .. v .. "   "
   end
-  return self.name:emit() .. "  " .. self.age .. " yr " .. self.sex .. "; " .. self.occupation .. "\nInterests: " .. interests
+  return self.name:emit() .. "  " .. self.age .. " yr " .. self.sex .. "; " .. self.occupation .. "\nInterests: " .. interests]]
+  local s = ""
+  for i=1,#self.words do
+    local w = self.words[i]
+    if i == 1 or w == "'s" or w ==',' or w == '.' then
+      s = s .. w
+    else
+      s = s .. " ".. w
+    end
+  end
+  return s
+
 end
 
 return Title
@@ -49,33 +138,12 @@ return Title
 
 
 --[[
-verb-ing noun
-verbing location
-name the noun-phrase or the noun-phrase
-verb they verb a noun and noun verb?
-noun noun noun
-The adjective noun
-word Part 2
-word Part 3
-Why Verb? <noun-phrase list>   (x, y, z)
-preposition/adverb the noun
-name
-first name
-last name
-noun
-noun phrase
-anyword
-adj noun, adj noun
-noun phrase, noun phrase
-A noun for the noun
-Group of capital letters
-A noun of noun
-verb me noun
+
 The <last = what kind of word?> of the <plurual noun>
-<phrase> - <name>
-<name> - <phrase>
-The adj noun
 <numbered noun> to <noun>
 
+preposition/adverb the noun
+verb they verb a noun and noun verb?
+Why Verb? <noun-phrase list>   (x, y, z)
 
 ]]
