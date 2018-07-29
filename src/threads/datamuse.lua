@@ -11,14 +11,13 @@ function DatamuseThread:initialize()
   self.begin = os.time()
   self.requests = 0
   self.lookuperr = 0
-  self.rxerr = 0
   self.cached = 0
   self.thread_req = 0
   self.thread_resp = 0
 end
 
 function DatamuseThread:update(dt)
-  local w_struct = Game.wordbase:get_word_to_lookup()
+  --[[local w_struct = Game.wordbase:get_word_to_lookup()
   if w_struct and w_struct.word then
     local w = w_struct.word
     --print("lookup: " .. tostring(w))
@@ -32,16 +31,14 @@ function DatamuseThread:update(dt)
       end
     end
   end
-
+]]
   repeat
     local result = self.miso:pop()
-    self.thread_resp = self.thread_resp + 1
     if result then
+      self.thread_resp = self.thread_resp + 1
       local q, r = result.q, result.r
       --print("response q: ".. tostring(pl.pretty.dump(q)) .. " r: "..tostring(r))
       DatamuseThread.cache:set(q, r)
-    else
-      self.rxerr = self.rxerr + 1
     end
   until not result
 
@@ -107,8 +104,8 @@ end
 function DatamuseThread:stats()
   return self.requests .. " req " .. self.cached .. " cached\n"..
           self.thread_req .. " thread req "..self.thread_resp.." thread resp\n"..
-          self.rxerr .. " rxerr ".. self.lookuperr.." lookup err"
-        
+          self.lookuperr.." lookup err"
+
 
 end
 
