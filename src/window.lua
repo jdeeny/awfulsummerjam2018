@@ -5,9 +5,9 @@ local Window = class('Window')
 function Window:initialize(x, y, w, h)
   self.contents = { }
   self.cw, self.ch = w, h
-  self.px, self.py = Screen.topixels(x or 0, y or 0)
+  self.px, self.py = Screen.topixels(x - 1 or 0, y - 1 or 0)
   self.pw, self.ph = Screen.topixels(w or 1, h or 1)
-
+  
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
   love.graphics.setColor(Palette.PureWhite)

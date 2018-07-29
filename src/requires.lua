@@ -25,6 +25,7 @@ Sim = require 'src.sim'                -- Simulation stuff
 States = require 'src.states'                          -- State Manager
 Window = require 'src.window'
 Widgets = require 'src.widgets'               -- things that are displayed
+News = require 'src.news'
 Wordbase = require 'src.wordbase'
 Threads = require 'src.threads'
 AudioManager = require 'src.audiomanager'

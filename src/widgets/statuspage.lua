@@ -1,17 +1,17 @@
 local StatusPage = class('StatusPage', Widget)
 
-local row1 = 10
-local row2 = 20
+local row1 = 3
+local row2 = 14
 local col1 = 1
-local col2 = 60
-local colw = 55
+local colw = (Config.CharWidth - 4) / 2
+local col2 = col1 + colw + 3
 
 function StatusPage:initialize(x,y,w,h)
   Widget.initialize(self,x,y,w,h)
 
-  self.rankings_panel = Widgets.Panel:new(col1,row1,colw,20, "Box Offing Rankings")
-  self.finance_panel = Widgets.Panel:new(col1,row2,colw, 20, "Studio Finances")
-  self.feed_panel = Widgets.Panel:new(col2,row1,colw,self.ch - 5, "News Feed")
+  self.rankings_panel = Widgets.Panel:new(col1,row1,colw,20, "BOX OFFICE")
+  self.finance_panel = Widgets.Panel:new(col1,row2,colw, 20, "STUDIO FINANCES")
+  self.feed_panel = Widgets.Panel:new(col2,row1,colw,self.ch - 5, "NEWS FEED")
 
   self.finance_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 

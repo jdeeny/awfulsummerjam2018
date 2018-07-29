@@ -1,6 +1,6 @@
 local Config = {
-  CharWidth = 160,    -- 160x45 is the max for 1280x720, the default size
-  CharHeight = 45,
+  CharWidth = (1280/8),    -- 160x45 is the max for 1280x720, the default size
+  CharHeight = 720/16,
   StartYear = 1962,
   GameYear = 1982,
   Population = 1000,
@@ -21,11 +21,11 @@ local Config = {
   MusicVolume = 0.4,
   MusicFadeTime = 5,
 
-  PageWidth = 120,
-  PageHeight = 40,
-
   Controls = require('src/controls'),
 }
+Config.PageWidth = Config.CharWidth
+Config.PageHeight = Config.CharHeight - 3
+
 
 Config.EndYear = Config.GameYear + Config.GameYears
 Config.GameMonths = Config.GameYears * Config.MonthsPerYear

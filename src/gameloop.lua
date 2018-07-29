@@ -15,6 +15,7 @@ function love.update(dt)
   Game.state:update(dt)
   Game.datamuse:update(dt)
   Game.audiomanager:update(dt)
+  --Game.news:update(dt)
 end
 
 function love.draw()
@@ -32,6 +33,7 @@ function new_game()
     datamuse = Threads.datamuse:new(),
     audiomanager = AudioManager:new(),
     time = Sim.Time:new(),
+    news = News:new(),
   }
 
   Game.audiomanager:new_music({fadein=true})
@@ -39,6 +41,7 @@ function new_game()
   Game.datamuse:load_cache()
   Game.datamuse:start()
 
+  Game.news:add("Game Begins", 'important')
   Game.world = Sim.World:new()
 
   -- Fill game states

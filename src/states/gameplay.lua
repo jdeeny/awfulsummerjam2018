@@ -5,7 +5,7 @@ function StateGameplay:initialize()
   States.State.initialize(self, 'Gameplay')
   self.input = baton.new(Config.Controls)
 
-  self.main_window = Window:new(2, 2, 120, 45, Palette.Yellow)
+  self.main_window = Window:new(1, 1, Config.CharWidth, Config.CharHeight)
   self:_build()
 end
 
@@ -26,23 +26,25 @@ function StateGameplay:swap_to_moviedb()
 end
 
 function StateGameplay:_build()
+  local bwidth = 20
+  local bheight = 3
   local buttons = {
-    Widgets.Button:new(1, 1, 15, 5, "Status", {onclick = function() self:swap_to_status() end }),
-    Widgets.Button:new(17, 1, 15, 5, "Projects", {onclick = function() self:swap_to_projects() end }),
-    Widgets.Button:new(33, 1, 15, 5, "Surveys",{onclick = function() self:swap_to_surveys() end }),
-    Widgets.Button:new(49, 1, 15, 5, "Person DB",{onclick = function() self:swap_to_persondb() end }),
-    Widgets.Button:new(65, 1, 15, 5, "Film DB",{onclick = function() self:swap_to_moviedb() end }),
+    Widgets.Button:new(1, 1, bwidth, bheight, "Status", {onclick = function() self:swap_to_status() end }),
+    Widgets.Button:new(1+bwidth, 1, bwidth, bheight, "Projects", {onclick = function() self:swap_to_projects() end }),
+    Widgets.Button:new(1+2*bwidth, 1, bwidth, bheight, "Surveys",{onclick = function() self:swap_to_surveys() end }),
+    Widgets.Button:new(1+3*bwidth, 1, bwidth, bheight, "Person DB",{onclick = function() self:swap_to_persondb() end }),
+    Widgets.Button:new(1+4*bwidth, 1, bwidth, bheight, "Film DB",{onclick = function() self:swap_to_moviedb() end }),
   }
   for _,v in ipairs(buttons) do
     self.main_window:add(v)
   end
 
   self.pages = {}
-  self.pages['Status'] = Widgets.StatusPage:new(1, 5, Config.PageWidth, Config.PageHeight)
-  self.pages['Project'] = Widgets.ProjectPage:new(1, 5, Config.PageWidth, Config.PageHeight)
-  self.pages['Survey'] = Widgets.SurveyPage:new(1, 5, Config.PageWidth, Config.PageHeight)
-  self.pages['Person'] = Widgets.PersonPage:new(1, 5, Config.PageWidth, Config.PageHeight)
-  self.pages['Movie'] = Widgets.MoviePage:new(1, 5, Config.PageWidth, Config.PageHeight)
+  self.pages['Status'] = Widgets.StatusPage:new(1, 3, Config.PageWidth, Config.PageHeight)
+  self.pages['Project'] = Widgets.ProjectPage:new(1, 3, Config.PageWidth, Config.PageHeight)
+  self.pages['Survey'] = Widgets.SurveyPage:new(1, 3, Config.PageWidth, Config.PageHeight)
+  self.pages['Person'] = Widgets.PersonPage:new(1, 3, Config.PageWidth, Config.PageHeight)
+  self.pages['Movie'] = Widgets.MoviePage:new(1, 3, Config.PageWidth, Config.PageHeight)
 
   for _,v in pairs(self.pages) do
     self.main_window:add(v)

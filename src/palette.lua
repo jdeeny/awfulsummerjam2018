@@ -27,6 +27,13 @@ Palette['Background'] = Palette['Black']
 
 Palette['HoverFrame'] = Palette['SteelBlue']
 Palette['ClickFrame'] = Palette['LightViolet']
+
+Palette.NormalEvent = Palette.Frame
+Palette.RelatedEvent = Palette.NormalText
+Palette.DirectEvent = Palette.Yellow
+Palette.MilestoneEvent = Palette.AquaBlue
+Palette.Important = Palette.White
+
 return Palette
 
 

@@ -10,6 +10,14 @@ function Time:initialize()
   self.scale = 1.0
 end
 
+function Time:now()
+  return {self.year, self.month, self.day}
+end
+
+function Time:format(year,month,day)
+  return tostring(year).."-"..string.format("%02d", month).."-"..string.format("%02d", day)
+end
+
 function Time:reset(when)
   if when == 'GameStart' then
     self.year = Config.GameYear

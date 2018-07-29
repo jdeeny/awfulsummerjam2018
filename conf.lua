@@ -10,10 +10,13 @@ function love.conf(t)
 
   t.window.width = 1280                -- The window width (number)
   t.window.height = 720               -- The window height (number)
-  t.window.resizable = true           -- Let the window be user-resizable (boolean)
+  t.window.resizable = false           -- Let the window be user-resizable (boolean)
   t.window.minwidth = 1280 / 2               -- Minimum window width if the window is resizable (number)
   t.window.minheight = 720 / 2               -- Minimum window height if the window is resizable (number)
   t.window.vsync = true               -- Enable vertical sync (boolean)
+  t.window.title = "Aperiology"         -- The window title (string)
+  t.window.borderless = false         -- Remove all border visuals from the window (boolean)
+  t.window.fullscreen = false         -- Enable fullscreen (boolean)
 
   t.modules.physics = false            -- Enable the physics module (boolean)
 
@@ -25,7 +28,7 @@ function love.conf(t)
   t.externalstorage = false           -- True to save files (and read from the save directory) in external storage on Android (boolean)
   t.gammacorrect = false              -- Enable gamma-correct rendering, when supported by the system (boolean)
 
-  t.window.title = "Untitled"         -- The window title (string)
+  t.window.title = "Aperiology"         -- The window title (string)
   t.window.icon = nil                 -- Filepath to an image to use as the window's icon (string)
   t.window.width = 1280                -- The window width (number)
   t.window.height = 720               -- The window height (number)
