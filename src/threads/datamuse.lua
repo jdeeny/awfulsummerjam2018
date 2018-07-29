@@ -9,6 +9,12 @@ function DatamuseThread:initialize()
   self.inner = 'src/threads/datamuse_inner.lua'
   Thread.initialize(self)
   self.begin = os.time()
+  self.requests = 0
+  self.lookuperr = 0
+  self.rxerr = 0
+  self.cached = 0
+  self.thread_req = 0
+  self.thread_resp = 0
 end
 
 function DatamuseThread:update(dt)
@@ -19,30 +25,38 @@ function DatamuseThread:update(dt)
     if w then
       local ok, result = self:lookup("rel_trg=" .. w .. "&md=p")
       if ok then
-        --print("Store lookup")
-        Game.wordbase:store_lookup(w, result)
+        print("Store lookup")
+        if type(result) ~= 'boolean' then
+          Game.wordbase:store_lookup(w, result)
+        end
       end
     end
   end
 
   repeat
     local result = self.miso:pop()
+    self.thread_resp = self.thread_resp + 1
     if result then
       local q, r = result.q, result.r
       --print("response q: ".. tostring(pl.pretty.dump(q)) .. " r: "..tostring(r))
       DatamuseThread.cache:set(q, r)
+    else
+      self.rxerr = self.rxerr + 1
     end
   until not result
 
 end
 
 function DatamuseThread:lookup(query)
+  self.requests = self.requests + 1
   if not query or query == "" then
+    self.lookuperr = self.lookuperr + 1
     return false, nil
   end
 
   local result = DatamuseThread.cache:get(query)
   if result then
+    self.cached = self.cached + 1
     print("Cached: q: " .. query )--.. " r: " .. result)
     return true, result
   end
@@ -51,6 +65,7 @@ function DatamuseThread:lookup(query)
   -- cache as false so that we don't send a zillion queries across the channel
   DatamuseThread.cache:set(query, false, 1)
   print("push q: ", query)
+  self.thread_req = self.thread_req + 1
   self.mosi:push(query)
 
   -- true, false means request was value, no response yet
@@ -87,6 +102,14 @@ function DatamuseThread:load_cache()
       print("Cache loaded: ".. count)
     end
   end
+end
+
+function DatamuseThread:stats()
+  return self.requests .. " req " .. self.cached .. " cached\n"..
+          self.thread_req .. " thread req "..self.thread_resp.." thread resp\n"..
+          self.rxerr .. " rxerr ".. self.lookuperr.." lookup err"
+        
+
 end
 
 return DatamuseThread

@@ -57,7 +57,7 @@ function Wordbase:store_lookup(word, result)
   self.to_lookup = new_look
 
   print("W: "..word)
-  --print(pl.pretty.dump(new_prio))
+  --print("Result: "..pl.pretty.dump(result))
   if self.theme[word] then
     self.theme[word] = result
   else
