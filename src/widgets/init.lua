@@ -20,5 +20,7 @@ Widgets.ProjectPage = require('src.widgets.projectpage')
 Widgets.StatusPage = require('src.widgets.statuspage')
 Widgets.SurveyPage = require('src.widgets.surveypage')
 Widgets.PersonPage = require('src.widgets.personpage')
+Widgets.ProfitBar = require('src.widgets.profitbar')
+Widgets.ProfitGraph = require('src.widgets.profitgraph')
 
 return Widgets
