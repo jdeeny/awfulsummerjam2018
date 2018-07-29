@@ -60,7 +60,7 @@ function Widget:click(x, y)
   print("widget:click: ".. x .." "..y)
   --local x, y = x - self.px, y - self.py
   print(self.px.." "..self.py.." "..self.pw.." "..self.ph)
-  if x < self.px or y < self.py or x > (self.pw + self.px) or y > (self.ph + self.py) then
+  if x <= 0 or y <= 0 or x > self.pw or y > self.ph then
     print("bail")
     return
   end
