@@ -11,8 +11,7 @@ function Panel:_draw()
 
   love.graphics.clear(Palette.Background)
   love.graphics.setColor(Palette.Frame)
-  --╒═══════════════════════════════════════════════════════════════════════════╕
-  --├─────────────────────────── BOX OFFICE RANKINGS ───────────────────────────┤
+
   Line.drawh(1,1,self.cw, self.options.ul or '╒', self.options.top or '═', self.options.ur or '╕')
   local left = (self.cw - #self.title - 2) / 2
   local right = self.cw - #self.title - 2 - left
@@ -22,9 +21,6 @@ function Panel:_draw()
   Line.drawv(1,3, self.ch-2, self.options.left or '│')
   Line.drawv(self.cw,2, self.ch-2, self.options.right or '│')
   love.graphics.setColor(Palette.Heading)
-  --local x, y = Text.center(#self.title, self.cw), Text.center(1, self.ch)
-  --x, y = Screen.topixels(x,y)
-  --love.graphics.print(self.title, x, y)
 end
 
 return Panel

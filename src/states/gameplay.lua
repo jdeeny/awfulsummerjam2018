@@ -38,11 +38,11 @@ function StateGameplay:_build()
   end
 
   self.pages = {}
-  self.pages['Status'] = Widgets.StatusPage:new(1, 10, Config.PageWidth, Config.PageHeight)
-  self.pages['Project'] = Widgets.ProjectPage:new(1, 10, Config.PageWidth, Config.PageHeight)
-  self.pages['Survey'] = Widgets.SurveyPage:new(1, 10, Config.PageWidth, Config.PageHeight)
-  self.pages['Person'] = Widgets.PersonPage:new(1, 10, Config.PageWidth, Config.PageHeight)
-  self.pages['Movie'] = Widgets.MoviePage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self.pages['Status'] = Widgets.StatusPage:new(1, 5, Config.PageWidth, Config.PageHeight)
+  self.pages['Project'] = Widgets.ProjectPage:new(1, 5, Config.PageWidth, Config.PageHeight)
+  self.pages['Survey'] = Widgets.SurveyPage:new(1, 5, Config.PageWidth, Config.PageHeight)
+  self.pages['Person'] = Widgets.PersonPage:new(1, 5, Config.PageWidth, Config.PageHeight)
+  self.pages['Movie'] = Widgets.MoviePage:new(1, 5, Config.PageWidth, Config.PageHeight)
 
   for _,v in pairs(self.pages) do
     self.main_window:add(v)

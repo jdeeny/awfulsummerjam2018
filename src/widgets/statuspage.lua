@@ -18,4 +18,20 @@ function StatusPage:initialize(x,y,w,h)
   self:add(self.feed_panel)
 end
 
+function StatusPage:_draw()
+  love.graphics.setCanvas(self.canvas)
+
+  love.graphics.clear(Palette.Background)
+  love.graphics.setColor(Palette.Frame)
+
+  Line.drawh(1,1,self.cw, '╒', '═', '╕')
+  Line.drawh(1,self.ch-2,self.cw, '╠', '═', '╣')
+  Line.drawh(1,self.ch,self.cw, '╚', '═', '╝')
+  self:print(1,self.ch-1, '║')
+  self:print(self.cw,self.ch-1, '║')
+  Line.drawv(1,2, self.ch-4, '║')
+  Line.drawv(self.cw,2, self.ch-4,'║')
+end
+
+
 return StatusPage
