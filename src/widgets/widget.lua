@@ -83,6 +83,18 @@ print("onclick..")
   end
 end
 
+function Widget:print(x,y,text,color)
+  local oldcolor
+  if color then
+    oldcolor = love.graphics.getColor()
+    love.graphics.setColor(color)
+  end
+  local x,y = Screen.topixels(x-1,y-1)
+  love.graphics.print(text, x, y)
+  if color then
+    love.graphics.setColor(oldcolor)
+  end
+end
 
 function Widget:draw()
   if self.hidden then
