@@ -13,6 +13,8 @@ function StatusPage:initialize(x,y,w,h)
   self.finance_panel = Widgets.Panel:new(col1,row2,colw, 20, "Studio Finances")
   self.feed_panel = Widgets.Panel:new(col2,row1,colw,self.ch - 5, "News Feed")
 
+  self.finance_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
+
   self:add(self.rankings_panel)
   self:add(self.finance_panel)
   self:add(self.feed_panel)
