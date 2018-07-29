@@ -47,15 +47,16 @@ function StateGameplay:_build()
   for _,v in pairs(self.pages) do
     self.main_window:add(v)
   end
-  self:_set_page('Status')
+  --self:_set_page('Status')
 
 
 end
 
 function StateGameplay:_set_page(pagename)
+  print("Set page: "..pagename)
   for k, v in pairs(self.pages) do
     if k == pagename then
-      print("not hidden")
+      print("not hidden " .. pagename)
       v.hidden = false
     else
       v.hidden = true
@@ -66,7 +67,7 @@ end
 function StateGameplay:enter()
   Game.time.scale = 1.0
   Game.time.ticking = true
-
+  self:_set_page("Status")
 end
 
 function StateGameplay:update(dt)
