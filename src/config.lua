@@ -20,6 +20,10 @@ local Config = {
   FxVolume = 0.7,
   MusicVolume = 0.4,
   MusicFadeTime = 5,
+
+  PageWidth = 120,
+  PageHeight = 40,
+
   Controls = require('src/controls'),
 }
 

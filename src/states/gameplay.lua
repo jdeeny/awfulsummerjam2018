@@ -9,22 +9,39 @@ function StateGameplay:initialize()
   self:_build()
 end
 
+function StateGameplay:swap_to_status()
+  self.viewed_page = Widgets.StatusPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+end
+function StateGameplay:swap_to_projects()
+  self.viewed_page = Widgets.ProjectPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+end
+function StateGameplay:swap_to_surveys()
+  self.viewed_page = Widgets.SurveyPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+end
+function StateGameplay:swap_to_persondb()
+  print("Person")
+  self.viewed_page = Widgets.PersonPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+end
+function StateGameplay:swap_to_moviedb()
+  self.viewed_page = Widgets.MoviePage:new(1, 10, Config.PageWidth, Config.PageHeight)
+end
+
 function StateGameplay:_build()
   local buttons = {
-    Widgets.Button:new(1, 1, 15, 5, "Status"),
-    Widgets.Button:new(17, 1, 15, 5, "Projects"),
-    Widgets.Button:new(33, 1, 15, 5, "Surveys"),
-    Widgets.Button:new(49, 1, 15, 5, "Person DB"),
-    Widgets.Button:new(65, 1, 15, 5, "Film DB"),
+    Widgets.Button:new(1, 1, 15, 5, "Status", {onclick = function() self:swap_to_status() end }),
+    Widgets.Button:new(17, 1, 15, 5, "Projects", {onclick = function() self:swap_to_projects() end }),
+    Widgets.Button:new(33, 1, 15, 5, "Surveys",{onclick = function() self:swap_to_surveys() end }),
+    Widgets.Button:new(49, 1, 15, 5, "Person DB",{onclick = function() self:swap_to_persondb() end }),
+    Widgets.Button:new(65, 1, 15, 5, "Film DB",{onclick = function() self:swap_to_moviedb() end }),
   }
   for _,v in ipairs(buttons) do
     self.main_window:add(v)
   end
 
   print("!!!")
-  self.viewed_page = Widgets.FilmPage:new(1, 10, 120, 35)
+  --self.viewed_page = Widgets.FilmPage:new(1, 10, 120, 35)
   print("###")
-  self.main_window:add(self.viewed_page)
+  --self.main_window:add(self.viewed_page)
 
   --local calendar = Widgets.CalendarPanel:new(130,1, 28, 43, 2, 2)
   --self.main_window:add(calendar)
@@ -42,6 +59,7 @@ function StateGameplay:update(dt)
 
   if self.input:pressed('click') then
     local x, y = love.mouse.getPosition()
+    print("click: "..x.." "..y)
     self.main_window:click(x, y)
   end
 

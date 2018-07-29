@@ -15,6 +15,10 @@ Widgets.MovieInfo = require('src.widgets.movieinfo')
 Widgets.List = require('src.widgets.list')
 Widgets.Heading = require('src.widgets.heading')
 Widgets.ScrollPanel = require('src.widgets.scrollpanel')
-Widgets.FilmPage = require('src.widgets.filmpage')
+Widgets.MoviePage = require('src.widgets.moviepage')
 Widgets.ProjectPage = require('src.widgets.projectpage')
+Widgets.StatusPage = require('src.widgets.statuspage')
+Widgets.SurveyPage = require('src.widgets.surveypage')
+Widgets.PersonPage = require('src.widgets.personpage')
+
 return Widgets

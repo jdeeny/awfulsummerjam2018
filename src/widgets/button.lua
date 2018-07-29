@@ -7,14 +7,17 @@ function Button:initialize(x, y, w, h, text, options)
   self.text = text or "butt on"
   self.mode = ''
   self.old_mode = ''
-  self.click = false
 end
 
 function Button:_onclick(x, y)
+  print("click in button")
   if x >= 0 and y >= 0 and x <= self.pw and y <= self.ph then
     print("Click button inside: " .. self.text .." ".. x.. " " .. y)
+    if type(self.options.onclick) == 'function' then
+      self.options.onclick()
+    end
   else
-    print("Click button: " .. self.text .." ".. x.. " " .. y)
+    print("Click outside button: " .. self.text .." ".. x.. " " .. y)
   end
   self.mode = 'click'
 end

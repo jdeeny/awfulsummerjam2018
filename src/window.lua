@@ -48,13 +48,20 @@ end]]
 
 function Window:click(x, y)
   local x, y = x - self.px, y - self.py
+  if x > self.pw or y > self.ph then
+    print("click outside window")
+    return
+  end
   if self._onclick then
+    print("onclick window: "..x.." "..y)
     self:_onclick(x, y)
   else
+    print("onclick widgets")
     for i, v in ipairs(self.contents) do
       if v.click then
         v:click(x, y)
       else
+        print("no click")
         --print("Try to click but no click from window: " ..(v.id or "") .. (v.text or "") .. (v.name or ""))
         --print(pl.pretty.dump(v))
         --print('.')
