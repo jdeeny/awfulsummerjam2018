@@ -7,7 +7,7 @@ function Widget:initialize(x, y, w, h, bgcolor)
   self.contents = { }
   self.bgcolor = bgcolor or { 0, 0, 0, 0}
   self.cw, self.ch = w, h
-  self.px, self.py = Screen.topixels(x or 1, y or 1)
+  self.px, self.py = Screen.topixels((x -1 )or 1, (y-1) or 1)
   self.pw, self.ph = Screen.topixels(w or 1, h or 1)
   --self.pxoff, self.pyoff = Screen.topixels(xoff or 0, yoff or 0)
 
@@ -60,7 +60,7 @@ function Widget:click(x, y)
   print("widget:click: ".. x .." "..y)
   --local x, y = x - self.px, y - self.py
   print(self.px.." "..self.py.." "..self.pw.." "..self.ph)
-  if x <= 0 or y <= 0 or x > self.pw or y > self.ph then
+  if x <= self.px or y <= self.py or x > self.pw+ self.px or y > self.ph+ self.px then
     print("bail")
     return
   end

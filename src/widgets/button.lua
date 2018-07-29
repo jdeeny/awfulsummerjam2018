@@ -11,6 +11,7 @@ end
 
 function Button:_onclick(x, y)
   print("click in button")
+  local x, y = x - self.px, y - self.py
   if x >= 0 and y >= 0 and x <= self.pw and y <= self.ph then
     print("Click button inside: " .. self.text .." ".. x.. " " .. y)
     if type(self.options.onclick) == 'function' then
