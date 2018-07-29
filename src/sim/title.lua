@@ -13,6 +13,7 @@ Title.static.patterns = {
   { 'verb', ',', 'verb', ',', '#and', 'verb'},
   { 'firstname', '#and', 'firstname'},
   { 'title', '#Part', 'number' },
+  { 'title', 'number' },
   { 'name' },
   { 'firstname' },
   { 'lastname' },
@@ -84,7 +85,7 @@ function Title:_decode(title_item)
     end
     return "#"..s
   elseif item == 'number' then
-    return tostring(math.floor(1 + math.abs(chance.misc.normal({mean=3,deviation=3}))))
+    return tostring(chance.helpers.pick({math.random(2,7),math.random(2,4),math.random(2,99)}))
   elseif item == 'title' then
     local tit = Title:new(self.theme)
     return tit:emit()

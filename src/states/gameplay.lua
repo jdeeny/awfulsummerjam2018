@@ -10,20 +10,19 @@ function StateGameplay:initialize()
 end
 
 function StateGameplay:swap_to_status()
-  self.viewed_page = Widgets.StatusPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self:_set_page('Status')
 end
 function StateGameplay:swap_to_projects()
-  self.viewed_page = Widgets.ProjectPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self:_set_page('Project')
 end
 function StateGameplay:swap_to_surveys()
-  self.viewed_page = Widgets.SurveyPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self:_set_page('Survey')
 end
 function StateGameplay:swap_to_persondb()
-  print("Person")
-  self.viewed_page = Widgets.PersonPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self:_set_page('Person')
 end
 function StateGameplay:swap_to_moviedb()
-  self.viewed_page = Widgets.MoviePage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self:_set_page('Movie')
 end
 
 function StateGameplay:_build()
@@ -38,15 +37,31 @@ function StateGameplay:_build()
     self.main_window:add(v)
   end
 
-  print("!!!")
-  --self.viewed_page = Widgets.FilmPage:new(1, 10, 120, 35)
-  print("###")
-  --self.main_window:add(self.viewed_page)
+  self.pages = {}
+  self.pages['Status'] = Widgets.StatusPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self.pages['Project'] = Widgets.ProjectPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self.pages['Survey'] = Widgets.SurveyPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self.pages['Person'] = Widgets.PersonPage:new(1, 10, Config.PageWidth, Config.PageHeight)
+  self.pages['Movie'] = Widgets.MoviePage:new(1, 10, Config.PageWidth, Config.PageHeight)
 
-  --local calendar = Widgets.CalendarPanel:new(130,1, 28, 43, 2, 2)
-  --self.main_window:add(calendar)
+  for _,v in pairs(self.pages) do
+    self.main_window:add(v)
+  end
+  self:_set_page('Status')
+
+
 end
 
+function StateGameplay:_set_page(pagename)
+  for k, v in pairs(self.pages) do
+    if k == pagename then
+      print("not hidden")
+      v.hidden = false
+    else
+      v.hidden = true
+    end
+  end
+end
 
 function StateGameplay:enter()
   Game.time.scale = 1.0

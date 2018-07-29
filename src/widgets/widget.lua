@@ -85,10 +85,13 @@ end
 
 
 function Widget:draw()
-  love.graphics.setColor(Palette.PureWhite)
-  love.graphics.draw(self.canvas, self.px, self.py)
-  for i,v in ipairs(self.contents) do
-    v:draw()
+  if self.hidden then
+  else
+    love.graphics.setColor(Palette.PureWhite)
+    love.graphics.draw(self.canvas, self.px, self.py)
+    for i,v in ipairs(self.contents) do
+      v:draw()
+    end
   end
 end
 
