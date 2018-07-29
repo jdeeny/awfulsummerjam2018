@@ -21,8 +21,8 @@ Title.static.patterns = {
   { 'adjnoun', ',', 'adjnoun' },
   --{ 'phrase', ',', 'phrase' },
   { '#A', 'noun', '#for the', 'noun' },
-  { 'capitals' },
-  { 'capitals', ':', 'title' },
+  --{ 'capitals' },
+  --{ 'capitals', ':', 'title' },
   { '#A', 'noun', '#of', 'noun' },
   { 'verb', '#Me', ',', 'noun' },
   --{ '#The Last of the', 'pluralnoun' },
@@ -84,7 +84,7 @@ function Title:_decode(title_item)
     end
     return "#"..s
   elseif item == 'number' then
-    return tostring(math.floor(1 + math.abs(chance.misc.normal({mean=2,deviation=3}))))
+    return tostring(math.floor(1 + math.abs(chance.misc.normal({mean=3,deviation=3}))))
   elseif item == 'title' then
     local tit = Title:new(self.theme)
     return tit:emit()
@@ -106,7 +106,7 @@ function Title:initialize(movie_theme)
   self.theme = movie_theme
   self.words = {}
   self.pattern = chance.helpers.pick(Title.patterns)
-  print (pl.pretty.dump(self.pattern))
+  --print (pl.pretty.dump(self.pattern))
 
   for i,v in ipairs(self.pattern) do
     self.words[i] = self:_decode(v)
@@ -122,7 +122,7 @@ function Title:emit()
   local s = ""
   for i=1,#self.words do
     local w = self.words[i]
-    if i == 1 or w == "'s" or w ==',' or w == '.' then
+    if i == 1 or w == "'s" or w ==',' or w == '.' or w == ":" then
       s = s .. w
     else
       s = s .. " ".. w

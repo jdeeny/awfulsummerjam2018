@@ -11,9 +11,9 @@ function World:initialize()
 end
 
 function World:new_npc_movie()
-  print("new movie stub")
+  --print("new movie stub")
   local movie = Sim.Movie:new()
-  print(movie:emit())
+  print(movie:emit()..'\n')
   table.insert(self.movies, movie)
 end
 
