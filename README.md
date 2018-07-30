@@ -1,6 +1,6 @@
 # awfulsummerjam2018
 
-# Title: TBA
+# Title: Aperiology
 
 ## Concept:
 You are a movie studio exec and have been tasked with creating blockbuster
