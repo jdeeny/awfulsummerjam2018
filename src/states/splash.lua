@@ -10,7 +10,7 @@ d8' `8b 88  `8D 88'     88  `8D   `88'   .8P  Y8. 88      .8P  Y8. 88' Y8b `8b  
 YP   YP 88      Y88888P 88   YD Y888888P  `Y88P'  Y88888P  `Y88P'   Y888P     YP
 ]]
 
-local COPYRIGHT = "Copyright (c) 2018 Your Momma's Momma Productions"
+local COPYRIGHT = "Copyright (c) 2018 John Deeny, blastron, Noyemi K, Julez Michaud"
 local AWFUL = "Awful Summer Jam 2018"
 
 function StateSplash:initialize()

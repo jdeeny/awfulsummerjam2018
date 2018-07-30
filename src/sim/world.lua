@@ -10,6 +10,19 @@ function World:initialize()
   self.movies = {} --chance.misc.n(newmovie, Config.Movies)
 end
 
+-- the sim advances each day
+function World:sim_day()
+  -- Everyone decides if they go to a movie
+  for i,person in ipairs(self.people) do
+    --for each movie in theater do
+    --end
+  end
+  -- and which one
+
+  -- update finance totals
+  -- flag charts for update
+end
+
 function World:new_npc_movie()
   --print("new movie stub")
   local movie = Sim.Movie:new()
