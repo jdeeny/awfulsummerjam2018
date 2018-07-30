@@ -57,6 +57,8 @@ function StateGameplay:_build()
   self.status_date = Widgets.TextPanel:new(Config.CharWidth - 14, Config.CharHeight - 2, 20, 1, Palette.HighlightText, Game.time:emit())
   self.main_window:add(self.status_date)
 
+  self.heading = Widgets.TextPanel:new(Config.CharWidth - 21, 1, 20, 1, Palette.HighlightText, "Aperiology")
+  self.main_window:add(self.heading)
 end
 
 function StateGameplay:_set_page(pagename)
