@@ -5,7 +5,10 @@ function love.conf(t)
   t.author = ""        -- The author of the game (string)
   t.url = ""                 -- The website of the game (string)
   t.identity = "nil"            -- The name of the save directory (string)
-
+  t.email = "jdeeny@gmail.com"
+  t.version = "0.10.2"
+  t.author = "John Deeny, blastron, Noyemi K"
+  t.homepage = "https://taqueso.itch.io/aperiology"
   t.accelerometerjoystick = false      -- Enable the accelerometer on iOS and Android by exposing it as a Joystick (boolean)
 
   t.window.width = 1280                -- The window width (number)
@@ -19,6 +22,21 @@ function love.conf(t)
   t.window.fullscreen = false         -- Enable fullscreen (boolean)
 
   t.modules.physics = false            -- Enable the physics module (boolean)
+
+  t.releases = {
+      title = "Aperiology",              -- The project title (string)
+      package = 'aperiology',            -- The project command and package name (string)
+      loveVersion = "0.10.2",        -- The project LÖVE version
+      version = "0.0.1",            -- The project version
+      author = "John Deeny, blastron, Noyemi K",             -- Your name (string)
+      email = "jdeeny@gmail.com",              -- Your email (string)
+      description = "A Movie Exec Simulation",        -- The project description (string)
+      homepage = "https://taqueso.itch.io/aperiology",           -- The project homepage (string)
+      identifier = 'aperiology.aperiology',         -- The project Uniform Type Identifier (string)
+      excludeFileList = {},     -- File patterns to exclude. (string list)
+      releaseDirectory = "release/",   -- Where to store the project releases (string)
+    }
+
 
   --[[
   t.identity = nil                    -- The name of the save directory (string)
