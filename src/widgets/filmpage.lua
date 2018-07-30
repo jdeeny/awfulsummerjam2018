@@ -1,7 +1,7 @@
 local FilmPage = class('FilmPage', Widget)
 
 local row1 = 5
-local row2 = 14
+local row2 = Config.PageHeight / 2
 local col1 = 2
 local colw = (Config.CharWidth - 4) / 2
 local col2 = col1 + colw + 3
@@ -16,6 +16,17 @@ function FilmPage:initialize(x,y,w,h)
   self.film_panel:add(self.film_list)
 
   self.details_panel = Widgets.Panel:new(col2,row1,colw, rowh, "DETAILS")
+  self.cast_heading = Widgets.TextPanel:new(1,row1+3,colw,1, Palette.HighlightText,"Cast", {center=true})
+  self.crew_heading = Widgets.TextPanel:new(1,row2,colw,1, Palette.HighlightText, "Crew", {center=true})
+  self.keywords_heading = Widgets.TextPanel:new(col2,row1+3,colw,1, Palette.HighlightText, "Keywords", {center=true})
+  self.performance_heading = Widgets.TextPanel:new(col2,row2,colw,1, Palette.HighlightText, "Performance", {center=true})
+
+
+  self.details_panel:add(self.cast_heading)
+  self.details_panel:add(self.crew_heading)
+  self.details_panel:add(self.keywords_heading)
+  self.details_panel:add(self.performance_heading)
+
 --  self.projects_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 
 
