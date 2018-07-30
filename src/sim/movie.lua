@@ -14,10 +14,10 @@ function Movie:initialize(options)
 
   -- then figure out a title etc
   self.title = Sim.Title:new()
-  self.director = "Director"
-  self.lead = "Lead"
-  self.support = "Support"
-  self.rating = "R"
+  self.director = chance.helpers.pick(Game.world.directors)
+  self.lead = chance.helpers.pick(Game.world.actors)
+  self.support = chance.helpers.pick(Game.world.actors)
+  self.rating = chance.helpers.pick({"G", "PG", "PG-13", "R", "NC-17", "NR"})
 
 end
 
@@ -26,7 +26,10 @@ function Movie:emit()
   for i,v in ipairs(self.themes) do
     themestr = themestr .. v.word .. " "
   end
-  return self.title:emit() .. "\nThemes: "..themestr
+  return self.title:emit() .. " / "..self.rating.." / Themes: "..themestr..
+  "\nDir: "..self.director.name:emit()..
+  " / Lead: " ..self.lead.name:emit()..
+  " / Support: "..self.support.name:emit()
 end
 
 return Movie
