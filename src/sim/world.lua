@@ -15,7 +15,7 @@ end
 function World:sim_day()
   --print("sim day")
   -- Everyone decides if they go to a movie
-  for i=1,10 do
+  for i=1,100 do
     local person = chance.helpers.pick(self.people.people)
     local movie = chance.helpers.pick(self.movies)
     local base_chance = person:get_base_movie_chance()
@@ -46,12 +46,13 @@ function World:sim_day()
     end
     local s = {}
     for i,v in ipairs(movie_totals) do
-      s[0-v.views] = v
+      s[v.views] = v
     end
-    pl.tablex.sort(s)
     local boxoffice = {}
-    for k,v in pairs(s) do
-      table.insert(boxoffice, v)
+    for k,v in pl.tablex.sort(s) do
+      if k > 0 then
+        table.insert(boxoffice, 0, v)
+      end
     end
     print("Box office: "..month)
     print(pl.pretty.dump(boxoffice))

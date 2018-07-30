@@ -22,7 +22,7 @@ local Config = {
   MusicFadeTime = 5,
   NewsHeight = 16 * 3,
   MoviePrice = 20,
-  PopScale = 100000,
+  PopScale = 5000,
   Controls = require('src/controls'),
 }
 

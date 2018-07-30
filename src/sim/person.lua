@@ -1,6 +1,7 @@
 local Person = class('Person')
 
 function Person:initialize()
+  self.stats = {}
   self.views = {}
   self.sex = (chance.person.gender( { binary = true } )):sub(1,1)
   self.age = chance.person.age()
