@@ -6,6 +6,7 @@ function Widget:initialize(x, y, w, h, bgcolor)
   self.clean = false
   self.contents = { }
   self.bgcolor = bgcolor or { 0, 0, 0, 0}
+  self.cx, self.cy = x, y
   self.cw, self.ch = w, h
   self.px, self.py = Screen.topixels((x -1 )or 1, (y-1) or 1)
   self.pw, self.ph = Screen.topixels(w or 1, h or 1)
@@ -86,14 +87,14 @@ end
 function Widget:print(x,y,text,color)
   local oldcolor
   if color then
-    oldcolor = love.graphics.getColor()
+  --  oldcolor = love.graphics.getColor()
     love.graphics.setColor(color)
   end
   local x,y = Screen.topixels(x-1,y-1)
   love.graphics.print(text, x, y)
-  if color then
-    love.graphics.setColor(oldcolor)
-  end
+  --if color then
+  --  love.graphics.setColor(oldcolor)
+  --end
 end
 
 function Widget:draw()

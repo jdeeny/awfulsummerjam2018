@@ -22,6 +22,14 @@ function Time:emit()
   return string.format("%04d-%02d-%02d", self.year, self.month,self.day)
 end
 
+function Time:indays()
+  return ((self.year - Config.GameYear) * Config.MonthsPerYear + self.month) * Config.DaysPerMonth + self.day
+end
+
+function Time:daysremaining()
+  return Config.TotalDays - self:indays()
+end
+
 function Time:reset(when)
   if when == 'GameStart' then
     self.year = Config.GameYear

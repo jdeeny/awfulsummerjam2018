@@ -35,7 +35,16 @@ function new_game()
     time = Sim.Time:new(),
     news = News:new(),
     player = Player:new(),
+    day_gross = {0.0},
+    day_loss = {0.0},
+    day_net = {0.0}
   }
+
+  for i=1,Config.TotalDays do
+    Game.day_gross[i] = 0.0
+    Game.day_loss[i] = 0.0
+    Game.day_net[i] = 00
+  end
 
   Game.audiomanager:new_music({fadein=true})
 

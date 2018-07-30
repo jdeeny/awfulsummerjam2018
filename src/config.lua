@@ -24,6 +24,9 @@ local Config = {
 
   Controls = require('src/controls'),
 }
+
+Config.TotalDays = Config.GameYears * Config.MonthsPerYear * Config.DaysPerMonth
+
 Config.PageWidth = Config.CharWidth
 Config.PageY = 4
 Config.PageHeight = Config.CharHeight - 4

@@ -13,11 +13,15 @@ function StatusPage:initialize(x,y,w,h)
   self.finance_panel = Widgets.Panel:new(col1,row2,colw, 20, "STUDIO FINANCES")
   self.feed_panel = Widgets.Panel:new(col2,row1,colw,self.ch - 5, "NEWS FEED")
   self.feed_panel:add(Widgets.NewsFeed:new(col2+2,row1+3,self.feed_panel.cw-4,self.feed_panel.ch-4))
-  self.finance_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
+--  self.projects_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
+
+  self.finance_panel:add(Widgets.ProfitGraph:new(col1+1,row2+1,colw-2, 18))
 
   self:add(self.rankings_panel)
   self:add(self.finance_panel)
   self:add(self.feed_panel)
+  self:add(self.projects_panel)
+
 end
 
 function StatusPage:_draw()

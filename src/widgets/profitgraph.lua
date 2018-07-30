@@ -10,37 +10,52 @@ function ProfitGraph:initialize(x, y, w, data, options)
   self.options = options or {}
   Widget.initialize(self, x, y, w, self.options.height or 1)
   self.data = data or {}
+  self.old_day = 0
 end
 
---[[function ProfitGraph:update(dt, x, y)
+function ProfitGraph:update(dt, x, y)
   Widget.update(self, dt, x, y)
 
-  if self.old_mode ~= self.mode then self.clean = false end
-  self.old_mode = self.mode
-end]]
-
-function ProfitGraph.set_data(data)
-  self.data = data or {}
-  self.clean = false
+  local days = Game.time:indays()
+  if days ~= self.old_day then
+    self.clean = false
+    self.old_day = days
+  end
 end
 
 function ProfitGraph:_draw()
   love.graphics.setCanvas(self.canvas)
   love.graphics.clear(Palette.Background)
 
-  local dwidth = #self.data
-  local remainder = self.cw - dwidth
+
+  -- print gain/loss/net
+  self:print(self.cx + 2, self.cy + self.ch + 1, "GAIN", Palette.Frame)
+  self:print(self.cx + 2, self.cy + self.ch + 1, "LOSS", Palette.Frame)
+  self:print(self.cx + 2, self.cy + self.ch + 1, " NET", Palette.Frame)
+
+  v = Game.day_gross[1]
+  local c = (v > 0 and Palette.MoneyGood) or (v <0 and Palette.MoneyBad) or Palette.MoneyNeutral
+  self:print(self.cx + self.cw - 15, self.cy + self.ch + 1, v, c)
+  v = Game.day_loss[1]
+  local c = (v > 0 and Palette.MoneyGood) or (v <0 and Palette.MoneyBad) or Palette.MoneyNeutral
+  self:print(self.cx + self.cw - 15, self.cy + self.ch + 2, v, c)
+  v = Game.day_net[1]
+  local c = (v > 0 and Palette.MoneyGood) or (v <0 and Palette.MoneyBad) or Palette.MoneyNeutral
+  self:print(self.cx + self.cw - 15, self.cy + self.ch + 3, v, c)
+
+
+  --print days
+  self:print(self.cx + self.cw - 15, self.cy + self.ch + 1, Game.time:daysremaining() .. " days remaining", Palette.HighlightText)
+
+  --draw graph
   for x=1,self.cw do
-    for y=1,self.ch do
-      if x < remainder then
-        love.graphics.setColor(grey)
-        self:print(x, y, gradient[1])
-      else
-        local d = self.data[x-remainder]
-        love.graphics.setColor((d > 0 and green) or red)
-        self:print(x, y, gradient[math.max(math.min(#gradient, d*#gradient), 1)])
-      end
-    end
+    self:print(x,self.ch,'#')
   end
+
+
+
+
+
+
 end
 return ProfitGraph
