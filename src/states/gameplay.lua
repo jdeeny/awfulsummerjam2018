@@ -90,6 +90,7 @@ function StateGameplay:update(dt)
     self.main_window:click(x, y)
   end
 
+
   self.status_date.txt = Game.time:emit()
   self.main_window:update(dt)
 

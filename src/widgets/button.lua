@@ -10,15 +10,15 @@ function Button:initialize(x, y, w, h, text, options)
 end
 
 function Button:_onclick(x, y)
-  print("click in button")
+--  print("click in button")
   local x, y = x - self.px, y - self.py
   if x >= 0 and y >= 0 and x <= self.pw and y <= self.ph then
-    print("Click button inside: " .. self.text .." ".. x.. " " .. y)
+    --print("Click button inside: " .. self.text .." ".. x.. " " .. y)
     if type(self.options.onclick) == 'function' then
       self.options.onclick()
     end
   else
-    print("Click outside button: " .. self.text .." ".. x.. " " .. y)
+    --print("Click outside button: " .. self.text .." ".. x.. " " .. y)
   end
   self.mode = 'click'
 end
@@ -42,7 +42,7 @@ end
 
 
 function Button:_draw()
-  print("draw button mode: ".. self.mode)
+  --print("draw button mode: ".. self.mode)
   love.graphics.setCanvas(self.canvas)
 
   local framecolor = Palette.Frame

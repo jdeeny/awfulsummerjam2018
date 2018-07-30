@@ -16,6 +16,7 @@ function World:new_npc_movie()
   print(movie:emit()..'\n')
   Game.news:add(movie.title:emit().." released", 'normal')
   table.insert(self.movies, movie)
+  Game.state.StateList.Gameplay.pages.Movie.film_list:add(movie)
 end
 
 return World
