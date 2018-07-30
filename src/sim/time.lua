@@ -44,6 +44,13 @@ function Time:reset(when)
   self.scale = 1.0
 end
 
+function Time:_do_day()
+  Game.world:sim_day()
+end
+function Time:_do_month()
+  print("DO MONTH")
+  Game.world:sim_month()
+end
 function Time:update(dt)
   if (not self.ticking) or self.year >= Config.EndYear then return end
 
@@ -53,9 +60,12 @@ function Time:update(dt)
   while self.subday >= 1.0 do
     self.subday = self.subday - 1.0
     self.day = self.day + 1
+    self:_do_day()
     if self.day > Config.DaysPerMonth then
       self.day = 1
+      self:_do_month()
       self.month = self.month + 1
+
       if self.month > Config.MonthsPerYear then
         self.month = 1
         self.year = self.year + 1

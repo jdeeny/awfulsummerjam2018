@@ -2,7 +2,7 @@ local Movie = class('Movie')
 
 function Movie:initialize(options)
   self.options = options or {}
-
+  self.month_stats = {}
   -- first come up with themes
   local n_themes = 1 + chance.misc.normal({mean=3,deviation=2})
   local t_words = {}
@@ -18,9 +18,26 @@ function Movie:initialize(options)
   self.lead = chance.helpers.pick(Game.world.actors)
   self.support = chance.helpers.pick(Game.world.actors)
   self.rating = chance.helpers.pick({"G", "PG", "PG-13", "R", "NC-17", "NR"})
-
+  self.release_day = Game.time:indays()
+  self.theater_time = chance.misc.normal({mean = 180, deviation = 60})
+  self.views = {}
 end
 
+function Movie:set_month(views, gross,month)
+  self.month_stats[month] = { views=views, gross=gross }
+end
+
+function Movie:add_view()
+  local d = Game.time:indays()
+  if not self.views[d] then
+    self.views[d] = 1
+  else
+    self.views[d] = self.views[d] + 1
+  end
+end
+function Movie:is_in_theaters()
+  return Game.time:indays() - self.theater_time > self.release_day
+end
 function Movie:emit()
   local themestr = ""
   for i,v in ipairs(self.themes) do

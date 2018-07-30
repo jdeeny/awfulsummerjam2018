@@ -1,18 +1,18 @@
 local Config = {
   CharWidth = (1280/8),    -- 160x45 is the max for 1280x720, the default size
   CharHeight = 720/16,
-  StartYear = 1972,
+  StartYear = 1976,
   GameYear = 1982,
-  Population = 1000,
-  Directors = 15,   -- If this is a history, needs to be per year or something
-  Actors = 30,
-  Movies = 30,
+  Population = 50,
+  Directors = 12,   -- If this is a history, needs to be per year or something
+  Actors = 20,
+  --Movies = 10,
   GameInMinutes = 8.0,
   GameYears = 2,
   DaysPerMonth = 30,
   MonthsPerYear = 12,
   MoviesPerYear = 8,
-  HistorySpeedup = 1000.0,
+  HistorySpeedup = 200.0,
   ThemeNouns = 10,
   ThemeVerbs = 10,
   ThemeAdjectives = 10,
@@ -21,7 +21,8 @@ local Config = {
   MusicVolume = 0.4,
   MusicFadeTime = 5,
   NewsHeight = 16 * 3,
-
+  MoviePrice = 20,
+  PopScale = 100000,
   Controls = require('src/controls'),
 }
 
