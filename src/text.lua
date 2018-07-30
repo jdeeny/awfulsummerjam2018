@@ -19,7 +19,7 @@ function Text.static.setup_font ()
 end
 
 function Text.static.center(string_width, area_width)
-  return (area_width - string_width) / 2
+  return ((area_width - string_width) / 2) + 1
 end
 
 local function comma_value(n) -- credit http://richard.warburton.it
