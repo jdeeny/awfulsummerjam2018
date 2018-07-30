@@ -1,13 +1,6 @@
 local State = require('src.states.state')
 local StateIntro = class("StateIntro", State)
 
-local INTRO = [[
-You are a movie executive.
-
-    Make many sequals!
-
-You have been given 2 years to make a profit. It you do good you win.
-]]
 
 function StateIntro:initialize()
   States.State.initialize(self, 'Intro')
@@ -77,7 +70,7 @@ end
 
 function StateIntro:draw()
   love.graphics.setColor(Palette.AquaBlue)
-  love.graphics.print("Intro", 5, 5)
+  --love.graphics.print("Intro", 5, 5)
 
   self.main_window:draw()
 end
