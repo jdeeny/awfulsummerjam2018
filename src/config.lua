@@ -20,6 +20,7 @@ local Config = {
   FxVolume = 0.7,
   MusicVolume = 0.4,
   MusicFadeTime = 5,
+  NewsHeight = 16 * 3,
 
   Controls = require('src/controls'),
 }

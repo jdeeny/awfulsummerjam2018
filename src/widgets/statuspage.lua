@@ -12,7 +12,7 @@ function StatusPage:initialize(x,y,w,h)
   self.rankings_panel = Widgets.Panel:new(col1,row1,colw,20, "BOX OFFICE")
   self.finance_panel = Widgets.Panel:new(col1,row2,colw, 20, "STUDIO FINANCES")
   self.feed_panel = Widgets.Panel:new(col2,row1,colw,self.ch - 5, "NEWS FEED")
-
+  self.feed_panel:add(Widgets.NewsFeed:new(col2+2,row1+3,self.feed_panel.cw-4,self.feed_panel.ch-4))
   self.finance_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 
   self:add(self.rankings_panel)

@@ -11,11 +11,11 @@ function Time:initialize()
 end
 
 function Time:now()
-  return {self.year, self.month, self.day}
+  return self.year, self.month, self.day
 end
 
-function Time:format(year,month,day)
-  return tostring(year).."-"..string.format("%02d", month).."-"..string.format("%02d", day)
+function Time.static.format(y,m,d)
+  return string.format("%04d-%02d-%02d", y,m,d)
 end
 
 function Time:emit()

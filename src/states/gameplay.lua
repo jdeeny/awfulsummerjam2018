@@ -72,7 +72,9 @@ function StateGameplay:_set_page(pagename)
 end
 
 function StateGameplay:enter()
+  Game.time:reset('GameStart')
   Game.time.scale = 1.0
+  Game.news:add("Game Begins", 'important')
   Game.time.ticking = true
   self:_set_page("Status")
 end

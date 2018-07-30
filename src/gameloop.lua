@@ -42,7 +42,6 @@ function new_game()
   Game.datamuse:load_cache()
   Game.datamuse:start()
 
-  Game.news:add("Game Begins", 'important')
   Game.world = Sim.World:new()
 
   -- Fill game states

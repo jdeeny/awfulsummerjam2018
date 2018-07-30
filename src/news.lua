@@ -10,23 +10,27 @@ local kind_colors = {
 
 function News:initialize()
   self.events = {}
+  self.count = 0
 end
 
 function News:add(text, kind, options)
-  self:_add(text or "Time Passes", kind or 'low', options or {})
+  self.count = self.count + 1
+  self:_add(self.count, text or "Time Passes", kind or 'low', options or {})
 end
 
-function News:_add(text, kind, options)
-  table.insert(self.events, {text=text,kind=kind,options=options,time=Game.time:now()})
+function News:_add(count, text, kind, options)
+  self.events[count] = {text=text,kind=kind,options=options,time={Game.time:now()}}
   -- set news ticker unclean
   -- Game.statuspage.n  etc
 end
 
 -- emit news n -1 items in the past
 function News:emit(n)
-  local event = self.events[#events - (n - 1)]
+  if n < 1 or n > #self.events then return nil end
+  local event = self.events[#self.events - (n - 1)]
   local c = kind_colors[event.kind] or Palette.NormalText
-  return {Game.time:format(event.time).." : " .. event.text, c }
+  local y,m,d = event.time[1],event.time[2],event.time[3]
+  return Sim.Time.format(y,m,d).." : " .. event.text, c
 end
 
 return News
