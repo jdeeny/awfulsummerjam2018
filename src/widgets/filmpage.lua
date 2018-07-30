@@ -21,12 +21,13 @@ function FilmPage:initialize(x,y,w,h)
   self.keywords_heading = Widgets.TextPanel:new(col2,row1+3,colw,1, Palette.HighlightText, "Keywords", {center=true})
   self.performance_heading = Widgets.TextPanel:new(col2,row2,colw,1, Palette.HighlightText, "Performance", {center=true})
 
+  self.sequel_button = Widgets.Button:new(col2+5, self.cy+self.ch-12, colw-8, 5, "Make Sequel")
 
   self.details_panel:add(self.cast_heading)
   self.details_panel:add(self.crew_heading)
   self.details_panel:add(self.keywords_heading)
   self.details_panel:add(self.performance_heading)
-
+  self.details_panel:add(self.sequel_button)
 --  self.projects_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 
 
