@@ -29,27 +29,27 @@ function ProfitGraph:_draw()
 
 
   -- print gain/loss/net
-  self:print(self.cx + 2, self.cy + self.ch + 1, "GAIN", Palette.Frame)
-  self:print(self.cx + 2, self.cy + self.ch + 1, "LOSS", Palette.Frame)
-  self:print(self.cx + 2, self.cy + self.ch + 1, " NET", Palette.Frame)
+  self:print(2, self.ch + 1, "GAIN", Palette.Frame)
+  self:print(2, self.ch + 1, "LOSS", Palette.Frame)
+  self:print(2, self.ch + 1, " NET", Palette.Frame)
 
   v = Game.day_gross[1]
   local c = (v > 0 and Palette.MoneyGood) or (v <0 and Palette.MoneyBad) or Palette.MoneyNeutral
-  self:print(self.cx + self.cw - 15, self.cy + self.ch + 1, v, c)
+  self:print(self.cw - 15, self.ch + 1, v, c)
   v = Game.day_loss[1]
   local c = (v > 0 and Palette.MoneyGood) or (v <0 and Palette.MoneyBad) or Palette.MoneyNeutral
-  self:print(self.cx + self.cw - 15, self.cy + self.ch + 2, v, c)
+  self:print(self.cw - 15, self.ch + 2, v, c)
   v = Game.day_net[1]
   local c = (v > 0 and Palette.MoneyGood) or (v <0 and Palette.MoneyBad) or Palette.MoneyNeutral
-  self:print(self.cx + self.cw - 15, self.cy + self.ch + 3, v, c)
+  self:print(self.cw - 15, self.ch + 3, v, c)
 
 
   --print days
-  self:print(self.cx + self.cw - 15, self.cy + self.ch + 1, Game.time:daysremaining() .. " days remaining", Palette.HighlightText)
+  self:print(self.cw - 15, self.ch + 1, Game.time:daysremaining() .. " days remaining", Palette.HighlightText)
 
   --draw graph
   for x=1,self.cw do
-    self:print(x,self.ch,'#')
+    self:print(x,3,'#')
   end
 
 

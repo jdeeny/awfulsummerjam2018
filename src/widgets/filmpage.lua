@@ -1,30 +1,42 @@
 local FilmPage = class('FilmPage', Widget)
 
-function FilmPage:initialize(x, y, w, h)
-  Widget.initialize(self, x, y, w, h)--, "Film")
+local row1 = 5
+local row2 = 14
+local col1 = 2
+local colw = (Config.CharWidth - 4) / 2
+local col2 = col1 + colw + 3
+local rowh = Config.PageHeight-2
 
-  self.colw = self.cw/3 - 1
-  self.col1 = 1
-  self.col2 = self.colw+2
-  self.col3 = self.cw - self.colw
+function FilmPage:initialize(x,y,w,h)
+  Widget.initialize(self,x,y,w,h)
 
-  --local film_list = Widgets.List:new(1,1,10,10)
-  --add films
-  --film_list.add()
+  self.film_panel = Widgets.Panel:new(col1,row1,colw,rowh, "FILMS")
+  self.film_list = Widgets.List:new(col1+1,row1+1,colw-2,rowh-2)
+  self.film_list:add_list(Game.world.movies)
+  self.film_panel:add(self.film_list)
 
-  --local film_panel = Widgets.ScrollPanel:new(self.col1, 1, self.colw, self.ch)
-  --film_panel:add(film_list)
+  self.details_panel = Widgets.Panel:new(col2,row1,colw, rowh, "DETAILS")
+--  self.projects_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 
-  local stats_panel = Widgets.TextPanel:new(self.col2, 1, self.colw, self.ch, Palette.NormalText, "Some stats", {title="Stats"})
-  local cast_panel = Widgets.TextPanel:new(self.col3, 1, self.colw, self.ch, Palette.NormalText, "some cast", {title="Cast"})
-  local crew_panel = Widgets.TextPanel:new(self.col3, self.ch/2, self.colw, self.ch, Palette.NormalText, "some crew", {title="Crew"})
-  --local sequel_button = Widgets.Button:new()
 
-  self:add(film_panel)
-  self:add(stats_panel)
-  self:add(cast_panel)
-  self:add(crew_panel)
-  --Widgets.Panel.add(self, sequel_button)
+  self:add(self.film_panel)
+  self:add(self.details_panel)
 end
+
+function FilmPage:_draw()
+  love.graphics.setCanvas(self.canvas)
+
+  love.graphics.clear(Palette.Background)
+  love.graphics.setColor(Palette.Frame)
+
+  Line.drawh(1,1,self.cw, '╒', '═', '╕')
+  Line.drawh(1,self.ch-2,self.cw, '╠', '═', '╣')
+  Line.drawh(1,self.ch,self.cw, '╚', '═', '╝')
+  self:print(1,self.ch-1, '║')
+  self:print(self.cw,self.ch-1, '║')
+  Line.drawv(1,2, self.ch-4, '║')
+  Line.drawv(self.cw,2, self.ch-4,'║')
+end
+
 
 return FilmPage
