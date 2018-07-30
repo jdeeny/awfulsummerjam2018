@@ -14,7 +14,7 @@ function World:new_npc_movie()
   --print("new movie stub")
   local movie = Sim.Movie:new()
   print(movie:emit()..'\n')
-  Game.news:add(movie.title:emit().." released", 'normal')
+  Game.news:add("Movie Release:   "..movie:emit(), 'normal')
   table.insert(self.movies, movie)
   Game.state.StateList.Gameplay.pages.Movie.film_list:add(movie)
 end

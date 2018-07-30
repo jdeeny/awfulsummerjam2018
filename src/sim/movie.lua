@@ -26,9 +26,9 @@ function Movie:emit()
   for i,v in ipairs(self.themes) do
     themestr = themestr .. v.word .. " "
   end
-  return self.title:emit() .. " / "..self.rating.." / Themes: "..themestr..
+  return self.title:emit() .. " / "..self.rating.."\nThemes: "..themestr..
   "\nDir: "..self.director.name:emit()..
-  " / Lead: " ..self.lead.name:emit()..
+  "\nLead: " ..self.lead.name:emit()..
   " / Support: "..self.support.name:emit()
 end
 

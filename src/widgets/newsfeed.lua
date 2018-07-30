@@ -33,7 +33,7 @@ function NewsFeed:_draw()
         drawy = drawy - 1
       end
       count = count + 1
-    drawy = drawy - 2
+    drawy = drawy - 5
     end
 
   until drawy < -3 or not txt
