@@ -26,7 +26,9 @@ States = require 'src.states'                          -- State Manager
 Window = require 'src.window'
 Widgets = require 'src.widgets'               -- things that are displayed
 News = require 'src.news'
+Player = require 'src.player'
 Wordbase = require 'src.wordbase'
 Threads = require 'src.threads'
 AudioManager = require 'src.audiomanager'
+Project = require 'src.project'
 require 'src.gameloop'

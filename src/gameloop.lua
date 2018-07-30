@@ -34,6 +34,7 @@ function new_game()
     audiomanager = AudioManager:new(),
     time = Sim.Time:new(),
     news = News:new(),
+    player = Player:new(),
   }
 
   Game.audiomanager:new_music({fadein=true})

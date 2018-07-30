@@ -44,13 +44,18 @@ function StateGameplay:_build()
   self.pages['Project'] = Widgets.ProjectPage:new(1, 3, Config.PageWidth, Config.PageHeight)
   self.pages['Survey'] = Widgets.SurveyPage:new(1, 3, Config.PageWidth, Config.PageHeight)
   self.pages['Person'] = Widgets.PersonPage:new(1, 3, Config.PageWidth, Config.PageHeight)
-  self.pages['Movie'] = Widgets.MoviePage:new(1, 3, Config.PageWidth, Config.PageHeight)
+  self.pages['Movie'] = Widgets.FilmPage:new(1, 3, Config.PageWidth, Config.PageHeight)
 
   for _,v in pairs(self.pages) do
     self.main_window:add(v)
   end
   --self:_set_page('Status')
 
+  self.status_profit = Widgets.MoneyInfo:new(3, Config.CharHeight - 2, 20, Game.player:get_profit() )
+  self.main_window:add(self.status_profit)
+
+  self.status_date = Widgets.TextPanel:new(Config.CharWidth - 14, Config.CharHeight - 2, 20, 1, Palette.HighlightText, Game.time:emit())
+  self.main_window:add(self.status_date)
 
 end
 
@@ -81,6 +86,7 @@ function StateGameplay:update(dt)
     self.main_window:click(x, y)
   end
 
+  self.status_date.txt = Game.time:emit()
   self.main_window:update(dt)
 
 

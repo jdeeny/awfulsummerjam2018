@@ -21,6 +21,7 @@ local Palette = {
 }
 
 Palette['NormalText'] = Palette['SteelBlue']
+Palette.HighlightText = Palette['White']
 Palette['Frame'] = Palette['Grey']
 Palette['Heading'] = Palette['Yellow']
 Palette['Background'] = Palette['Black']
@@ -33,6 +34,10 @@ Palette.RelatedEvent = Palette.NormalText
 Palette.DirectEvent = Palette.Yellow
 Palette.MilestoneEvent = Palette.AquaBlue
 Palette.Important = Palette.White
+
+Palette.MoneyBad = Palette.Red
+Palette.MoneyGood = Palette.DarkGreen
+Palette.MoneyNeutral = Palette.NormalText
 
 return Palette
 
