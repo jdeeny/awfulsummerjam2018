@@ -14,7 +14,7 @@ function StateIntro:initialize()
   self.input = baton.new(Config.Controls)
 
   self.main_window = Window:new(1,1,Config.CharWidth,Config.CharHeight)
-  self.main_window:add(Widgets.TextPanel:new(1, 1, 80, 6, Palette.Yellow, INTRO, {center=true}))
+  self.main_window:add(Widgets.TextPanel:new(3, 5, 80, 6, Palette.Yellow, INTRO, {center=true}))
 
   self.heading = Widgets.TextPanel:new(Config.CharWidth - 21, 1, 20, 1, Palette.HighlightText, "Aperiology")
   self.main_window:add(self.heading)
@@ -22,18 +22,18 @@ function StateIntro:initialize()
   local bwidth = 20
   local bheight = 3
   local buttons = {
-    Widgets.Button:new(1, 1, bwidth, bheight, "Status", {onclick = function() self:swap_to_status() end }),
-    Widgets.Button:new(1+bwidth, 1, bwidth, bheight, "Projects", {onclick = function() self:swap_to_projects() end }),
-    Widgets.Button:new(1+2*bwidth, 1, bwidth, bheight, "Surveys",{onclick = function() self:swap_to_surveys() end }),
-    Widgets.Button:new(1+3*bwidth, 1, bwidth, bheight, "Person DB",{onclick = function() self:swap_to_persondb() end }),
-    Widgets.Button:new(1+4*bwidth, 1, bwidth, bheight, "Film DB",{onclick = function() self:swap_to_moviedb() end }),
+    Widgets.Button:new(1, 1, bwidth, bheight, "Status"),--, {onclick = function() self:swap_to_status() end }),
+    Widgets.Button:new(1+bwidth, 1, bwidth, bheight, "Projects"),--, {onclick = function() self:swap_to_projects() end }),
+    Widgets.Button:new(1+2*bwidth, 1, bwidth, bheight, "Surveys"),--,{onclick = function() self:swap_to_surveys() end }),
+    Widgets.Button:new(1+3*bwidth, 1, bwidth, bheight, "Person DB"),--,{onclick = function() self:swap_to_persondb() end }),
+    Widgets.Button:new(1+4*bwidth, 1, bwidth, bheight, "Film DB"),--,{onclick = function() self:swap_to_moviedb() end }),
   }
   for _,v in ipairs(buttons) do
     self.main_window:add(v)
   end
 
   self.pages = {}
-  self.pages['Intro'] = Widgets.IntroPage:new(1, 3, Config.PageWidth, Config.PageHeight)
+  self.pages['Intro'] = Widgets.IntroPage:new(1, Config.PageY, Config.PageWidth, Config.PageHeight)
 
   for _,v in pairs(self.pages) do
     self.main_window:add(v)

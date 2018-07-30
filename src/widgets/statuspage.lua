@@ -1,8 +1,8 @@
 local StatusPage = class('StatusPage', Widget)
 
-local row1 = 3
+local row1 = 5
 local row2 = 14
-local col1 = 1
+local col1 = 2
 local colw = (Config.CharWidth - 4) / 2
 local col2 = col1 + colw + 3
 
