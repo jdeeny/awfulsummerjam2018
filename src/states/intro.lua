@@ -13,7 +13,7 @@ function StateIntro:initialize()
   self.main_window:add(self.heading)
 
   local bwidth = 20
-  local bheight = 3
+  local bheight = 4
   local buttons = {
     Widgets.Button:new(1, 1, bwidth, bheight, "Status"),--, {onclick = function() self:swap_to_status() end }),
     Widgets.Button:new(1+bwidth, 1, bwidth, bheight, "Projects"),--, {onclick = function() self:swap_to_projects() end }),

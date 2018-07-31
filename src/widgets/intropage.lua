@@ -17,13 +17,13 @@ You have been given 2 years to make a profit. It you do good you win.
 function IntroPage:initialize(x,y,w,h)
   Widget.initialize(self,x,y,w,h)
 
-  self.rankings_panel = Widgets.Panel:new(col1,row1,colw,16, "BOX OFFICE")
-  self.bo_panel = Widgets.BoxOfficePanel:new(col1+1, row1+4, colw-4, 16)
+  self.rankings_panel = Widgets.Panel:new(col1,row1+1,colw,16, "BOX OFFICE")
+  self.bo_panel = Widgets.BoxOfficePanel:new(col1+1, row1+3, colw-4, 16, "")
   self.rankings_panel:add(self.bo_panel)
-  self.intro_panel = Widgets.Panel:new(col1,row2,colw, 25, "INTRODUCTION")
-  self.intro_panel:add(Widgets.TextPanel:new(col1+3,row2+3, colw-6, 24,Palette.NormalText, INTRO))
-  self.feed_panel = Widgets.Panel:new(col2,row1,colw,self.ch - 5, "NEWS FEED")
-  self.feed_panel:add(Widgets.NewsFeed:new(col2+2,row1+3,self.feed_panel.cw-4,self.feed_panel.ch-4))
+  self.intro_panel = Widgets.Panel:new(col1,row2,colw, 22, "INTRODUCTION")
+  self.intro_panel:add(Widgets.TextPanel:new(col1+3,row2+3, colw-6, 20,Palette.NormalText, INTRO))
+  self.feed_panel = Widgets.Panel:new(col2,row1+1,colw,self.ch - 4, "NEWS FEED")
+  self.feed_panel:add(Widgets.NewsFeed:new(col2+2,row1+3,self.feed_panel.cw-4,self.feed_panel.ch-3))
   --self.finance_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 
   local function go_gameplay ()
@@ -34,12 +34,29 @@ function IntroPage:initialize(x,y,w,h)
     end
   end
 
-  self.continue_button = Widgets.Button:new(10,row2+15,colw-10,7,"Generating History...",
+  self.continue_button = Widgets.Button:new(10,row2+14,colw-10,7,"Generating History...",
     {
       onclick=go_gameplay,
     } )
 
+  self.music_off_button = Widgets.Button:new(10,row2+10,12,4,"Music Off",
+    {
+      onclick=music_off,
+    } )
+  self.music_a_button = Widgets.Button:new(24,row2+10,12,4,"Music A",
+    {
+      onclick=music_a,
+    } )
+  self.music_b_button = Widgets.Button:new(40,row2+10,12,4,"Music B",
+    {
+      onclick=music_b,
+    } )
+
+
   self.intro_panel:add(self.continue_button)
+  self.intro_panel:add(self.music_off_button)
+  self.intro_panel:add(self.music_a_button)
+  self.intro_panel:add(self.music_b_button)
   self:add(self.rankings_panel)
   self:add(self.intro_panel)
   self:add(self.feed_panel)

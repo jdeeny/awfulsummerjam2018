@@ -29,7 +29,7 @@ function TextPanel:initialize(x, y, w, h, color, txt, options)
   self.h = h or 1
 
   self.clean = false
-  self.txt = txt or "TEXT"
+  self.txt = txt or ""
   if self.options.center == true then
     self.txt = center_text(self.txt, self.w, self.h)
   end
