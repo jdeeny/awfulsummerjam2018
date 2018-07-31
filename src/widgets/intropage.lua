@@ -45,6 +45,15 @@ function IntroPage:initialize(x,y,w,h)
   self:add(self.feed_panel)
 end
 
+function IntroPage:update(dt,x,y)
+Widget.update(self,dt,x,y)
+if not Game.time:is_historic() then
+  self.continue_button.text = "Begin Game"
+  self.continue_button.clean = false
+end
+
+end
+
 function IntroPage:_draw()
   love.graphics.setCanvas(self.canvas)
 
