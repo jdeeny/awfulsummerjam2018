@@ -1,7 +1,7 @@
 local IntroPage = class('IntroPage', Widget)
 
 local row1 = 4
-local row2 = 18
+local row2 = 20
 local col1 = 2
 local colw = (Config.CharWidth - 4) / 2
 local col2 = col1 + colw + 3

@@ -18,7 +18,7 @@ function Panel:_draw()
   local header = '├'..string.rep('─', left-1).." "..self.title.." "..string.rep('─', right-1)..'┤'
   self:print(1,2, header)--, Palette.Frame)
   Line.drawh(1,self.ch,self.cw, self.options.ll or '└', self.options.bot or '─', self.options.ur or '┘')
-  Line.drawv(1,3, self.ch-2, self.options.left or '│')
+  Line.drawv(1,2, self.ch-2, self.options.left or '│')
   Line.drawv(self.cw,2, self.ch-2, self.options.right or '│')
   love.graphics.setColor(Palette.Heading)
 end
