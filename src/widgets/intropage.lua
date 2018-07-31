@@ -28,7 +28,7 @@ function IntroPage:initialize(x,y,w,h)
 
   local function go_gameplay ()
     print('clicked go')
-    if not Game.time.is_historic() then
+    if not Game.time:is_historic() then
       Game.state:jump('Gameplay')
       Game.state:call('Debounce')
     end
@@ -53,10 +53,10 @@ function IntroPage:initialize(x,y,w,h)
     } )
 
 
-  self.intro_panel:add(self.continue_button)
-  self.intro_panel:add(self.music_off_button)
-  self.intro_panel:add(self.music_a_button)
-  self.intro_panel:add(self.music_b_button)
+  self:add(self.continue_button)
+  self:add(self.music_off_button)
+  self:add(self.music_a_button)
+  self:add(self.music_b_button)
   self:add(self.rankings_panel)
   self:add(self.intro_panel)
   self:add(self.feed_panel)

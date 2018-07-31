@@ -62,6 +62,12 @@ function StateIntro:update(dt)
     Game.state:call('Debounce')
   end
 
+  if self.input:pressed('click') then
+    local x, y = love.mouse.getPosition()
+    print("click: "..x.." "..y)
+    self.main_window:click(x, y)
+  end
+
   self.main_window:update(dt)
   if Game.time.scale > 100.0 and not Game.time:is_historic() then
     Game.time.ticking = false
