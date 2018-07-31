@@ -54,8 +54,8 @@ function World:sim_day()
         table.insert(boxoffice, 0, v)
       end
     end
-    print("Box office: "..month)
-    print(pl.pretty.dump(boxoffice))
+--    print("Box office: "..month)
+  --  print(pl.pretty.dump(boxoffice))
     self.boxoffice[month] = boxoffice
     -- rank
   end
@@ -67,7 +67,7 @@ end
 function World:new_npc_movie()
   --print("new movie stub")
   local movie = Sim.Movie:new()
-  print(movie:emit()..'\n')
+  --print(movie:emit()..'\n')
   Game.news:add("Movie Release:   "..movie:emit(), 'normal')
   table.insert(self.movies, movie)
   Game.state.StateList.Gameplay.pages.Movie.film_list:add(movie)

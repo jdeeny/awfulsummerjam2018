@@ -48,7 +48,6 @@ function Time:_do_day()
   Game.world:sim_day()
 end
 function Time:_do_month()
-  print("DO MONTH")
   Game.world:sim_month()
 end
 function Time:update(dt)

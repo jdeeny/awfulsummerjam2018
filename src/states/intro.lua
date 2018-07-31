@@ -47,10 +47,6 @@ function StateIntro:enter()
   Game.time:reset()
   Game.time.scale = Config.HistorySpeedup
   Game.time.ticking = true
-  print("Money: " .. Text.dollars(14354848.234544))
-  print("Money: " .. Text.dollars(-54848.234544))
-  print("Money: " .. Text.dollars(148.234544))
-  print("Money: " .. Text.dollars(1.99994544))
 end
 
 

@@ -20,8 +20,8 @@ end
 
 function love.draw()
   Game.state:draw()   -- should draw everything
-  love.graphics.print(tostring(Game.time.ticking).." "..tostring(Game.time.year).. " "..tostring(Game.time.month).." "..tostring(Game.time.day).. " "..tostring(Game.time.subday), 1,500)
-  love.graphics.print(Game.datamuse:stats(), 1,600)
+  --love.graphics.print(tostring(Game.time.ticking).." "..tostring(Game.time.year).. " "..tostring(Game.time.month).." "..tostring(Game.time.day).. " "..tostring(Game.time.subday), 1,500)
+  --love.graphics.print(Game.datamuse:stats(), 1,600)
 end
 
 function new_game()

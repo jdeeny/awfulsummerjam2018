@@ -16,7 +16,7 @@ end
 
 function List:add(item)
   if item then
-    print("add item: " .. item:emit())-- .. pl.pretty.dump(item))
+    --print("add item: " .. item:emit())-- .. pl.pretty.dump(item))
     table.insert(self.items,item)
     self.clean = false
   end

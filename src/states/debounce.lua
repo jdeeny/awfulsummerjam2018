@@ -23,8 +23,8 @@ function StateDebounce:update(dt)
 end
 
 function StateDebounce:draw()
-  love.graphics.setColor(Palette.Green)
-  love.graphics.print("Debounce", 0, 0)
+  --love.graphics.setColor(Palette.Green)
+  --love.graphics.print("Debounce", 0, 0)
 end
 
 

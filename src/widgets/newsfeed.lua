@@ -9,7 +9,7 @@ function NewsFeed:update(dt, x, y)
   Widget.update(self, dt, x, y)
   if Game.news.count > self.last_count then
     self.clean = false
-    print("News update")
+    --print("News update")
   end
 end
 
@@ -18,7 +18,7 @@ function NewsFeed:_draw()
   local count = 1
   love.graphics.setCanvas(self.canvas)
   love.graphics.clear(self.bgcolor)
-  print("draw-feed")
+  --print("draw-feed")
 
   repeat
     local txt,c = Game.news:emit(count)
@@ -29,7 +29,7 @@ function NewsFeed:_draw()
       love.graphics.printf(txt,x,y, self.pw-8*4)
       if feed_item == self.last_count then
         love.graphics.setColor(Palette.Grey)
-        Screen.print(string.rep('',self.cw-4), 2,drawy-1)
+        Screen.print(string.rep('-',self.cw-4), 2,drawy-1)
         drawy = drawy - 1
       end
       count = count + 1

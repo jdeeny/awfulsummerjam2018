@@ -62,10 +62,10 @@ function StateGameplay:_build()
 end
 
 function StateGameplay:_set_page(pagename)
-  print("Set page: "..pagename)
+  --print("Set page: "..pagename)
   for k, v in pairs(self.pages) do
     if k == pagename then
-      print("not hidden " .. pagename)
+      --print("not hidden " .. pagename)
       v.hidden = false
     else
       v.hidden = true
