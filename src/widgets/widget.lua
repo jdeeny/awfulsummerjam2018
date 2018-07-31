@@ -74,7 +74,7 @@ print("onclick..")
   else
     for i, v in ipairs(self.contents) do
       if v.click then
-        v:click(x -self.px, y-self.py)
+        v:click(x,y)-- -self.px, y-self.py)
       else
         print("Try to click but no click: ")
         --print(pl.pretty.dump(v))

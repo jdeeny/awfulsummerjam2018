@@ -4,6 +4,7 @@ function PooledSource:initialize(path)
   self.source = love.audio.newSource(path, "static")
   self.pool = {}
   self.count = 0
+
 end
 
 function PooledSource:play()
@@ -35,9 +36,11 @@ function AudioManager:initialize()
   self.fx['click'] = PooledSource:new("assets/audio/fx/clickdown.ogg")
   self.fx['clickup'] = PooledSource:new("assets/audio/fx/clickup.ogg")
 
-  self.music['office1'] = love.audio.newSource("assets/audio/music/office1.ogg", "static")
+  self.music['a'] = love.audio.newSource("assets/audio/music/office1.ogg")
+  self.music['b'] = love.audio.newSource("assets/audio/music/julez.ogg")
 
-  self.currentmusic = ''
+  --self.currentmusic = ''
+  self.currentmusic = chance.helpers.pick({'a','b'})
   self.old_music_vol = 0.0
   self.music_vol = Config.FxVolume
   self.fx_vol = Config.FxVolume
@@ -73,14 +76,21 @@ function AudioManager:new_music(options)
   else
     self.music_vol = Config.MusicVolume
   end
-  local m = 'office1'
+  local m = self.currentmusic or 'off'
   print("music = "..m)
-  self.currentmusic = m
-  if self.music[m] then
-    self.music[m]:setLooping(true)
-    self.music[m]:setVolume(self.music_vol)
-    self.music[m]:play()
+  if self.music then
+    for k,v in pairs(self.music) do
+      if k == m then
+        v:stop()
+        v:setLooping(true)
+        v:setVolume(self.music_vol)
+        v:play()
+      else
+        v:stop()
+      end
+    end
   end
+  --self.currentmusic = m
 end
 
 return AudioManager

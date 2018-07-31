@@ -34,6 +34,18 @@ function IntroPage:initialize(x,y,w,h)
     end
   end
 
+  local function music_off ()
+    Game.audiomanager.currentmusic = 'off'
+    Game.audiomanager:new_music()
+  end
+  local function music_a()
+    Game.audiomanager.currentmusic = 'a'
+    Game.audiomanager:new_music()--{fade=true})
+  end
+  local function music_b()
+    Game.audiomanager.currentmusic = 'b'
+    Game.audiomanager:new_music()--{fade=true})
+  end
   self.continue_button = Widgets.Button:new(7,row2+14,colw-10,7,"Generating History...",
     {
       onclick=go_gameplay,
