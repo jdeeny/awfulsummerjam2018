@@ -34,7 +34,7 @@ function IntroPage:initialize(x,y,w,h)
     end
   end
 
-  self.continue_button = Widgets.Button:new(10,row2+14,colw-10,7,"Generating History...",
+  self.continue_button = Widgets.Button:new(7,row2+14,colw-10,7,"Generating History...",
     {
       onclick=go_gameplay,
     } )
@@ -43,11 +43,11 @@ function IntroPage:initialize(x,y,w,h)
     {
       onclick=music_off,
     } )
-  self.music_a_button = Widgets.Button:new(24,row2+10,12,4,"Music A",
+  self.music_a_button = Widgets.Button:new(36,row2+10,12,4,"Music A",
     {
       onclick=music_a,
     } )
-  self.music_b_button = Widgets.Button:new(40,row2+10,12,4,"Music B",
+  self.music_b_button = Widgets.Button:new(61,row2+10,12,4,"Music B",
     {
       onclick=music_b,
     } )
