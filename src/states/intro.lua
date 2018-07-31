@@ -57,7 +57,11 @@ end
 function StateIntro:update(dt)
   State.update(self, dt)
 
-  if self.input:pressed('continue') then
+  if self.input:down('quit') then
+    print("QUIT")
+    love.event.push('quit')
+  end
+  if self.input:pressed('continue') and not Game.time:is_historic() then
     Game.state:jump('Gameplay')
     Game.state:call('Debounce')
   end
@@ -65,6 +69,7 @@ function StateIntro:update(dt)
   self.main_window:update(dt)
   if Game.time.scale > 100.0 and not Game.time:is_historic() then
     Game.time.ticking = false
+    Game.time:reset('GameStart')
   end
 end
 

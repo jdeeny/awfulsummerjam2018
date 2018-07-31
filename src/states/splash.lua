@@ -29,7 +29,7 @@ function StateSplash:update(dt)
 
   self.win_logo:update(dt)
 
-  if self.input:pressed('continue') then
+  if self.input:down('continue') or self.input:down('quit') then
     Game.state:jump('Intro')
     Game.state:call('Debounce')
   end
