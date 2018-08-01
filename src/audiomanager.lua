@@ -38,9 +38,10 @@ function AudioManager:initialize()
 
   self.music['a'] = love.audio.newSource("assets/audio/music/office1.ogg")
   self.music['b'] = love.audio.newSource("assets/audio/music/julez.ogg")
+  self.music['c'] = love.audio.newSource("assets/audio/music/common.ogg")
 
   --self.currentmusic = ''
-  self.currentmusic = chance.helpers.pick({'a','b'})
+  self.currentmusic = chance.helpers.pick({'a','b','c'})
   self.old_music_vol = 0.0
   self.music_vol = Config.FxVolume
   self.fx_vol = Config.FxVolume

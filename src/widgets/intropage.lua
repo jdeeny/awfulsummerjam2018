@@ -1,3 +1,4 @@
+
 local IntroPage = class('IntroPage', Widget)
 
 local row1 = 4
@@ -46,29 +47,38 @@ function IntroPage:initialize(x,y,w,h)
     Game.audiomanager.currentmusic = 'b'
     Game.audiomanager:new_music()--{fade=true})
   end
+  local function music_b()
+    Game.audiomanager.currentmusic = 'c'
+    Game.audiomanager:new_music()--{fade=true})
+  end
   self.continue_button = Widgets.Button:new(7,row2+14,colw-10,7,"Generating History...",
     {
       onclick=go_gameplay,
     } )
 
-  self.music_off_button = Widgets.Button:new(10,row2+10,12,4,"Music Off",
+  self.music_off_button = Widgets.Button:new(7,row2+10,12,4,"Music Off",
     {
       onclick=music_off,
     } )
-  self.music_a_button = Widgets.Button:new(36,row2+10,12,4,"Music A",
+  self.music_a_button = Widgets.Button:new(35,row2+10,10,4,"Music A",
     {
       onclick=music_a,
     } )
-  self.music_b_button = Widgets.Button:new(61,row2+10,12,4,"Music B",
+  self.music_b_button = Widgets.Button:new(50,row2+10,10,4,"Music B",
     {
       onclick=music_b,
     } )
+    self.music_c_button = Widgets.Button:new(65,row2+10,10,4,"Music C",
+      {
+        onclick=music_c,
+      } )
 
 
   self:add(self.continue_button)
   self:add(self.music_off_button)
   self:add(self.music_a_button)
   self:add(self.music_b_button)
+  self:add(self.music_c_button)
   self:add(self.rankings_panel)
   self:add(self.intro_panel)
   self:add(self.feed_panel)
