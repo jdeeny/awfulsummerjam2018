@@ -17,10 +17,10 @@ function StateSplash:initialize()
   States.State.initialize(self, 'Splash')
   self.input = baton.new(Config.Controls)
   local x, y = Text.center(85, Config.CharWidth), Text.center(14, Config.CharHeight)
-  self.win_logo = Window:new(x, y, 85, 14, Palette.Brown)
-  self.win_logo:add(Widgets.TextPanel:new(1, 2, 85, 6, Palette.Yellow, LOGO))
-  self.win_logo:add(Widgets.TextPanel:new(1, 11, 83, 1, Palette.Brown, COPYRIGHT, {center=true}))
-  self.win_logo:add(Widgets.TextPanel:new(1, 9, 83, 1, Palette.AquaBlue , AWFUL, {center=true}))
+  self.win_logo = Window:new(1,1, 160, 45, Palette.Brown)
+  self.win_logo:add(Widgets.TextPanel:new(40, 20, 160, 6, Palette.Yellow, LOGO))
+  self.win_logo:add(Widgets.TextPanel:new(1,32, 160, 1, Palette.Brown, COPYRIGHT, {center=true}))
+  self.win_logo:add(Widgets.TextPanel:new(1,34, 160, 1, Palette.AquaBlue , AWFUL, {center=true}))
 end
 
 
