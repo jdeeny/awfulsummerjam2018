@@ -11,10 +11,20 @@ function Player:add_project(movie)
   end
 end
 
+function Player:update(dt)
+  if self.projects then
+    for i,v in ipairs(self.projects) do
+      v:update(dt)
+    end
+  end
+end
+
 function Player:get_profit()
   local cash = 0.0
-  for i,v in ipairs(self.projects) do
-    cash = cash + v:get_profit()
+  if self.projects then
+    for i,v in ipairs(self.projects) do
+      cash = cash + v:get_profit()
+    end
   end
   return cash
 end

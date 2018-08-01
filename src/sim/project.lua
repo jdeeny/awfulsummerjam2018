@@ -14,18 +14,19 @@ function Project:initialize(movie)
   self.expenses = 0.0
   self.time_to_next = math.min(10,chance.misc.normal({mean=Config.DaysPerYear / 16,deviation=Config.DaysPerYear / 64}))
   Game.news:add(self.title:emit() .. " begins pre-production", 'direct')
-
+  self.expense_per_day = 5.0
 end
 
 function Project:_go_next()
   if self.state == 'released' then return end
 
   if self.state == 'pre' then
-
+    self.expense_per_day = math.min(10,chance.misc.normal({mean=Config.DaysPerYear,deviation=Config.DaysPerYear / 4}))
     self.time_to_next = math.min(10,chance.misc.normal({mean=Config.DaysPerYear,deviation=Config.DaysPerYear / 4}))
     self.state = 'prod'
     Game.news:add(self.title:emit() .. " enters production", 'direct')
   elseif self.state == 'prod' then
+    self.expense_per_day = math.min(10,chance.misc.normal({mean=Config.DaysPerYear/8,deviation=Config.DaysPerYear / 32}))
     self.time_to_next = math.min(10,chance.misc.normal({mean=Config.DaysPerYear / 8,deviation=Config.DaysPerYear / 32}))
     Game.news:add(self.title:emit() .. " ends production", 'direct')
     self.state = 'post'
@@ -39,8 +40,9 @@ function Project:_go_next()
   end
   print("Project new state: "..self.state)
 end
-function Project:Update(dt)
-  Movie.update(self,dt)
+function Project:update(dt)
+  if Movie.update then Movie.update(self,dt) end
+  self.expenses = self.expenses + self.expense_per_day * dt
   if self.state == 'released' then return end
   self.time_to_next = self.time_to_next - dt
   if self.time_to_next <= 0.0 then self:_go_next() end

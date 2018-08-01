@@ -15,6 +15,7 @@ function love.update(dt)
   Game.state:update(dt)
   Game.datamuse:update(dt)
   Game.audiomanager:update(dt)
+  Game.player:update(dt)
   --Game.news:update(dt)
 end
 

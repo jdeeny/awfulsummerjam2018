@@ -84,6 +84,7 @@ end
 function StateGameplay:update(dt)
   State.update(self, dt)
 
+  self.status_profit:set_value(Player:get_profit())
   if self.input:pressed('click') then
     local x, y = love.mouse.getPosition()
     print("click: "..x.." "..y)
