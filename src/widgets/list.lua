@@ -65,6 +65,10 @@ function List:_onclick(x, y)
   self.mode = 'click'
 end
 
+function List:_sequel(n)
+  print("sequel")
+end
+
 function List:_show_details(n)
 print ("Show deets")
 end

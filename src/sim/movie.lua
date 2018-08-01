@@ -17,7 +17,7 @@ function Movie:initialize(options)
   self.director = chance.helpers.pick(Game.world.directors)
   self.lead = chance.helpers.pick(Game.world.actors)
   self.support = chance.helpers.pick(Game.world.actors)
-  self.rating = chance.helpers.pick({"G", "PG", "PG-13", "R", "NC-17", "NR"})
+  self.rating = chance.helpers.pick({"G", "G", "PG", "PG", "PG-13", "PG-13", "PG-13", "R", "R", "R", "NC-17", "NR"})
   self.release_day = Game.time:indays()
   self.theater_time = chance.misc.normal({mean = Config.DaysPerYear, deviation = 60 })
   self.views = {}

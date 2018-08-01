@@ -21,8 +21,17 @@ function FilmPage:initialize(x,y,w,h)
   self.keywords_heading = Widgets.TextPanel:new(col2+colw/2,row1+3,colw/2,1, Palette.HighlightText, "Keywords", {center=true})
   self.performance_heading = Widgets.TextPanel:new(col2+colw/2,row2,colw/2,1, Palette.HighlightText, "Performance", {center=true})
 
-  self.sequel_button = Widgets.Button:new(col2+5, self.cy+self.ch-12, colw-8, 5, "Make Sequel")
+  local function make_sequel()
+    if self.film_list.highlighted > 0 then
+      Game.player:add_project(self.film_list.items[self.film_list.highlighted])
+      Game.state.StateList.Gameplay.pages.Project.project_list:add(movie)
 
+    end
+  end
+
+  self.sequel_button = Widgets.Button:new(col2+5, self.cy+self.ch-12, colw-8, 5, "Make Sequel", {
+    onclick=make_sequel,
+  })
   self.details_panel:add(self.cast_heading)
   self.details_panel:add(self.crew_heading)
   self.details_panel:add(self.keywords_heading)
