@@ -27,7 +27,7 @@ local Config = {
 }
 
 Config.TotalDays = Config.GameYears * Config.MonthsPerYear * Config.DaysPerMonth
-
+Config.DaysPerYear = Config.MonthsPerYear * Config.DaysPerMonth
 Config.PageWidth = Config.CharWidth
 Config.PageY = 4
 Config.PageHeight = Config.CharHeight - 4

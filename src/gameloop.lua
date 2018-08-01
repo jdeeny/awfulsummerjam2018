@@ -45,7 +45,7 @@ function new_game()
     Game.day_loss[i] = 0.0
     Game.day_net[i] = 00
   end
-
+  Game.audiomanager.currentmusic = chance.helpers.pick({'a','b','c'})
   Game.audiomanager:new_music({fadein=true})
 
   Game.datamuse:load_cache()
