@@ -49,7 +49,7 @@ function Project:update(dt)
 end
 
 function Project:emit()
-  return "A Project!"
+  return self.title:emit() or "A Project"
 end
 
 function Project:get_profit()

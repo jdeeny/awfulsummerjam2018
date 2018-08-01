@@ -72,6 +72,9 @@ end
 -- tear down game objects
 function end_game()
   Game.datamuse:dump_cache()
+  Game.audiomanager.currentmusic = 'off'
+  Game.audiomanager:new_music()
+  Game = nil
 end
 
 -- Callback for scroll wheel

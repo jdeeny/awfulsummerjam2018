@@ -26,8 +26,8 @@ function List:add(item)
 end
 
 function List:_onscroll(scroll_amount)
-  print("list onscroll" .. scroll_amount)
-  self.current_top = math.max(1, math.min(#self.items-math.ceil(self.ch/self.item_height), self.current_top - scroll_amount))
+  --print("list onscroll" .. scroll_amount)
+  self.current_top = math.max(1, math.min(#self.items-math.floor(self.ch/self.item_height)+1, self.current_top - scroll_amount))
   self.clean = false
 end
 
