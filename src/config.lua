@@ -1,7 +1,7 @@
 local Config = {
   CharWidth = (1280/8),    -- 160x45 is the max for 1280x720, the default size
   CharHeight = 720/16,
-  StartYear = 1976,
+  StartYear = 1978,
   GameYear = 1982,
   Population = 50,
   Directors = 12,   -- If this is a history, needs to be per year or something
@@ -11,7 +11,7 @@ local Config = {
   GameYears = 2,
   DaysPerMonth = 30,
   MonthsPerYear = 12,
-  MoviesPerYear = 8,
+  MoviesPerYear = 15,
   HistorySpeedup = 200.0,
   ThemeNouns = 10,
   ThemeVerbs = 10,

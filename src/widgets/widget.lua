@@ -36,6 +36,12 @@ function Widget:update(dt, x, y)
   end
 end
 
+function Widget:_onscroll(y)
+  for i,v in ipairs(self.contents) do
+    if v._onscroll then v:_onscroll(y) end
+  end
+end
+
 function Widget:_update_mouse(x, y)
   local inside =
     x >= self.px and x <= self.px + self.pw and

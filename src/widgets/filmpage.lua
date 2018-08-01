@@ -16,10 +16,10 @@ function FilmPage:initialize(x,y,w,h)
   self.film_panel:add(self.film_list)
 
   self.details_panel = Widgets.Panel:new(col2,row1,colw, rowh, "DETAILS")
-  self.cast_heading = Widgets.TextPanel:new(1,row1+3,colw,1, Palette.HighlightText,"Cast", {center=true})
-  self.crew_heading = Widgets.TextPanel:new(1,row2,colw,1, Palette.HighlightText, "Crew", {center=true})
-  self.keywords_heading = Widgets.TextPanel:new(col2,row1+3,colw,1, Palette.HighlightText, "Keywords", {center=true})
-  self.performance_heading = Widgets.TextPanel:new(col2,row2,colw,1, Palette.HighlightText, "Performance", {center=true})
+  self.cast_heading = Widgets.TextPanel:new(col2+1,row1+3,colw/2,1, Palette.HighlightText,"Cast", {center=true})
+  self.crew_heading = Widgets.TextPanel:new(col2+1,row2,colw/2,1, Palette.HighlightText, "Crew", {center=true})
+  self.keywords_heading = Widgets.TextPanel:new(col2+colw/2,row1+3,colw/2,1, Palette.HighlightText, "Keywords", {center=true})
+  self.performance_heading = Widgets.TextPanel:new(col2+colw/2,row2,colw/2,1, Palette.HighlightText, "Performance", {center=true})
 
   self.sequel_button = Widgets.Button:new(col2+5, self.cy+self.ch-12, colw-8, 5, "Make Sequel")
 

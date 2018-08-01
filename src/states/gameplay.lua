@@ -110,6 +110,7 @@ end
 
 function StateGameplay:add_scroll(y)
   print("Scroll: " .. y)
+  self.main_window:add_scroll(y)
 end
 
 return StateGameplay

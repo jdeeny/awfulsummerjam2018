@@ -75,12 +75,18 @@ function IntroPage:initialize(x,y,w,h)
 end
 
 function IntroPage:update(dt,x,y)
-Widget.update(self,dt,x,y)
-if not Game.time:is_historic() then
-  self.continue_button.text = "Begin Game"
-  self.continue_button.clean = false
-end
-
+  Widget.update(self,dt,x,y)
+  if not Game.time:is_historic() then
+    self.continue_button.text = "Begin Game"
+    self.continue_button.clean = false
+  else
+    local days = (Config.StartYear - Config.GameYear) * Config.DaysPerMonth * Config.MonthsPerYear
+    local s = "Generating History... ("..string.format("%2d",math.min(99.9,100.0 - Game.time:indays() * 100.0 / days)).."%)"
+    if self.continue_button.text ~= s then
+      self.continue_button.clean = false
+      self.continue_button.text = s
+    end
+  end
 end
 
 function IntroPage:_draw()

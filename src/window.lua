@@ -7,7 +7,7 @@ function Window:initialize(x, y, w, h)
   self.cw, self.ch = w, h
   self.px, self.py = Screen.topixels(x - 1 or 0, y - 1 or 0)
   self.pw, self.ph = Screen.topixels(w or 1, h or 1)
-  
+
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
   love.graphics.setColor(Palette.PureWhite)
@@ -45,6 +45,11 @@ function Window:rolldown()
   flux.to(self, self.rolldowntime, { py = 0 } ):ease('elasticout')--:oncomplete(self:rollup())
 end]]
 
+function Window:add_scroll(y)
+  for i,v in ipairs(self.contents) do
+    if v._onscroll then v:_onscroll(y) end
+  end
+end
 
 function Window:click(x, y)
   local x, y = x - self.px, y - self.py

@@ -49,4 +49,17 @@ function Movie:emit()
   " / Support: "..self.support.name:emit()
 end
 
+function Movie:list_print(x,y,w)
+  print("list rpint movie: "..x.." "..y.." "..w)
+  local themestr = ""
+  for i,v in ipairs(self.themes) do
+    themestr = themestr .. v.word .. " "
+  end
+  local x,y = Screen.topixels(x,y,w)
+  love.graphics.printf(self.title:emit() .. " ("..self.rating..")\nThemes: "..themestr..
+    " / Dir: "..self.director.name:emit()..
+  " / Lead: " ..self.lead.name:emit()..
+  " / Support: "..self.support.name:emit(),x,y,w*8)
+end
+
 return Movie
