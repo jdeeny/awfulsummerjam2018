@@ -64,7 +64,7 @@ function Widget:_update_mouse(x, y)
 end
 
 function Widget:click(x, y)
-  print("widget:click: ".. x .." "..y)
+  --print("widget:click: ".. x .." "..y)
   --local x, y = x - self.px, y - self.py
   print(self.px.." "..self.py.." "..self.pw.." "..self.ph)
   if x <= self.px or y <= self.py or x > self.pw+ self.px or y > self.ph+ self.px then

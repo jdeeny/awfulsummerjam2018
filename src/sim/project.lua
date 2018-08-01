@@ -33,8 +33,8 @@ function Project:_go_next()
   elseif self.state == 'post' then
     self.time_to_next = 0
     self.state = 'released'
-    Game.news:add("Movie Release:   "..movie:emit(), 'direct')
-    table.insert(self.movies, self)
+    Game.news:add("Movie Release:   "..self:emit(), 'direct')
+    table.insert(Game.world.movies, self)
     Game.state.StateList.Gameplay.pages.Movie.film_list:add(self)
 
   end

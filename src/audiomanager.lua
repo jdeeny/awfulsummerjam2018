@@ -45,7 +45,7 @@ function AudioManager:initialize()
   self.music_vol = Config.FxVolume
   self.fx_vol = Config.FxVolume
   self.currentmusic = chance.helpers.pick({'a','b','c'})
-  self:new_music()
+  --self:new_music()
 end
 
 function AudioManager:add_effect(path, name)

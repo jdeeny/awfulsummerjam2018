@@ -50,7 +50,6 @@ function Movie:emit()
 end
 
 function Movie:list_print(x,y,w)
-  print("list rpint movie: "..x.." "..y.." "..w)
   local themestr = ""
   for i,v in ipairs(self.themes) do
     themestr = themestr .. v.word .. " "

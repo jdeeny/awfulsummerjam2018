@@ -7,7 +7,7 @@ function love.conf(t)
   t.identity = "nil"            -- The name of the save directory (string)
   t.email = "jdeeny@gmail.com"
   t.version = "0.10.2"
-  t.author = "John Deeny, blastron, Noyemi K"
+  t.author = "John Deeny, blastron, Noyemi K, Julez Michaud"
   t.homepage = "https://taqueso.itch.io/aperiology"
   t.accelerometerjoystick = false      -- Enable the accelerometer on iOS and Android by exposing it as a Joystick (boolean)
 
@@ -28,7 +28,7 @@ function love.conf(t)
       package = 'aperiology',            -- The project command and package name (string)
       loveVersion = "0.10.2",        -- The project LÖVE version
       version = "0.0.1",            -- The project version
-      author = "John Deeny, blastron, Noyemi K",             -- Your name (string)
+      author = "John Deeny, blastron, Noyemi K, Julez Michaud",             -- Your name (string)
       email = "jdeeny@gmail.com",              -- Your email (string)
       description = "A Movie Exec Simulation",        -- The project description (string)
       homepage = "https://taqueso.itch.io/aperiology",           -- The project homepage (string)
