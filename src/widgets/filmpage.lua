@@ -24,7 +24,7 @@ function FilmPage:initialize(x,y,w,h)
   local function make_sequel()
     if self.film_list.highlighted > 0 then
       Game.player:add_project(self.film_list.items[self.film_list.highlighted])
-      Game.state.StateList.Gameplay.pages.Project.project_list:add(movie)
+      Game.state.StateList.Gameplay.pages.Project.project_list:add(Game.player.projects[#Game.player.projects])
       Game.state.StateList.Gameplay:swap_to_projects()
     end
   end

@@ -3,10 +3,10 @@ local Project = class('Project', Movie)
 
 function Project:initialize(movie)
   Movie.initialize(self)
-  self.title = {}
+  --[[self.title = {}
   for i,v in ipairs(movie.title) do
     table.insert(self.title, v)
-  end
+  end]]
 
   table.insert(self.title, "2") -- TODO make smarter
   self.state = 'pre'
