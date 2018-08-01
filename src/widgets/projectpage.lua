@@ -11,7 +11,11 @@ local col3 = col2 + colw + 3
 function ProjectPage:initialize(x,y,w,h)
   Widget.initialize(self,x,y,w,h)
 
-  self.projects_panel = Widgets.Panel:new(col1,row1,colw,self.ch-2, "PROJECTS")
+  self.project_panel = Widgets.Panel:new(col1,row1,colw,self.ch-2, "PROJECTS")
+  self.project_list = Widgets.List:new(col1+1,row1+1,colw-2,rowh-2)
+  self.project_list:add_list(Game.player.projects)
+  self.project_panel:add(self.project_list)
+
   self.pre_panel = Widgets.Panel:new(col2,row1,colw*2+3, rowh, "PRE PRODUCTION")
   self.pre_panel.hidden = true
   self.prod_panel = Widgets.Panel:new(col2,row1,colw*2+3, rowh, "IN PRODUCTION")
@@ -27,7 +31,7 @@ function ProjectPage:initialize(x,y,w,h)
 
   --self.finance_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 
-  self:add(self.projects_panel)
+  self:add(self.project_panel)
   self:add(self.pre_panel)
   self:add(self.prod_panel)
   self:add(self.theater_panel)

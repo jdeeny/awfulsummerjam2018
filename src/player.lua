@@ -1,10 +1,8 @@
 local Player = class('Player')
+local Project = Sim.Project
 
 function Player:initialize()
-  self.projects = { Project:new(), Project:new(), Project:new(), Project:new(),
-                    Project:new(), Project:new(), Project:new(), Project:new(),
-                  }
-
+  self.projects = {}
 end
 
 function Player:get_profit()

@@ -8,11 +8,11 @@ local colw = (Config.CharWidth - 4) / 2
 local col2 = col1 + colw + 3
 
 local INTRO = [[
-You are a movie executive.
+Welcome to Aperiology Pictures. Our studio usually drafts other films
+and makes unofficial sequels. It's your job to guage public option and
+make some pictures, but most importantly, Make Us Money!
 
-    Make many sequals!
-
-You have been given 2 years to make a profit. It you do good you win.
+You have been given 2 years to make a profit, use your time wisely.
 ]]
 
 function IntroPage:initialize(x,y,w,h)
