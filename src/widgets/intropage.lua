@@ -47,7 +47,7 @@ function IntroPage:initialize(x,y,w,h)
     Game.audiomanager.currentmusic = 'b'
     Game.audiomanager:new_music()--{fade=true})
   end
-  local function music_b()
+  local function music_c()
     Game.audiomanager.currentmusic = 'c'
     Game.audiomanager:new_music()--{fade=true})
   end
@@ -105,7 +105,7 @@ function IntroPage:_draw()
   love.graphics.clear(Palette.Background)
   love.graphics.setColor(Palette.Frame)
 
-  Line.drawh(1,1,self.cw, '╒', '═', '╕')
+  Line.drawh(1,1,self.cw, '╔', '═', '╗')
   Line.drawh(1,self.ch-2,self.cw, '╠', '═', '╣')
   Line.drawh(1,self.ch,self.cw, '╚', '═', '╝')
   self:print(1,self.ch-1, '║')

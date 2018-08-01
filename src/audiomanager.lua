@@ -41,10 +41,11 @@ function AudioManager:initialize()
   self.music['c'] = love.audio.newSource("assets/audio/music/common.ogg")
 
   --self.currentmusic = ''
-  self.currentmusic = chance.helpers.pick({'a','b','c'})
   self.old_music_vol = 0.0
   self.music_vol = Config.FxVolume
   self.fx_vol = Config.FxVolume
+  self.currentmusic = chance.helpers.pick({'a','b','c'})
+  self:new_music()
 end
 
 function AudioManager:add_effect(path, name)
@@ -88,6 +89,7 @@ function AudioManager:new_music(options)
         v:play()
       else
         v:stop()
+        v:setVolume(0.0)
       end
     end
   end
