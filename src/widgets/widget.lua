@@ -68,13 +68,10 @@ function Widget:click(x, y)
   --local x, y = x - self.px, y - self.py
   print(self.px.." "..self.py.." "..self.pw.." "..self.ph)
   if x <= self.px or y <= self.py or x > self.pw+ self.px or y > self.ph+ self.px then
-    print("bail")
     return
   end
-  print("try onclick")
   if self._onclick then
 --    if x >=0 and y >=0 and x < self.pw and y < self.ph then
-print("onclick..")
       self:_onclick(x, y)
   --  end
   else
@@ -82,7 +79,6 @@ print("onclick..")
       if v.click then
         v:click(x,y)-- -self.px, y-self.py)
       else
-        print("Try to click but no click: ")
         --print(pl.pretty.dump(v))
         --print('.')
       end

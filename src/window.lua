@@ -77,7 +77,7 @@ end
 
 function Window:add(item)
   table.insert(self.contents, item)
-  print("Add ")
+  --print("Add ")
 end
 
 function Window:draw()
