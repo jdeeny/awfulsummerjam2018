@@ -53,9 +53,5 @@ function ProfitGraph:_draw()
   end
 
 
-
-
-
-
 end
 return ProfitGraph
