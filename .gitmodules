@@ -16,3 +16,6 @@
 [submodule "lib/chance"]
 	path = lib/chance
 	url = https://github.com/ejmr/chance.lua.git
+[submodule "lib/lpriorityqueue"]
+	path = lib/lpriorityqueue
+	url = https://github.com/iskolbin/lpriorityqueue.git
