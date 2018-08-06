@@ -16,7 +16,6 @@ function love.update(dt)
   Game.datamuse:update(dt)
   Game.audiomanager:update(dt)
   Game.player:update(dt)
-  --Game.news:update(dt)
 end
 
 function love.draw()
@@ -32,7 +31,6 @@ function new_game()
     search = Threads.search:new(),
     wordbase = Wordbase.wordbase:new(),
     datamuse = Threads.datamuse:new(),
-    layout = Threads.layout:new(),
     audiomanager = AudioManager:new(),
     time = Sim.Time:new(),
     news = News:new(),

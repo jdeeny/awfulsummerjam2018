@@ -1,3 +1,9 @@
+--[[
+  `Windows` are the basic drawing space for the ui engine. It is like a panel,
+  it holds items. Each window has it's own layout system/thread and will update
+  independently.
+]]
+
 local Window = class('Window')
 
 

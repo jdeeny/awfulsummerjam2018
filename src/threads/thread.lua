@@ -1,5 +1,6 @@
 local Thread = class('Thread', Thread)
 
+local ThreadJump = 10
 Thread.static.count = 0
 
 function Thread:initialize()
@@ -10,7 +11,7 @@ function Thread:initialize()
   self.miso = love.thread.getChannel(tostring(self.channel_id + 1))
 
   print("Thread init: ")
-  Thread.count = Thread.count + 2
+  Thread.count = Thread.count + ThreadJump
 end
 
 function Thread:start()
