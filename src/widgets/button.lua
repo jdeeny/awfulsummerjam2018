@@ -1,10 +1,15 @@
 local Button = class('Button', Widget)
 
-function Button:initialize(x, y, w, h, text, options)
-  Widget.initialize(self, x, y, w, h)
+local DefaultWidth = 16
+local DefaultHeight = 5
 
+function Button:initialize(text, options)
   self.options = options or {}
-  self.text = text or "butt on"
+  self.text = text or "A Button"
+
+  --local w, h = self.options.w or DefaultWidth, self.options.h or DefaultHeight
+  --Widget.initialize(self, w, h)
+
   self.mode = ''
   self.old_mode = ''
 end

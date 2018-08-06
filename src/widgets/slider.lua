@@ -27,10 +27,10 @@ function Slider:_draw()
   if self.horizontal then
   else
     for i = 1, h do
-      local x, y = Screen.topixels(i, 0)
+      local x, y = Screen.to_px_loc(i, 0)
       love.graphics.print(" # ", x, y)
     end
-    local x, y = Screen.topixels(0, self.value / self.range * self.height + 1)
+    local x, y = Screen.to_px_loc(0, self.value / self.range * self.height + 1)
     love.graphics.print(string.rep("#", self.width), x, y)
   end
 end

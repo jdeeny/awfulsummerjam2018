@@ -1,11 +1,12 @@
 
 local IntroPage = class('IntroPage', Widget)
 
-local row1 = 4
+--[[local row1 = 4
 local row2 = 20
 local col1 = 2
 local colw = (Config.CharWidth - 4) / 2
 local col2 = col1 + colw + 3
+]]
 
 local INTRO = [[
 Welcome to Aperiology Pictures. Our studio usually drafts other films
@@ -15,16 +16,16 @@ make some pictures, but most importantly, Make Us Money!
 You have been given 2 years to make a profit, use your time wisely.
 ]]
 
-function IntroPage:initialize(x,y,w,h)
-  Widget.initialize(self,x,y,w,h)
+function IntroPage:initialize(w, h)
+  Widget.initialize(self, w, h)
 
-  self.rankings_panel = Widgets.Panel:new(col1,row1+1,colw,16, "BOX OFFICE")
-  self.bo_panel = Widgets.BoxOfficePanel:new(col1+1, row1+3, colw-4, 16, "")
-  self.rankings_panel:add(self.bo_panel)
-  self.intro_panel = Widgets.Panel:new(col1,row2,colw, 22, "INTRODUCTION")
-  self.intro_panel:add(Widgets.TextPanel:new(col1+3,row2+3, colw-6, 20,Palette.NormalText, INTRO))
-  self.feed_panel = Widgets.Panel:new(col2,row1+1,colw,self.ch - 4, "NEWS FEED")
-  self.feed_panel:add(Widgets.NewsFeed:new(col2+2,row1+3,self.feed_panel.cw-4,self.feed_panel.ch-3))
+  --self.rankings_panel = Widgets.Panel:new({title="BOX OFFICE"})
+  --self.bo_panel = Widgets.BoxOfficePanel:new()
+  --self.rankings_panel:add(self.bo_panel)
+  --self.intro_panel = Widgets.Panel:new({title="INTRODUCTION"})
+  --self.intro_panel:add(Widgets.TextPanel:new({text=INTRO}))
+  --self.feed_panel = Widgets.Panel:new({title="NEWS FEED"})
+  --self.feed_panel:add(Widgets.NewsFeed:new())--self.feed_panel.cw-4,self.feed_panel.ch-3))
   --self.finance_panel:add(Widgets.ProjectBars:new(2,15,self.cw-2,15))
 
   local function go_gameplay ()
@@ -51,24 +52,24 @@ function IntroPage:initialize(x,y,w,h)
     Game.audiomanager.currentmusic = 'c'
     Game.audiomanager:new_music()--{fade=true})
   end
-  self.continue_button = Widgets.Button:new(7,row2+14,colw-10,7,"Generating History...",
+  self.continue_button = Widgets.Button:new("Generating History...",
     {
       onclick=go_gameplay,
     } )
 
-  self.music_off_button = Widgets.Button:new(7,row2+10,12,4,"Music Off",
+  self.music_off_button = Widgets.Button:new("Music Off",
     {
       onclick=music_off,
     } )
-  self.music_a_button = Widgets.Button:new(35,row2+10,10,4,"Music A",
+  self.music_a_button = Widgets.Button:new("Music A",
     {
       onclick=music_a,
     } )
-  self.music_b_button = Widgets.Button:new(50,row2+10,10,4,"Music B",
+  self.music_b_button = Widgets.Button:new("Music B",
     {
       onclick=music_b,
     } )
-    self.music_c_button = Widgets.Button:new(65,row2+10,10,4,"Music C",
+    self.music_c_button = Widgets.Button:new("Music C",
       {
         onclick=music_c,
       } )

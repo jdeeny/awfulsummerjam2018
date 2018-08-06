@@ -1,6 +1,6 @@
 local List = class('List', Widget)
-function List:initialize(x, y, w, h)
-  Widget.initialize(self, x, y, w, h)
+function List:initialize(w, h)
+  Widget.initialize(self, w, h)
 
   self.items = {}
   self.item_height = 4

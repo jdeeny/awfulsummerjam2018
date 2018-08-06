@@ -13,7 +13,7 @@ function StateEnding:initialize()
   self.input = baton.new(Config.Controls)
 
   self.a_window = Window:new(21, 1, 80, 45)
-  self.a_window:add(Widgets.TextPanel:new(1, 1, 80, 6, Palette.Yellow, ENDING, {center=true}))
+  self.a_window:add(Widgets.TextPanel:new(80, 6, Palette.Yellow, ENDING, {center=true}))
 
 end
 

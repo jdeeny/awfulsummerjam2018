@@ -40,11 +40,11 @@ function StateGameplay:_build()
   end
 
   self.pages = {}
-  self.pages['Status'] = Widgets.StatusPage:new(1, Config.PageY, Config.PageWidth, Config.PageHeight)
-  self.pages['Project'] = Widgets.ProjectPage:new(1, Config.PageY, Config.PageWidth, Config.PageHeight)
-  self.pages['Survey'] = Widgets.SurveyPage:new(1, Config.PageY, Config.PageWidth, Config.PageHeight)
-  self.pages['Person'] = Widgets.PersonPage:new(1, Config.PageY, Config.PageWidth, Config.PageHeight)
-  self.pages['Movie'] = Widgets.FilmPage:new(1, Config.PageY, Config.PageWidth, Config.PageHeight)
+  self.pages['Status'] = Widgets.StatusPage:new()--Config.PageWidth, Config.PageHeight)
+  self.pages['Project'] = Widgets.ProjectPage:new()--Config.PageWidth, Config.PageHeight)
+  self.pages['Survey'] = Widgets.SurveyPage:new()--Config.PageWidth, Config.PageHeight)
+  self.pages['Person'] = Widgets.PersonPage:new()--Config.PageWidth, Config.PageHeight)
+  self.pages['Movie'] = Widgets.FilmPage:new()--Config.PageWidth, Config.PageHeight)
 
   for _,v in pairs(self.pages) do
     self.main_window:add(v)
@@ -54,10 +54,10 @@ function StateGameplay:_build()
   self.status_profit = Widgets.MoneyInfo:new(3, Config.CharHeight - 2, 20, Game.player:get_profit() )
   self.main_window:add(self.status_profit)
 
-  self.status_date = Widgets.TextPanel:new(Config.CharWidth - 14, Config.CharHeight - 2, 20, 1, Palette.HighlightText, Game.time:emit())
+  self.status_date = Widgets.TextPanel:new(20, 1, Palette.HighlightText, Game.time:emit())
   self.main_window:add(self.status_date)
 
-  self.heading = Widgets.TextPanel:new(Config.CharWidth - 21, 1, 20, 1, Palette.HighlightText, "Aperiology")
+  self.heading = Widgets.TextPanel:new(20, 1, Palette.HighlightText, "Aperiology")
   self.main_window:add(self.heading)
 end
 

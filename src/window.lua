@@ -4,9 +4,13 @@ local Window = class('Window')
 -- Create a new Window, at (x,y), w wide and h high. Coords are text coords
 function Window:initialize(x, y, w, h)
   self.contents = { }
+
+  self.measure_queue = {}
+  self.arrange_queue = {}
+
   self.cw, self.ch = w, h
-  self.px, self.py = Screen.topixels(x - 1 or 0, y - 1 or 0)
-  self.pw, self.ph = Screen.topixels(w or 1, h or 1)
+  self.px, self.py = Screen.to_px_loc(x - 1 or 0, y - 1 or 0)
+  self.pw, self.ph = Screen.to_px_span(w or 1, h or 1)
 
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)

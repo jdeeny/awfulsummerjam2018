@@ -1,6 +1,13 @@
 local Text = class('text')
 Text.static.ibmfont = love.graphics.newFont('assets/fonts/Px437_IBM_VGA8.ttf', 16)
 
+Text.static.box = {
+  single = { v='│', h='─', ul='┌', ur='┐', ll='└', lr='┘', teel='┤', teer='├', teet='┴', teeb='┬', cross='┼' },
+  double = { v='║', h='═', ul='╔', ur='╗', ll='╚', lr='╝', teel='╣', teer='╠', teet='╩', teeb='╦', cross='╬' },
+  dvsh = { v='║', h='─', ul='╓', ur='╖', ll='╙', lr='╜', teel='╢', teer='╟', teet='╨', teeb='╥', cross='╫' },
+  svdh = { v='│', h='═', ul='╒', ur='╕', ll='╘', lr='╛', teel='╡', teer='╞', teet='╧', teeb='╤', cross='╪' },
+}
+
 function Text.static.namecase(txt)
   local txt = txt or ""
   local ntxt = ""
@@ -14,7 +21,7 @@ function Text.static.namecase(txt)
   return ntxt
 end
 
-function Text.static.setup_font ()
+function Text.static.setup_font()
   love.graphics.setFont(Text.ibmfont)
 end
 

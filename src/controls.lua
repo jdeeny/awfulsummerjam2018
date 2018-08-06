@@ -1,7 +1,7 @@
 local input_config = {
   controls = {
     quit = { 'key:escape', 'key:backspace' },
-    continue = { 'key:space', 'key:enter' },
+    continue = { 'key:space', 'key:return' },
     click = { 'mouse:1' }
   }
 }

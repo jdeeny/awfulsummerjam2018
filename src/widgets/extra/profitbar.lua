@@ -6,9 +6,9 @@ local c_pos = Palette.Green
 local c_neg = Palette.Red
 local c_neut = Palette.Grey
 
-function ProfitBar:initialize(x, y, w, data, options)
+function ProfitBar:initialize(w, data, options)
   self.options = options or {}
-  Widget.initialize(self, x, y, w, self.options.height or 1)
+  Widget.initialize(self, w, self.options.height or 1)
   self.data = data or {}
 end
 

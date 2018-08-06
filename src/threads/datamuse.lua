@@ -76,8 +76,9 @@ function DatamuseThread:dump_cache()
       table.insert(cdump,1,{q=k, r=v})
     end
   end
-  local cdump = love.math.compress(pl.pretty.write(cdump), 'lz4', 9)
+  local cdump = pl.pretty.write(cdump)
   local success, msg = love.filesystem.write('cache-dump.bin', cdump)
+  print(msg)
   --self:load_cache()
 end
 
@@ -89,7 +90,7 @@ function DatamuseThread:load_cache()
   end
   print("cache load size: ".. tostring(size))
   if size > 0 then
-    local res = pl.pretty.read(love.math.decompress(contents, 'lz4'))
+    local res = pl.pretty.read(contents)
     if res then
       local count = 0
       for k,v in pairs(res) do

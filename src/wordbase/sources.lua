@@ -36,5 +36,5 @@ print ("Saving cache")
 local pretty,err = pl.pretty.write(sources)
 print(err)
 
-love.filesystem.write('sources.bin', love.math.compress(pretty, 'lz4', 9))
+love.filesystem.write('sources.bin',pretty, 9)
 return sources

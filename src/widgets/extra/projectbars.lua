@@ -1,7 +1,7 @@
 local ProjectBars = class('ProjectBars', Widget)
 
-function ProjectBars:initialize(x, y, w, h)
-  Widget.initialize(self, x, y, w, h)
+function ProjectBars:initialize(w, h)
+  Widget.initialize(self, w, h)
 
   self.titles = {}
   self.bars = {}

@@ -1,7 +1,7 @@
 local BoxOfficePanel = class('BoxOfficePanel', Widget)
 
-function BoxOfficePanel:initialize(x,y,w,h)
-  Widget.initialize(self, x,y,w,h)
+function BoxOfficePanel:initialize(w, h)
+  Widget.initialize(self, w, h)
   self.oldmonth = 0
 end
 

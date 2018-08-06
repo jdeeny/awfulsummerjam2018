@@ -1,13 +1,12 @@
 --  https://love2d.org/wiki/Config_Files
 
 function love.conf(t)
-  t.title = "the-game"        -- The title of the window the game is in (string)
-  t.author = ""        -- The author of the game (string)
-  t.url = ""                 -- The website of the game (string)
-  t.identity = "nil"            -- The name of the save directory (string)
+  t.title = "Aperiology"        -- The title of the window the game is in (string)
+  t.author = "John Deeny"        -- The author of the game (string)
+  t.url = "https://taqueso.itch.io/aperiology"                 -- The website of the game (string)
+  t.identity = "aperiology"            -- The name of the save directory (string)
   t.email = "jdeeny@gmail.com"
-  t.version = "0.10.2"
-  t.author = "John Deeny, blastron, Noyemi K, Julez Michaud"
+  t.version = "11.1"
   t.homepage = "https://taqueso.itch.io/aperiology"
   t.accelerometerjoystick = false      -- Enable the accelerometer on iOS and Android by exposing it as a Joystick (boolean)
 
@@ -26,9 +25,9 @@ function love.conf(t)
   t.releases = {
       title = "Aperiology",              -- The project title (string)
       package = 'aperiology',            -- The project command and package name (string)
-      loveVersion = "0.10.2",        -- The project LÖVE version
-      version = "0.0.1",            -- The project version
-      author = "John Deeny, blastron, Noyemi K, Julez Michaud",             -- Your name (string)
+      loveVersion = "11.1",        -- The project LÖVE version
+      version = "0.0.2",            -- The project version
+      author = "John Deeny",             -- Your name (string)
       email = "jdeeny@gmail.com",              -- Your email (string)
       description = "A Movie Exec Simulation",        -- The project description (string)
       homepage = "https://taqueso.itch.io/aperiology",           -- The project homepage (string)

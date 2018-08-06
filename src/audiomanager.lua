@@ -36,9 +36,9 @@ function AudioManager:initialize()
   self.fx['click'] = PooledSource:new("assets/audio/fx/clickdown.ogg")
   self.fx['clickup'] = PooledSource:new("assets/audio/fx/clickup.ogg")
 
-  self.music['a'] = love.audio.newSource("assets/audio/music/office1.ogg")
-  self.music['b'] = love.audio.newSource("assets/audio/music/julez.ogg")
-  self.music['c'] = love.audio.newSource("assets/audio/music/common.ogg")
+  self.music['a'] = love.audio.newSource("assets/audio/music/office1.ogg", 'stream')
+  self.music['b'] = love.audio.newSource("assets/audio/music/julez.ogg", 'stream')
+  self.music['c'] = love.audio.newSource("assets/audio/music/common.ogg", 'stream')
 
   --self.currentmusic = ''
   self.old_music_vol = 0.0

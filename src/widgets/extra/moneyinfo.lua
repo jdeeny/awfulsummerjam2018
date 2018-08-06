@@ -1,7 +1,7 @@
 local MoneyInfo = class('MoneyInfo', Widget)
 
 function MoneyInfo:initialize(x,y,w, value, options)
-  Widget.initialize(self,x,y,w,1)
+  Widget.initialize(self, w, 1)
   self.options = options or {}
   self.value = value or 0.0
 end

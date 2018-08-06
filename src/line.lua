@@ -1,7 +1,7 @@
 local Line = {}
 
 function Line.drawh(x,y,len,l,c,r)
-  local x, y = Screen.topixels(x-1,y-1)
+  local x, y = Screen.to_px_loc(x-1,y-1)
   if not c or not r then
     c = l
     r = l
@@ -11,7 +11,7 @@ function Line.drawh(x,y,len,l,c,r)
 end
 
 function Line.drawv(x,y,len,t,m,b)
-  local x, y = Screen.topixels(x-1,y-1)
+  local x, y = Screen.to_px_loc(x-1,y-1)
   if not m or not b then
     m = t
     b = t

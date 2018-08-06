@@ -19,8 +19,8 @@ local function center_text(text, w, h)
   return new_text
 end
 
-function TextPanel:initialize(x, y, w, h, color, txt, options)
-  Widget.initialize(self, x, y, w, h)
+function TextPanel:initialize(w, h, color, txt, options)
+  Widget.initialize(self, w, h)
 
   self.options = options or {}
   self.bgcolor = bgcolor or Palette.Black
