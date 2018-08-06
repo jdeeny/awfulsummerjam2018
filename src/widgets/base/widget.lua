@@ -1,7 +1,8 @@
 local Widget = class('Widget')
 
 Widget.static.Defaults = {
-  margin = { 1, 1, 1, 1 },
+  margin = { left = 1, right = 1, top = 1, bottom = 1 },
+  padding = { left = 1, right = 1, top = 1, bottom = 1 },
 }
 
 

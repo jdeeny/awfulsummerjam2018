@@ -1,10 +1,15 @@
 local Panel = class('Panel', Widget)
-function Panel:initialize(options)
-  self.options = options or {}
-  Widget.initialize(self, options)
-  self.title = options.title or ""
 
-  self.contents = {}
+local Defaults = {
+  title = "",
+  contents = {},
+}
+
+function Panel:initialize(options)
+  Widget.initialize(self, options)
+  for k,v in pairs(Defaults) do
+    self.options[k] = v
+  end
 end
 
 

@@ -2,7 +2,11 @@ local Widgets = {}
 Widget = require('src.widgets.base.widget')
 Widgets.Widget = Widget
 Widgets.Panel = require('src.widgets.base.panel')
-
+Widgets.Canvas = require('src.widgets.panels.canvas')
+Widgets.Dock = require('src.widgets.panels.dock')
+Widgets.Grid = require('src.widgets.panels.grid')
+Widgets.Stack = require('src.widgets.panels.stack')
+Widgets.Wrap = require('src.widgets.panels.wrap')
 
 Widgets.Button = require('src.widgets.button')
 Widgets.Slider = require('src.widgets.slider')
