@@ -13,8 +13,10 @@ function Window:initialize(loc, size)
 
   self.measure_queue = {}
   self.arrange_queue = {}
-  self.loc = loc or Loc:new('ch', 1, 1)
-  self.size = size or Dist:new('ch', Config.Charwidth, Config.CharHeight)
+  print("loc")
+  self.loc =  Loc:new('ch', 1, 1)
+  print("size")
+  self.size =  Dist:new('ch', Config.CharWidth, Config.CharHeight)
   print(pl.pretty.dump(self.size))
   self:update_dims()
 
@@ -36,6 +38,12 @@ function Window:update_dims()
   self.pw, self.ph = self.size:as('px')
   self.cx, self.cy = self.loc:as('ch')
   self.px, self.py = self.loc:as('px')
+
+  print("cw: "..self.cw.." "..self.ch)
+  print("pw: "..self.pw.." "..self.ph)
+  print("cx: "..self.cx.." "..self.cx)
+  print("px: "..self.px.." "..self.px)
+
 end
 
 function Window:update(dt)

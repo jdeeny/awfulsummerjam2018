@@ -1,30 +1,25 @@
 local Screen = {}
-local HasDimension = {
-  _init = function(self, kind, ...)
-    if type(kind) ~= 'string' then error ("kind must be a string") end
-    --values = {...}
-    self.kind = kind
-    self.values = {...}-- pl.tablex.copy(values)
-    self.n = #self.values
-  end,
-}
 
 local Loc = class('Loc')
-Loc:include(HasDimension)
-
 function Loc:initialize(kind, ...)
-  self:_init(kind, (...))
+  self.kind = type(kind) == 'string' and kind or error('kind must be a string')
+  self.n = #{...}
+  self.values = {}
+  for i, v in ipairs({...}) do
+    self.values[i] = v
+  end
 end
 
 function Loc:as(kind)
   if not Screen.units[kind] then error('No unit called ' .. tostring(kind)) end
   if kind == self.kind then return unpack(self.values) end
+  print("loc not same kind")
 
   local px_vals = {}
   for i, v in ipairs(self.values) do
-    local o = Screen.units[kind].offset[i]
-    local s = Screen.units[kind].px_per[i]
-    table.insert(px_vals, (v - o) * s)
+    local o = Screen.units[self.kind].offset[i]
+    local s = Screen.units[self.kind].px_per[i]
+    px_vals[i] = (v - o) * s
   end
 
   if kind == 'px' then return unpack(px_vals) end
@@ -33,7 +28,7 @@ function Loc:as(kind)
   for i, v in ipairs(self.values) do
     local o = Screen.units[kind].offset[i]
     local s = Screen.units[kind].px_per[i]
-    table.insert(new_vals, (v - o) * s)
+    new_vals[i] =  (v / s) + o
   end
 
   return unpack(new_vals)
@@ -45,20 +40,25 @@ end
 
 
 local Dist = class('Dim')
-Dist:include(HasDimension)
 function Dist:initialize(kind, ...)
-  self:_init(kind, ...)
+  self.kind = type(kind) == 'string' and kind or error('kind must be a string')
+  self.n = #{...}
+  self.values = {}
+  for i, v in ipairs({...}) do
+    self.values[i] = v
+  end
 end
 
 
 function Dist:as(kind)
   if not Screen.units[kind] then error('No unit called ' .. tostring(kind)) end
   if kind == self.kind then return unpack(self.values) end
-
+print("dist not same kind")
   local px_vals = {}
   for i, v in ipairs(self.values) do
-    local s = Screen.units[kind].px_per[i]
-    table.insert(px_vals, v * s)
+    local s = Screen.units[self.kind].px_per[i]
+    print("pxper:"..s)
+    px_vals[i] =  v * s
   end
 
   if kind == 'px' then return unpack(px_vals) end
@@ -66,7 +66,7 @@ function Dist:as(kind)
   local new_vals = {}
   for i, v in ipairs(self.values) do
     local s = Screen.units[kind].px_per[i]
-    table.insert(new_vals, v * s)
+    new_vals[i] = v / s
   end
 
 

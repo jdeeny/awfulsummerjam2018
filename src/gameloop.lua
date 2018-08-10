@@ -6,7 +6,7 @@ function love.load()
   end
   Text.setup_font()
   -- Add a unit for characters (8x16px, topleft is 1,1, return integers only)
-  Screen.set_unit('ch', {Config.CharWidth, Config.CharHeight}, {1,1}, true)
+  Screen.set_unit('ch', {8,16}, {1,1}, true)
   new_game()
 end
 
