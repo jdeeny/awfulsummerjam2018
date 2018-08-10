@@ -54,7 +54,7 @@ function Movie:list_print(x,y,w)
   for i,v in ipairs(self.themes) do
     themestr = themestr .. v.word .. " "
   end
-  local x,y = Screen.to_px_loc(x,y,w)
+  local x,y = 1,1--Screen.to_px_loc(x,y,w)
   love.graphics.printf(self.title:emit() .. " ("..self.rating..")\nThemes: "..themestr..
     " / Dir: "..self.director.name:emit()..
   " / Lead: " ..self.lead.name:emit()..

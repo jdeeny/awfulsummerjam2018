@@ -19,3 +19,6 @@
 [submodule "lib/lpriorityqueue"]
 	path = lib/lpriorityqueue
 	url = https://github.com/iskolbin/lpriorityqueue.git
+[submodule "lib/kiwi"]
+	path = lib/kiwi
+	url = https://github.com/alexander-matz/kiwi.lua.git

@@ -8,15 +8,15 @@ local Window = class('Window')
 
 
 -- Create a new Window, at (x,y), w wide and h high. Coords are text coords
-function Window:initialize(x, y, w, h)
+function Window:initialize(loc, size)
   self.contents = { }
 
   self.measure_queue = {}
   self.arrange_queue = {}
-
-  self.cw, self.ch = w, h
-  self.px, self.py = Screen.to_px_loc(x - 1 or 0, y - 1 or 0)
-  self.pw, self.ph = Screen.to_px_span(w or 1, h or 1)
+  self.loc = loc or Loc:new('ch', 1, 1)
+  self.size = size or Dist:new('ch', Config.Charwidth, Config.CharHeight)
+  print(pl.pretty.dump(self.size))
+  self:update_dims()
 
   self.canvas = love.graphics.newCanvas(self.pw, self.ph)
   love.graphics.setCanvas(self.canvas)
@@ -31,11 +31,19 @@ function Window:initialize(x, y, w, h)
   --self:rollup()
 end
 
+function Window:update_dims()
+  self.cw, self.ch = self.size:as('ch')
+  self.pw, self.ph = self.size:as('px')
+  self.cx, self.cy = self.loc:as('ch')
+  self.px, self.py = self.loc:as('px')
+end
+
 function Window:update(dt)
   local x, y = love.mouse.getPosition()
-  x = x - self.px
-  y = y - self.py
-  for i,v in ipairs(self.contents) do
+
+  x, y = x - (self.px or 0), y - (self.py or 0)
+
+  for i, v in ipairs(self.contents) do
     if v.update then
       v:update(dt, x, y)
     else
@@ -56,7 +64,7 @@ function Window:rolldown()
 end]]
 
 function Window:add_scroll(y)
-  for i,v in ipairs(self.contents) do
+  for i, v in ipairs(self.contents) do
     if v._onscroll then v:_onscroll(y) end
   end
 end
@@ -93,7 +101,7 @@ end
 function Window:draw()
   love.graphics.setCanvas(self.canvas)
   love.graphics.clear(Palette.Violet)
-  for i,v in ipairs(self.contents) do
+  for i, v in ipairs(self.contents) do
     if v.draw then
       v:draw()--self.px, self.py)
     else
@@ -105,6 +113,11 @@ function Window:draw()
   love.graphics.setCanvas()
   love.graphics.setColor(Palette.PureWhite)
   love.graphics.draw(self.canvas, self.px, self.py)
+end
+
+-- Add a constraint to the solver
+function Window:constrain(a, oper, b)
+  print("Constrain: ".. a ..' ' .. oper .. ' ' .. b)
 end
 
 return Window

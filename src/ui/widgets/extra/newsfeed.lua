@@ -23,7 +23,7 @@ function NewsFeed:_draw()
   repeat
     local txt,c = Game.news:emit(count)
     if txt then
-      local x, y = Screen.to_px_loc(1,drawy)
+      local x, y = 1,1--Screen.to_px_loc(1,drawy)
       local r,g,b = c[1], c[2], c[3]
       love.graphics.setColor(r,g,b,0xFF)
       love.graphics.printf(txt,x,y, self.pw-8*4)

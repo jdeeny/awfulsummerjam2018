@@ -1,4 +1,4 @@
-local Panel = require('src.widgets.base.panel')
+local Panel = require('src.ui.widgets.base.panel')
 
 local Grid = class('Grid', Panel)
 

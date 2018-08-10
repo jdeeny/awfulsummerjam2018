@@ -6,7 +6,7 @@ function StateIntro:initialize()
   States.State.initialize(self, 'Intro')
   self.input = baton.new(Config.Controls)
 
-  self.main_window = Window:new(1,1,Config.CharWidth,Config.CharHeight)
+  self.main_window = Window:new()--{1,1},Config.CharWidth,Config.CharHeight)
   --self.main_window:add(Widgets.TextPanel:new(80, 6, Palette.Yellow, INTRO, {center=true}))
 
   --self.heading = Widgets.TextPanel:new(20, 1, Palette.HighlightText, "Aperiology")

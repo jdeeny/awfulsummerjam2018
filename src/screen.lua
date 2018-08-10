@@ -1,18 +1,11 @@
 local Screen = {}
 local HasDimension = {
   _init = function(self, kind, ...)
-      if type(kind) ~= 'string' then error ("kind must be a string") end
-      local values type(...[1]) == 'table' and ...[1] or ... or {}
-      if type(...[1]) == 'table' then
-        values = ...[1]
-      else
-        values = ...
-      end
-      self.kind = kind
-      self.values = pl.tablex.copy(values)
-      self.n = #self.values
-    end
-
+    if type(kind) ~= 'string' then error ("kind must be a string") end
+    --values = {...}
+    self.kind = kind
+    self.values = {...}-- pl.tablex.copy(values)
+    self.n = #self.values
   end,
 }
 
@@ -20,22 +13,34 @@ local Loc = class('Loc')
 Loc:include(HasDimension)
 
 function Loc:initialize(kind, ...)
-  self:_init(kind, ...)
+  self:_init(kind, (...))
+end
+
+function Loc:as(kind)
+  if not Screen.units[kind] then error('No unit called ' .. tostring(kind)) end
+  if kind == self.kind then return unpack(self.values) end
+
+  local px_vals = {}
+  for i, v in ipairs(self.values) do
+    local o = Screen.units[kind].offset[i]
+    local s = Screen.units[kind].px_per[i]
+    table.insert(px_vals, (v - o) * s)
+  end
+
+  if kind == 'px' then return unpack(px_vals) end
+
+  local new_vals = {}
+  for i, v in ipairs(self.values) do
+    local o = Screen.units[kind].offset[i]
+    local s = Screen.units[kind].px_per[i]
+    table.insert(new_vals, (v - o) * s)
+  end
+
+  return unpack(new_vals)
 end
 
 function Loc:to(kind)
-  if not Screen.units[kind] then error('No unit called ' .. tostring(kind)) end
-  if kind == self.kind then return Loc:new(kind, self.values) end
-
-  local px_vals = map(function(v, s, o) return (v-o) * s  end,
-                      pl.tablex.zip(self.values, Screen.units.px.px_per, Screen.units.px.offset ))
-
-  if kind == 'px' then return Loc:new(kind, px_vals) end
-
-  local new_vals = map(function(v, s, o) return (v / s) + o  end,
-                      pl.tablex.zip(self.values, Screen.units.px.px_per, Screen.units.px.offset ))
-
-  return Loc:new(kind, new_vals)
+  return Loc:new(kind, self:as(kind))
 end
 
 
@@ -44,53 +49,55 @@ Dist:include(HasDimension)
 function Dist:initialize(kind, ...)
   self:_init(kind, ...)
 end
-function Dist:to(kind)
+
+
+function Dist:as(kind)
   if not Screen.units[kind] then error('No unit called ' .. tostring(kind)) end
-  if kind == self.kind then return Dist:new(kind, self.values) end
+  if kind == self.kind then return unpack(self.values) end
 
-  local px_vals = map(function(v, s) return v * s  end,
-                      pl.tablex.zip(self.values, Screen.units.px.px_per ))
+  local px_vals = {}
+  for i, v in ipairs(self.values) do
+    local s = Screen.units[kind].px_per[i]
+    table.insert(px_vals, v * s)
+  end
 
-  if kind == 'px' then return Dist:new(kind, px_vals) end
+  if kind == 'px' then return unpack(px_vals) end
 
-  local new_vals = map(function(v, s) return v / s end,
-                      pl.tablex.zip(self.values, Screen.units.px.px_per ))
+  local new_vals = {}
+  for i, v in ipairs(self.values) do
+    local s = Screen.units[kind].px_per[i]
+    table.insert(new_vals, v * s)
+  end
 
-  return Dist:new(kind, new_vals)
+
+  return unpack(new_vals)
+end
+
+function Dist:to(kind)
+  return Dist:new(kind, self:as(kind))
 end
 
 -- returns the `Dist` self - b
 function Loc:__sub(b)
   local b = b.kind == self.kind and b or b:to(self.kind)
-  local new_vals = map(function(a,b) return a - b, end,
-                      pl.tablex.zip(self.values, b.values))
+  local new_vals = map(function(a, b) return a - b end,
+  pl.tablex.zip(self.values, b.values))
   return Dist:new(self.kind, new_vals)
 end
 
 function Dist:__add(b)
   local b = b.kind == self.kind and b or b:to(self.kind)
-  local new_vals = map(function(a, b) return a + b, end,
-                      pl.tablex.zip(self.values, b.values))
+  local new_vals = map(function(a, b) return a + b end,
+  pl.tablex.zip(self.values, b.values))
   return Dist:new(self.kind, new_vals)
 end
 
-
--- Initialize with pixel width/height
-function Screen:initialize(pw, ph)
-  self.units = {
-    px = { name='px', px_per = {1,1}, off={0,0} }
-  }
-end
+Screen.units = { px = { name = 'px', px_per = {1, 1}, offset = {0, 0}, return_int = false }}
 
 -- number of pixels per unit
-function Screen:set_unit(name, px_per, offset, return_int)
-  self.units[name] = { name=name, px_per=px_per, offset = offset, return_int = return_int }
+function Screen.set_unit(name, px_per, offset, return_int)
+  Screen.units[name] = { name = name, px_per = px_per, offset = offset, return_int = return_int }
 end
-
-
-Screen.char_width = 8
-Screen.char_height = 16
-
 
 --[[function Screen.tocharsremainder(x, y)
   return (x % Screen.char_width, y % Screen.char_height)

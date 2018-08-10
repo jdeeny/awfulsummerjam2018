@@ -5,6 +5,8 @@ function love.load()
     _ = math.random()
   end
   Text.setup_font()
+  -- Add a unit for characters (8x16px, topleft is 1,1, return integers only)
+  Screen.set_unit('ch', {Config.CharWidth, Config.CharHeight}, {1,1}, true)
   new_game()
 end
 
@@ -20,7 +22,7 @@ end
 
 function love.draw()
   Game.state:draw()   -- should draw everything
-  --love.graphics.print(tostring(Game.time.ticking).." "..tostring(Game.time.year).. " "..tostring(Game.time.month).." "..tostring(Game.time.day).. " "..tostring(Game.time.subday), 1,500)
+    --love.graphics.print(tostring(Game.time.ticking).." "..tostring(Game.time.year).. " "..tostring(Game.time.month).." "..tostring(Game.time.day).. " "..tostring(Game.time.subday), 1,500)
   --love.graphics.print(Game.datamuse:stats(), 1,600)
 end
 

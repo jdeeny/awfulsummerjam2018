@@ -7,7 +7,8 @@ local Defaults = {
 
 function Panel:initialize(options)
   Widget.initialize(self, options)
-  for k,v in pairs(Defaults) do
+
+  for k, v in pairs(Defaults) do
     self.options[k] = v
   end
 end
@@ -32,12 +33,12 @@ end]]
 
 function Panel:_measure(available_w, available_h)
   local w = self.options.padding.left + self.options.padding.right +
-            self.options.margin.left + self.options.padding.right +
-            (self.w or 0)
+  self.options.margin.left + self.options.padding.right +
+  (self.w or 0)
 
   local h = self.options.padding.top + self.options.padding.bottom +
-            self.options.margin.top + self.options.margin.bottom +
-            (self.h or 0)
+  self.options.margin.top + self.options.margin.bottom +
+  (self.h or 0)
 
   -- add up all children
 

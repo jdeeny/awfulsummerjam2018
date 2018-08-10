@@ -16,11 +16,11 @@ local AWFUL = "Awful Summer Jam 2018"
 function StateSplash:initialize()
   States.State.initialize(self, 'Splash')
   self.input = baton.new(Config.Controls)
-  local x, y = Text.center(85, Config.CharWidth), Text.center(14, Config.CharHeight)
-  self.win_logo = Window:new(1,1, 160, 45, Palette.Brown)
-  self.win_logo:add(Widgets.TextPanel:new(160, 6, Palette.Yellow, LOGO))
-  self.win_logo:add(Widgets.TextPanel:new(160, 1, Palette.Brown, COPYRIGHT, {center=true}))
-  self.win_logo:add(Widgets.TextPanel:new(160, 1, Palette.AquaBlue , AWFUL, {center=true}))
+
+  self.win_logo = Window:new() -- fullscreen
+  --self.win_logo:add(Widgets.TextPanel:new(160, 6, Palette.Yellow, LOGO))
+  --self.win_logo:add(Widgets.TextPanel:new(160, 1, Palette.Brown, COPYRIGHT, {center=true}))
+  --self.win_logo:add(Widgets.TextPanel:new(160, 1, Palette.AquaBlue , AWFUL, {center=true}))
 end
 
 

@@ -2,7 +2,7 @@
 Stack the items horizontally or vertically. Items are always
 full size and scrolled if needed.
 ]]
-local Panel = require('src.widgets.base.panel')
+local Panel = require('src.ui.widgets.base.panel')
 
 local Stack = class('Stack', Panel)
 
