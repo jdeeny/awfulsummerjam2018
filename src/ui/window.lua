@@ -11,6 +11,8 @@ local Window = class('Window')
 function Window:initialize(loc, size)
   self.contents = { }
 
+  self.layout = Threads.Layout:new()
+
   self.measure_queue = {}
   self.arrange_queue = {}
   print("loc")

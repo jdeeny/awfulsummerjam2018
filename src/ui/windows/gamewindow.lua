@@ -1,7 +1,4 @@
-local game_window = Window:new(
-  --Loc:new('ch', {1, 1}),
-  --Dist:new('ch', {Config.ScreenWidth, Config.ScreenHeight})
-)
+local game_window = Window:new()
 
 print(pl.pretty.dump(game_window))
 

@@ -18,9 +18,13 @@ function StateSplash:initialize()
   self.input = baton.new(Config.Controls)
 
   self.win_logo = Window:new() -- fullscreen
-  --self.win_logo:add(Widgets.TextPanel:new(160, 6, Palette.Yellow, LOGO))
-  --self.win_logo:add(Widgets.TextPanel:new(160, 1, Palette.Brown, COPYRIGHT, {center=true}))
-  --self.win_logo:add(Widgets.TextPanel:new(160, 1, Palette.AquaBlue , AWFUL, {center=true}))
+  self.win_logo:add(Widgets.TextPanel:new({ id = 'logo', text = LOGO, color = Palette.Yellow, halign = 'center' }))
+  self.win_logo:add(Widgets.TextPanel:new({ id = 'copyright', text = COPYRIGHT, color = Palette.Brown, halign = 'center' }))
+  self.win_logo:add(Widgets.TextPanel:new({ id = 'awful', text = AWFUL, color = Palette.Aquablue, halign = 'center' }))
+
+  self.win_logo:constrain('logo', 'above', 'copyright')
+  self.win_logo:constrain('copyright', 'above', 'awful')
+
 end
 
 

@@ -1,4 +1,4 @@
 local Wordbase = {}
-Wordbase.wordbase = require('src.wordbase.wordbase')
---Wordbase.Names = require('src.sim.names')
+Wordbase.Wordbase = require('src.wordbase.wordbase')
+Wordbase.Names = require('src.sim.names')
 return Wordbase

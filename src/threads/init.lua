@@ -1,7 +1,7 @@
 local Threads = {
-  datamuse = require('src.threads.datamuse'),
-  search = require('src.threads.search'),
-  layout = require('src.threads.layout')
+  Datamuse = require('src.threads.datamuse'),
+  Search = require('src.threads.search'),
+  Layout = require('src.threads.layout')
 }
 
 return Threads
